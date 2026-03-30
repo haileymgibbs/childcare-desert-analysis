@@ -57,7 +57,7 @@ childcare_with_race %>%
 ## ===========================================================
 ## BY RURALITY
 # ADD RURAL FLAG FROM JOINED_RURAL VIA LAT/LONG
-rural_lookup <- joined_rural %>%
+rural_lookup <- joined_rural %>%  ##generated and saved in Drive under https://drive.google.com/file/d/1bSNqy3EUIv44c_p4NVpwj7dMYbXAxyh8/view?usp=drive_link
   select(longitude, latitude, rural) %>%
   distinct()
 
