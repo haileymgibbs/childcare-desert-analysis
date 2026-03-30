@@ -1,0 +1,170 @@
+## Merge with poverty data to isolate kids under the FPL who would qualify
+library(tidyverse)
+childcare_data<-read_csv("cap_ccaccess_2025_revised_02282026.csv")
+
+desert_threshold<-0.33
+poverty_data <- read_csv("poverty_total_and_under5_clean.csv") ##derived from cleaned Census table S1701 Poverty Status in the Past 12 Months
+
+
+poverty_county <- poverty_data %>%
+ # Extract 5-digit county FIPS from the 11-digit GEOID
+mutate(county_fips = str_sub(GEOID, 1, 5)) %>%
+filter(!is.na(pct_poverty_under5)) %>%
+group_by(county_fips) %>%
+summarise(
+avg_pct_poverty_under5 = mean(pct_poverty_under5, na.rm = TRUE),
+.groups = "drop"
+)
+
+childcare_with_poverty <- childcare_data %>%
+# Ensure county_fips is a 5-character string with leading zeros
+mutate(county_fips = str_pad(as.character(county_fips), width = 5, pad = "0")) %>%
+left_join(poverty_county, by = "county_fips")
+
+hs_eligible_desert <- childcare_with_poverty %>%
+filter(!is.na(adj_supply_hs), !is.na(avg_pct_poverty_under5)) %>%
+mutate(
+# Estimated eligible (poverty) children per row out of 10 synthetic children
+eligible_children = 10 * (avg_pct_poverty_under5 / 100),
+# Desert indicator for Head Start
+hs_desert = adj_supply_hs <= desert_threshold
+ ) %>%
+summarise(
+total_eligible_children  = sum(eligible_children),
+desert_eligible_children = sum(eligible_children[hs_desert]),
+pct_eligible_in_desert   = round((desert_eligible_children / total_eligible_children) * 100, 1)
+)
+
+print(hs_eligible_desert)
+
+## Total eligible 3854947
+## Desert Eligible 3820193
+## Pct in Desert 99.1
+
+      ## Seemed REALLY high; wanted to break this down further by rurality
+library(tidyverse)
+desert_threshold <- 0.33
+rural_lookup <- cap_ccaccess_joined %>%
+select(longitude, latitude, rural) %>%
+distinct()
+
+childcare_with_poverty <- childcare_data %>%
+mutate(county_fips = str_pad(as.character(county_fips), width = 5, pad = "0")) %>%
+left_join(poverty_county, by = "county_fips") %>%
+left_join(rural_lookup, by = c("longitude", "latitude"))
+
+cat("Rows with rural status:", sum(!is.na(childcare_with_poverty$rural)), "\n") ## Should be 2277112
+cat("Rows missing rural status:", sum(is.na(childcare_with_poverty$rural)), "\n") ## Should be 4027
+
+hs_eligible_desert_by_rural <- childcare_with_poverty %>%
+  filter(!is.na(adj_supply_hs), !is.na(avg_pct_poverty_under5), !is.na(rural)) %>%
+  mutate(
+    eligible_children = 10 * (avg_pct_poverty_under5 / 100),
+    hs_desert = adj_supply_hs <= desert_threshold
+  ) %>%
+  group_by(rural) %>%
+  summarise(
+    total_eligible_children  = sum(eligible_children),
+    desert_eligible_children = sum(eligible_children[hs_desert]),
+    .groups = "drop"
+  ) %>%
+  mutate(
+    pct_eligible_in_desert = round((desert_eligible_children / total_eligible_children) * 100, 1)
+  ) %>%
+  arrange(rural)
+
+print(hs_eligible_desert_by_rural)
+
+Rurality
+Total Eligible Children
+Desert Eligible Children
+Pct Eligible in Desert
+0 (Urban)
+3099467
+3089368
+99.7
+1 (Rural)
+735098
+710509
+96.7
+
+
+## Still seemed REALLY high; wanted to break this down further to check for degree of scarcity and confirm parameters
+childcare_with_poverty %>%
+filter(!is.na(adj_supply_hs), !is.na(avg_pct_poverty_under5), !is.na(rural)) %>%
+mutate(eligible_children = 10 * (avg_pct_poverty_under5 / 100)) %>%
+group_by(rural) %>%
+summarise(
+weighted_mean_supply = round(
+weighted.mean(adj_supply_hs, w = eligible_children, na.rm = TRUE), 4
+),
+median_supply = round(median(adj_supply_hs), 4),
+.groups = "drop"
+)
+
+Rurality
+Weighted Mean Supply
+Median Supply
+0 (Urban)
+0.0254
+0.003
+1 (Rural)
+0.0564
+0
+
+
+## Rural areas have a higher weighted mean supply (0.056) than urban (0.025)
+Seems counterintuitive but has a plausible explanation — rural Head Start programs are often federally funded at higher per-child rates because they serve harder-to-reach populations, so where they exist, they may serve a larger share of the local eligible population
+However, the rural median is 0, meaning the typical rural area has absolutely no Head Start supply at all, suggesting rural Head Start is highly concentrated in a few well-served communities rather than broadly distributed
+Urban areas, by contrast, have a slightly higher median (0.003) — meaning more urban areas have some supply, but it's spread thin across a much larger eligible population, keeping the per-child ratio low.
+Urban deserts: nearly everyone is underserved, but most areas have at least a token amount of supply
+Rural deserts: most areas have zero supply, but the few that do have it tend to have relatively more of it
+
+## Next, broke down the share of areas with some supply by rurality
+childcare_with_poverty %>%
+filter(!is.na(adj_supply_hs), !is.na(rural)) %>%
+mutate(
+supply_category = case_when(
+adj_supply_hs == 0              ~ "No supply",
+adj_supply_hs <= desert_threshold ~ "Some supply, still a desert",
+TRUE                            ~ "Not a desert"
+)
+) %>%
+group_by(rural, supply_category) %>%
+summarise(n = n(), .groups = "drop") %>%
+group_by(rural) %>%
+mutate(pct = round(n / sum(n) * 100, 1)) %>%
+arrange(rural, supply_category)
+
+Rurality
+Characterization
+Percent of children under age 6
+Urban
+Eligible children can access Head Start
+0.2%
+Zero Head Start supply
+20.7%
+Head Start desert
+79.1%
+Rural
+Eligible children can access Head Start
+2.7%
+Zero Head Start supply
+48.6%
+Head Start desert
+48.7%
+
+
+Urban areas (rural = 0):
+Most areas (79.1%) have some Head Start supply but not nearly enough
+Only 20.7% have zero supply entirely
+A mere 0.2% are adequately served
+
+Rural areas (rural = 1):
+Nearly half (48.6%) have zero Head Start supply whatsoever — a much starker form of deprivation than urban areas
+The other half (48.7%) have some supply but remain deserts
+Only 2.7% are adequately served, though this is still notably higher than urban (0.2%), consistent with the higher weighted mean from above
+
+Could mean qualitatively different problems with Head Start access by rurality:
+Urban areas suffer from diluted supply — programs exist but are overwhelmed by the sheer volume of eligible children
+Rural areas suffer from absent supply — nearly half have no program at all, which is an access cliff rather than a gap
