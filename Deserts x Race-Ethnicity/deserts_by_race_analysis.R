@@ -1,0 +1,119 @@
+library(tidyverse)
+desert_threshold <- 0.33
+
+## LOAD RACE/ETHNICITY DATA
+race_data <- read_csv("pop_hispanic_blacknh.csv") %>%
+  # Strip the "1400000US" prefix to get the 11-digit census tract FIPS
+  mutate(county_fips = str_sub(str_remove(GEO_ID, "1400000US"), 1, 5)) %>%
+  filter(!is.na(pct_hispanic), !is.na(pct_black_nonh)) %>%
+  group_by(county_fips) %>%
+  summarise(
+    avg_pct_hispanic   = weighted.mean(pct_hispanic,   w = total_pop, na.rm = TRUE),
+    avg_pct_black_nonh = weighted.mean(pct_black_nonh, w = total_pop, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+## JOIN WITH CHILD CARE ACCESS DATA
+childcare_with_race <- childcare_data %>%
+  mutate(county_fips = str_pad(as.character(county_fips), width = 5, pad = "0")) %>%
+  left_join(race_data, by = "county_fips") %>%
+  mutate(desert = adj_supply <= desert_threshold)
+
+## CHECK JOIN QUALITY
+cat("Rows with Hispanic data:", sum(!is.na(childcare_with_race$avg_pct_hispanic)), "\n")
+cat("Rows missing Hispanic data:", sum(is.na(childcare_with_race$avg_pct_hispanic)), "\n")
+
+## AGGREGATE TO STATE LEVEL
+state_race_desert <- childcare_with_race %>%
+  filter(!is.na(avg_pct_hispanic), !is.na(avg_pct_black_nonh), !is.na(adj_supply)) %>%
+  group_by(state_name) %>%
+  summarise(
+    pct_in_desert      = round(mean(desert) * 100, 1),
+    avg_pct_hispanic   = round(mean(avg_pct_hispanic), 1),
+    avg_pct_black_nonh = round(mean(avg_pct_black_nonh), 1),
+    .groups = "drop"
+  )
+
+## COMPARE DESERT RATES BY MAJORITY-INORITY COUNTY COMPOSITION
+childcare_with_race %>%
+  filter(!is.na(adj_supply), !is.na(avg_pct_hispanic), !is.na(avg_pct_black_nonh)) %>%
+  mutate(
+    desert = adj_supply <= desert_threshold,
+    county_type = case_when(
+      avg_pct_hispanic   >= 50 ~ "Majority Hispanic",
+      avg_pct_black_nonh >= 50 ~ "Majority Black NH",
+      TRUE                     ~ "Neither majority"
+    )
+  ) %>%
+  group_by(county_type) %>%
+  summarise(
+    total_areas   = n(),
+    pct_in_desert = round(mean(desert) * 100, 1),
+    .groups = "drop"
+  ) %>%
+  arrange(desc(pct_in_desert))
+
+## ===========================================================
+## BY RURALITY
+# ADD RURAL FLAG FROM JOINED_RURAL VIA LAT/LONG
+rural_lookup <- joined_rural %>%
+  select(longitude, latitude, rural) %>%
+  distinct()
+
+childcare_with_race_rural <- childcare_with_race %>%
+  left_join(rural_lookup, by = c("longitude", "latitude"))
+
+## CHECK JOIN QUALITY
+cat("Rows with rural status:", sum(!is.na(childcare_with_race_rural$rural)), "\n") ## Should be 2277112
+cat("Rows missing rural status:", sum(is.na(childcare_with_race_rural$rural)), "\n") ## Should be 4027
+
+childcare_with_race_rural %>%
+  filter(!is.na(adj_supply), !is.na(avg_pct_hispanic), !is.na(avg_pct_black_nonh), !is.na(rural)) %>%
+  mutate(
+    desert = adj_supply <= desert_threshold,
+    county_type = case_when(
+      avg_pct_hispanic   >= 50 ~ "Majority Hispanic",
+      avg_pct_black_nonh >= 50 ~ "Majority Black NH",
+      TRUE                     ~ "Neither majority"
+    )
+  ) %>%
+  group_by(county_type, rural) %>%
+  summarise(
+    total_areas   = n(),
+    pct_in_desert = round(mean(desert) * 100, 1),
+    .groups = "drop"
+  ) %>%
+  arrange(county_type, rural)
+
+## STATES DRIVING RURAL MAJORITY-HISPANIC AND RURAL MAJORITY-BLACK DESERT RATES
+state_race_rural_desert <- childcare_with_race_rural %>%
+  filter(
+    !is.na(adj_supply), !is.na(avg_pct_hispanic),
+    !is.na(avg_pct_black_nonh), !is.na(rural)
+  ) %>%
+  mutate(
+    desert = adj_supply <= desert_threshold,
+    county_type = case_when(
+      avg_pct_hispanic   >= 50 ~ "Majority Hispanic",
+      avg_pct_black_nonh >= 50 ~ "Majority Black NH",
+      TRUE                     ~ "Neither majority"
+    )
+  ) %>%
+  filter(rural == 1, county_type != "Neither majority") %>%
+  group_by(state_name, county_type) %>%
+  summarise(
+    total_areas   = n(),
+    pct_in_desert = round(mean(desert) * 100, 1),
+    .groups = "drop"
+  )
+print(state_race_rural_desert)
+
+## RURAL MAJORITY-HISPANIC BY STATE
+hispanic_states <- state_race_rural_desert %>%
+  filter(county_type == "Majority Hispanic") %>%
+  arrange(desc(pct_in_desert))
+
+# RURAL, MAJORITY BLACK_NH BY STATE
+black_states <- state_race_rural_desert %>%
+  filter(county_type == "Majority Black NH") %>%
+  arrange(desc(pct_in_desert))
