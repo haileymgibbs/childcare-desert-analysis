@@ -10,7 +10,7 @@
 ## Overview
 
 This project provides a nationwide analysis of licensed child care supply in the United States as of 2025, updating CAP's original child care deserts methodology first developed in 2016. 
-A **child care desert** is defined as any location where more than 3 young children (under age 6) exist per licensed child care slot — meaning families have effectively no realistic access to licensed care.
+A **child care desert** is defined as any location where more than 3 local young children (under age 6) exist per local licensed child care slot — meaning families have effectively no realistic access to licensed care.
 
 The analysis combines data on licensed provider locations and capacities across all 50 states and Washington, D.C. with population data from the U.S. Census Bureau's American Community Survey. 
 Unlike earlier versions of this analysis, which used area-based geographic boundaries (zip codes, counties), this version uses continuous distance-based measures between families and providers to more accurately reflect real-world child care markets.
