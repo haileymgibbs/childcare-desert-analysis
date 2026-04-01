@@ -1,9 +1,9 @@
 # America's Licensed Child Care Deserts in 2025
 
-**Authors:** Hailey Gibbs and Casey Peeks
-**Organization:** Center for American Progress
-**Published:** April 22, 2026 (GOAL DATE)
-**Collaborators:** W.E. Upjohn Institute for Employment Research; Stanford University
+- **Authors:** Hailey Gibbs and Casey Peeks
+- **Organization:** Center for American Progress
+- **Published:** April 22, 2026 (GOAL DATE)
+- **Collaborators:** W.E. Upjohn Institute for Employment Research; Stanford University
 
 ---
 
