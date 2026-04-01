@@ -85,7 +85,7 @@ Census data can be downloaded from the [Census Bureau ACS 5-Year Estimates](http
 
 - Rasheed Malik and Katie Hamm, [*Mapping America's Child Care Deserts*](https://www.americanprogress.org/article/mapping-americas-child-care-deserts/) (CAP, 2017)
 - Early Childhood Policy Team, [*America's Child Care Deserts in 2018*](https://www.americanprogress.org/article/americas-child-care-deserts-2018/) (CAP, 2018)
-- Topics page: [*_Child Care Deserts Topics Page*](https://www.americanprogress.org/series/child-care-deserts/)
+- Topics page: [*Child Care Deserts Topics Page*](https://www.americanprogress.org/series/child-care-deserts/)
 
 ---
 
