@@ -34,7 +34,7 @@ Unlike earlier versions of this analysis, which used area-based geographic bound
 | Child population (ages 0–5) | U.S. Census Bureau, American Community Survey 2019–2023 5-Year Estimates | Tract-level |
 | Rurality classification | CDC/NCHS Urban-Rural Classification Scheme for Counties | County-level |
 | Head Start slot data | HHS Administration for Children and Families | Federal poverty level used to identify eligible children |
-| Analysis data (tables and figures) | Authors' analysis, on file with authors | See `tables-figures` and `data-files` folder |
+| Analysis data (tables and figures) | Authors' analysis, on file with authors | See `data-files` folder |
 
 > **Note:** State licensing thresholds vary considerably — some states require registration for providers caring for even one non-family child, while others allow up to three.
 > These differences directly affect which providers appear in state licensing data and influence desert designations. Cross-state comparisons should be made with caution; within-state comparisons are more reliable.
