@@ -18,6 +18,7 @@ cd_shapes_119 <- congressional_districts(cb = TRUE, year = 2024)
 
 # Check what year tigris actually returned
 attr(cd_shapes_119, "tigris")   # confirms the vintage
+names(cd_shapes_119)
 
 # How many districts?
 nrow(cd_shapes_119)             # should be 435 + territories (441)
@@ -26,25 +27,22 @@ cd_shapes_119_filtered <- cd_shapes_119 %>%
   filter(STATEFP %in% c(sprintf("%02d", c(1:2, 4:6, 8:13, 15:42, 44:51, 53:56)), "11"))
 nrow(cd_shapes_119_filtered)   # should be 436 (50 states + DC)
 
+# Transform CD shapes to WGS84
+cd_shapes <- st_transform(cd_shapes_119_filtered, crs = 4326)
+
 ##Convert to SF
 df_sf <- childcare_data %>%
+  filter(state_abbrv != "PR") %>%
   st_as_sf(coords = c("longitude", "latitude"), crs = 4326)
 
-#Spatial join to Congressional Districts
-df_joined <- st_join(df_sf, cd_shapes[, c("GEOID", "NAMELSAD", "STATEFP", "CD118FP")],
+# SPATIAL JOIN
+df_joined <- st_join(df_sf, cd_shapes[, c("GEOID", "NAMELSAD", "STATEFP", "CD119FP")],
                      join = st_within)
-
-cd_shapes <- st_transform(cd_shapes, crs = 4326)
-
-### 
-st_crs(df_sf)       # check points
-st_crs(cd_shapes)   # check CD shapefile
-###
 
 #Check for unmatched points (fell outside district boundaries)
 st_crs(df_sf) == st_crs(cd_shapes)   # should return TRUE
 sum(is.na(df_joined$GEOID)) 
-#should be 619 -- these are 0.027% of total data, but we can apply a nearest join function to keep these in the set
+#should be 600 -- these are 0.027% of total data, but we can apply a nearest join function to keep these in the set
 
 # Isolate unmatched points
 unmatched <- df_joined %>% filter(is.na(GEOID))
@@ -88,7 +86,7 @@ summary(cd_desert_estimates$pct_in_desert)
 head(cd_desert_estimates, 10)      # highest desert districts
 tail(cd_desert_estimates, 10)      # lowest desert districts
 
-### IF PR LEFT IN #########
+### IF PR LEFT IN ######### SHOULD HAVE BEEN FILTERED OUT ABOVE, BUT RUNNING A CHECK
 # Check for duplicate GEOIDs
 cd_desert_estimates %>%
   count(GEOID) %>%
@@ -157,6 +155,7 @@ ggplot(cd_map) +
 # Save the map
 ggsave("cd_desert_map.png", width = 12, height = 7, dpi = 300)
 
+######### ######### ######### ######### ######### ######### ######### ######### 
 ######### MAP TINY, REFORMATTING WITH TOOLTIPS ####
 install.packages(c("leaflet", "leaflet.extras"))
 library(leaflet)
@@ -164,8 +163,11 @@ library(leaflet.extras)
 
 # Step 1: Join estimates back to spatial shapes
 cd_map <- cd_shapes_119_filtered %>%
-  left_join(cd_desert_estimates, by = "GEOID") %>%
-  filter(STATEFP != "72")  # ensure PR is excluded
+  left_join(
+    cd_desert_estimates %>% select(-NAMELSAD),
+    by = "GEOID"
+  ) %>%
+  filter(STATEFP != "72")
 
 # Step 2: Define color palette
 pal <- colorNumeric(
@@ -184,28 +186,11 @@ cd_map <- cd_map %>%
     "Total Children: ", scales::comma(total_children)
   ))
 
-##### ISSUE WITH DUPLICATE COLUMNS HAVING BEEN CREATED
-# check
-names(cd_map)
-
-## correct for duplication
-# Drop NAMELSAD from estimates since it already exists in the shapes
-cd_map <- cd_shapes_119_filtered %>%
-  left_join(
-    cd_desert_estimates %>% select(-NAMELSAD),
-    by = "GEOID"
-  ) %>%
-  filter(STATEFP != "72")
-
-# Verify
+# Verify columns look clean
 names(cd_map)
 nrow(cd_map)  # should be 436
 
-# Verify columns look clean
-names(cd_map)
-
 #### GO BACK AND RE-RUN TOOLTIP FUNCTION
-
 cd_map <- st_transform(cd_map, crs = 4326)
 
 # Step 4: Build the map
