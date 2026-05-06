@@ -95,7 +95,7 @@ Census data can be downloaded from the [Census Bureau ACS 5-Year Estimates](http
 - Hailey Gibbs and Casey Peeks, "Executive Summary: America’s Licensed Child Care Deserts," Center for American Progress, April 29, 2026, available at https://www.americanprogress.org/article/executive-summary-americas-licensed-child-care-deserts/
 - Hailey Gibbs, Won F. Lee, Gabrielle Pepin, Katharine Sadowski, and Aaron Sojourner, "Measuring America's Licensed Child Care Supply" (Washington, Center for American Progress: 2026), available at https://www.americanprogress.org/article/measuring-americas-licensed-child-care-supply/
 
-###
+---
 
 - View Interactive Web Map: https://www.americanprogress.org/feature/child-care-deserts/
 
