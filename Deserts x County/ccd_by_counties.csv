@@ -1,0 +1,3139 @@
+"GEOID","County FIPS","State","State Abbr","County","Total Children","Children in Desert","% in Desert"
+"02013","013","Alaska","AK","Aleutians East Borough",130,130,100
+"02066","066","Alaska","AK","Copper River Census Area",280,280,100
+"02068","068","Alaska","AK","Denali Borough",90,90,100
+"02090","090","Alaska","AK","Fairbanks North Star Borough",7920,7920,100
+"02105","105","Alaska","AK","Hoonah-Angoon Census Area",110,110,100
+"02164","164","Alaska","AK","Lake and Peninsula Borough",100,100,100
+"02170","170","Alaska","AK","Matanuska-Susitna Borough",8620,8620,100
+"02275","275","Alaska","AK","Wrangell City and Borough",240,240,100
+"02290","290","Alaska","AK","Yukon-Koyukuk Census Area",360,360,100
+"05097","097","Arkansas","AR","Montgomery County",250,250,100
+"08011","011","Colorado","CO","Bent County",230,230,100
+"08047","047","Colorado","CO","Gilpin County",310,310,100
+"08057","057","Colorado","CO","Jackson County",30,30,100
+"08079","079","Colorado","CO","Mineral County",30,30,100
+"08095","095","Colorado","CO","Phillips County",460,460,100
+"08111","111","Colorado","CO","San Juan County",30,30,100
+"08115","115","Colorado","CO","Sedgwick County",170,170,100
+"08117","117","Colorado","CO","Summit County",10,10,100
+"13307","307","Georgia","GA","Webster County",120,120,100
+"15003","003","Hawaii","HI","Honolulu County",70030,70030,100
+"15009","009","Hawaii","HI","Maui County",11000,11000,100
+"16025","025","Idaho","ID","Camas County",130,130,100
+"16033","033","Idaho","ID","Clark County",80,80,100
+"16065","065","Idaho","ID","Madison County",4140,4140,100
+"16079","079","Idaho","ID","Shoshone County",550,550,100
+"17059","059","Illinois","IL","Gallatin County",210,210,100
+"17151","151","Illinois","IL","Pope County",50,50,100
+"18007","007","Indiana","IN","Benton County",710,710,100
+"18009","009","Indiana","IN","Blackford County",700,700,100
+"18161","161","Indiana","IN","Union County",500,500,100
+"19143","143","Iowa","IA","Osceola County",450,450,100
+"20017","017","Kansas","KS","Chase County",110,110,100
+"20025","025","Kansas","KS","Clark County",130,130,100
+"20033","033","Kansas","KS","Comanche County",20,20,100
+"20075","075","Kansas","KS","Hamilton County",160,160,100
+"20083","083","Kansas","KS","Hodgeman County",50,50,100
+"20101","101","Kansas","KS","Lane County",150,150,100
+"20175","175","Kansas","KS","Seward County",2200,2200,100
+"20187","187","Kansas","KS","Stanton County",190,190,100
+"20189","189","Kansas","KS","Stevens County",330,330,100
+"21051","051","Kentucky","KY","Clay County",660,660,100
+"21147","147","Kentucky","KY","McCreary County",200,200,100
+"21165","165","Kentucky","KY","Menifee County",510,510,100
+"22107","107","Louisiana","LA","Tensas Parish",200,200,100
+"26131","131","Michigan","MI","Ontonagon County",200,200,100
+"28041","041","Mississippi","MS","Greene County",1060,1060,100
+"29081","081","Missouri","MO","Harrison County",790,790,100
+"29227","227","Missouri","MO","Worth County",100,100,100
+"30011","011","Montana","MT","Carter County",100,100,100
+"30015","015","Montana","MT","Chouteau County",430,430,100
+"30025","025","Montana","MT","Fallon County",260,260,100
+"30037","037","Montana","MT","Golden Valley County",40,40,100
+"30045","045","Montana","MT","Judith Basin County",90,90,100
+"30051","051","Montana","MT","Liberty County",220,220,100
+"30059","059","Montana","MT","Meagher County",20,20,100
+"30065","065","Montana","MT","Musselshell County",280,280,100
+"30069","069","Montana","MT","Petroleum County",20,20,100
+"30079","079","Montana","MT","Prairie County",40,40,100
+"30083","083","Montana","MT","Richland County",910,910,100
+"30097","097","Montana","MT","Sweet Grass County",190,190,100
+"30103","103","Montana","MT","Treasure County",30,30,100
+"30107","107","Montana","MT","Wheatland County",70,70,100
+"30109","109","Montana","MT","Wibaux County",40,40,100
+"31007","007","Nebraska","NE","Banner County",20,20,100
+"31009","009","Nebraska","NE","Blaine County",40,40,100
+"31075","075","Nebraska","NE","Grant County",70,70,100
+"31085","085","Nebraska","NE","Hayes County",20,20,100
+"31091","091","Nebraska","NE","Hooker County",20,20,100
+"31103","103","Nebraska","NE","Keya Paha County",50,50,100
+"31113","113","Nebraska","NE","Logan County",120,120,100
+"31115","115","Nebraska","NE","Loup County",10,10,100
+"31117","117","Nebraska","NE","McPherson County",10,10,100
+"31171","171","Nebraska","NE","Thomas County",10,10,100
+"31183","183","Nebraska","NE","Wheeler County",90,90,100
+"32009","009","Nevada","NV","Esmeralda County",20,20,100
+"32011","011","Nevada","NV","Eureka County",150,150,100
+"32017","017","Nevada","NV","Lincoln County",200,200,100
+"32027","027","Nevada","NV","Pershing County",310,310,100
+"32029","029","Nevada","NV","Storey County",150,150,100
+"35003","003","New Mexico","NM","Catron County",20,20,100
+"35011","011","New Mexico","NM","De Baca County",140,140,100
+"35021","021","New Mexico","NM","Harding County",10,10,100
+"35033","033","New Mexico","NM","Mora County",110,110,100
+"37011","011","North Carolina","NC","Avery County",20,20,100
+"37075","075","North Carolina","NC","Graham County",250,250,100
+"37095","095","North Carolina","NC","Hyde County",110,110,100
+"37113","113","North Carolina","NC","Macon County",610,610,100
+"37121","121","North Carolina","NC","Mitchell County",10,10,100
+"37177","177","North Carolina","NC","Tyrrell County",150,150,100
+"37199","199","North Carolina","NC","Yancey County",520,520,100
+"38007","007","North Dakota","ND","Billings County",40,40,100
+"38013","013","North Dakota","ND","Burke County",90,90,100
+"38019","019","North Dakota","ND","Cavalier County",330,330,100
+"38033","033","North Dakota","ND","Golden Valley County",170,170,100
+"38087","087","North Dakota","ND","Slope County",10,10,100
+"40003","003","Oklahoma","OK","Alfalfa County",320,320,100
+"40025","025","Oklahoma","OK","Cimarron County",220,220,100
+"40129","129","Oklahoma","OK","Roger Mills County",200,200,100
+"41021","021","Oregon","OR","Gilliam County",30,30,100
+"41069","069","Oregon","OR","Wheeler County",100,100,100
+"46021","021","South Dakota","SD","Campbell County",120,120,100
+"46063","063","South Dakota","SD","Harding County",70,70,100
+"46095","095","South Dakota","SD","Mellette County",160,160,100
+"46107","107","South Dakota","SD","Potter County",150,150,100
+"46119","119","South Dakota","SD","Sully County",70,70,100
+"46137","137","South Dakota","SD","Ziebach County",270,270,100
+"47171","171","Tennessee","TN","Unicoi County",80,80,100
+"48033","033","Texas","TX","Borden County",50,50,100
+"48045","045","Texas","TX","Briscoe County",80,80,100
+"48095","095","Texas","TX","Concho County",150,150,100
+"48105","105","Texas","TX","Crockett County",140,140,100
+"48125","125","Texas","TX","Dickens County",150,150,100
+"48151","151","Texas","TX","Fisher County",220,220,100
+"48155","155","Texas","TX","Foard County",100,100,100
+"48173","173","Texas","TX","Glasscock County",110,110,100
+"48229","229","Texas","TX","Hudspeth County",100,100,100
+"48263","263","Texas","TX","Kent County",10,10,100
+"48269","269","Texas","TX","King County",10,10,100
+"48311","311","Texas","TX","McMullen County",70,70,100
+"48345","345","Texas","TX","Motley County",120,120,100
+"48377","377","Texas","TX","Presidio County",440,440,100
+"48383","383","Texas","TX","Reagan County",410,410,100
+"48393","393","Texas","TX","Roberts County",10,10,100
+"48413","413","Texas","TX","Schleicher County",430,430,100
+"49009","009","Utah","UT","Daggett County",40,40,100
+"51017","017","Virginia","VA","Bath County",130,130,100
+"51091","091","Virginia","VA","Highland County",60,60,100
+"53013","013","Washington","WA","Columbia County",330,330,100
+"53023","023","Washington","WA","Garfield County",80,80,100
+"56027","027","Wyoming","WY","Niobrara County",70,70,100
+"09170","170","Connecticut","CT","South Central Connecticut Planning Region",20,20,100
+"02020","020","Alaska","AK","Anchorage Municipality",22920,22910,100
+"53017","017","Washington","WA","Douglas County",3130,3110,99.4
+"30003","003","Montana","MT","Big Horn County",1040,1030,99
+"20169","169","Kansas","KS","Saline County",3620,3570,98.6
+"18027","027","Indiana","IN","Daviess County",3340,3290,98.5
+"02158","158","Alaska","AK","Kusilvak Census Area",1040,1020,98.1
+"29057","057","Missouri","MO","Dade County",500,490,98
+"30105","105","Montana","MT","Valley County",500,490,98
+"30099","099","Montana","MT","Teton County",490,480,98
+"26119","119","Michigan","MI","Montmorency County",460,450,97.8
+"54071","071","West Virginia","WV","Pendleton County",450,440,97.8
+"16053","053","Idaho","ID","Jerome County",2200,2150,97.7
+"30057","057","Montana","MT","Madison County",420,410,97.6
+"16063","063","Idaho","ID","Lincoln County",400,390,97.5
+"02220","220","Alaska","AK","Sitka City and Borough",390,380,97.4
+"18131","131","Indiana","IN","Pulaski County",760,740,97.4
+"37029","029","North Carolina","NC","Camden County",740,720,97.3
+"46085","085","South Dakota","SD","Lyman County",370,360,97.3
+"18013","013","Indiana","IN","Brown County",730,710,97.3
+"13289","289","Georgia","GA","Twiggs County",360,350,97.2
+"46031","031","South Dakota","SD","Corson County",360,350,97.2
+"40139","139","Oklahoma","OK","Texas County",1790,1740,97.2
+"27125","125","Minnesota","MN","Red Lake County",350,340,97.1
+"29129","129","Missouri","MO","Mercer County",350,340,97.1
+"29035","035","Missouri","MO","Carter County",340,330,97.1
+"51069","069","Virginia","VA","Frederick County",6450,6250,96.9
+"20053","053","Kansas","KS","Ellsworth County",320,310,96.9
+"46061","061","South Dakota","SD","Hanson County",320,310,96.9
+"02150","150","Alaska","AK","Kodiak Island Borough",950,920,96.8
+"20003","003","Kansas","KS","Anderson County",600,580,96.7
+"54013","013","West Virginia","WV","Calhoun County",300,290,96.7
+"02240","240","Alaska","AK","Southeast Fairbanks Census Area",580,560,96.6
+"51678","678","Virginia","VA","Lexington city",290,280,96.6
+"05141","141","Arkansas","AR","Van Buren County",850,820,96.5
+"40059","059","Oklahoma","OK","Harper County",270,260,96.3
+"49033","033","Utah","UT","Rich County",270,260,96.3
+"41015","015","Oregon","OR","Curry County",760,730,96.1
+"16057","057","Idaho","ID","Latah County",2520,2420,96
+"02188","188","Alaska","AK","Northwest Arctic Borough",750,720,96
+"46059","059","South Dakota","SD","Hand County",250,240,96
+"02185","185","Alaska","AK","North Slope Borough",720,690,95.8
+"08009","009","Colorado","CO","Baca County",240,230,95.8
+"21131","131","Kentucky","KY","Leslie County",480,460,95.8
+"31057","057","Nebraska","NE","Dundy County",240,230,95.8
+"13209","209","Georgia","GA","Montgomery County",470,450,95.7
+"20089","089","Kansas","KS","Jewell County",230,220,95.7
+"13003","003","Georgia","GA","Atkinson County",660,630,95.5
+"37149","149","North Carolina","NC","Polk County",660,630,95.5
+"46003","003","South Dakota","SD","Aurora County",220,210,95.5
+"53039","039","Washington","WA","Klickitat County",1090,1040,95.4
+"28111","111","Mississippi","MS","Perry County",860,820,95.3
+"18123","123","Indiana","IN","Perry County",1280,1220,95.3
+"30005","005","Montana","MT","Blaine County",640,610,95.3
+"18121","121","Indiana","IN","Parke County",1060,1010,95.3
+"16015","015","Idaho","ID","Boise County",210,200,95.2
+"31083","083","Nebraska","NE","Harlan County",210,200,95.2
+"32021","021","Nevada","NV","Mineral County",420,400,95.2
+"49055","055","Utah","UT","Wayne County",210,200,95.2
+"02070","070","Alaska","AK","Dillingham Census Area",600,570,95
+"53059","059","Washington","WA","Skamania County",390,370,94.9
+"51125","125","Virginia","VA","Nelson County",1160,1100,94.8
+"02063","063","Alaska","AK","Chugach Census Area",570,540,94.7
+"46033","033","South Dakota","SD","Custer County",380,360,94.7
+"51133","133","Virginia","VA","Northumberland County",570,540,94.7
+"17013","013","Illinois","IL","Calhoun County",180,170,94.4
+"31017","017","Nebraska","NE","Brown County",180,170,94.4
+"38023","023","North Dakota","ND","Divide County",180,170,94.4
+"38047","047","North Dakota","ND","Logan County",180,170,94.4
+"46075","075","South Dakota","SD","Jones County",180,170,94.4
+"47067","067","Tennessee","TN","Hancock County",540,510,94.4
+"06043","043","California","CA","Mariposa County",530,500,94.3
+"51007","007","Virginia","VA","Amelia County",880,830,94.3
+"48495","495","Texas","TX","Winkler County",690,650,94.2
+"48081","081","Texas","TX","Coke County",170,160,94.1
+"48109","109","Texas","TX","Culberson County",170,160,94.1
+"51077","077","Virginia","VA","Grayson County",680,640,94.1
+"18087","087","Indiana","IN","LaGrange County",4170,3920,94
+"30043","043","Montana","MT","Jefferson County",660,620,93.9
+"51036","036","Virginia","VA","Charles City County",330,310,93.9
+"05065","065","Arkansas","AR","Izard County",650,610,93.8
+"40007","007","Oklahoma","OK","Beaver County",320,300,93.8
+"48435","435","Texas","TX","Sutton County",320,300,93.8
+"48447","447","Texas","TX","Throckmorton County",160,150,93.8
+"54105","105","West Virginia","WV","Wirt County",320,300,93.8
+"26009","009","Michigan","MI","Antrim County",1110,1040,93.7
+"46091","091","South Dakota","SD","Marshall County",470,440,93.6
+"20141","141","Kansas","KS","Osborne County",310,290,93.5
+"27077","077","Minnesota","MN","Lake of the Woods County",310,290,93.5
+"46077","077","South Dakota","SD","Kingsbury County",310,290,93.5
+"29203","203","Missouri","MO","Shannon County",450,420,93.3
+"38049","049","North Dakota","ND","McHenry County",300,280,93.3
+"38091","091","North Dakota","ND","Steele County",150,140,93.3
+"45017","017","South Carolina","SC","Calhoun County",750,700,93.3
+"51021","021","Virginia","VA","Bland County",300,280,93.3
+"51045","045","Virginia","VA","Craig County",440,410,93.2
+"18145","145","Indiana","IN","Shelby County",3620,3370,93.1
+"05137","137","Arkansas","AR","Stone County",710,660,93
+"18113","113","Indiana","IN","Noble County",3830,3560,93
+"29139","139","Missouri","MO","Montgomery County",850,790,92.9
+"47015","015","Tennessee","TN","Cannon County",990,920,92.9
+"01119","119","Alabama","AL","Sumter County",840,780,92.9
+"13125","125","Georgia","GA","Glascock County",140,130,92.9
+"20009","009","Kansas","KS","Barton County",1820,1690,92.9
+"38095","095","North Dakota","ND","Towner County",140,130,92.9
+"41055","055","Oregon","OR","Sherman County",140,130,92.9
+"13149","149","Georgia","GA","Heard County",970,900,92.8
+"08021","021","Colorado","CO","Conejos County",550,510,92.7
+"17071","071","Illinois","IL","Henderson County",410,380,92.7
+"38025","025","North Dakota","ND","Dunn County",410,380,92.7
+"51193","193","Virginia","VA","Westmoreland County",1090,1010,92.7
+"18015","015","Indiana","IN","Carroll County",1220,1130,92.6
+"13165","165","Georgia","GA","Jenkins County",270,250,92.6
+"17171","171","Illinois","IL","Scott County",270,250,92.6
+"35057","057","New Mexico","NM","Torrance County",810,750,92.6
+"51113","113","Virginia","VA","Madison County",1070,990,92.5
+"02050","050","Alaska","AK","Bethel Census Area",1600,1480,92.5
+"12077","077","Florida","FL","Liberty County",400,370,92.5
+"51097","097","Virginia","VA","King and Queen County",400,370,92.5
+"22123","123","Louisiana","LA","West Carroll Parish",660,610,92.4
+"42067","067","Pennsylvania","PA","Juniata County",1710,1580,92.4
+"39075","075","Ohio","OH","Holmes County",4440,4100,92.3
+"02016","016","Alaska","AK","Aleutians West Census Area",130,120,92.3
+"02110","110","Alaska","AK","Juneau City and Borough",910,840,92.3
+"30089","089","Montana","MT","Sanders County",520,480,92.3
+"36031","031","New York","NY","Essex County",390,360,92.3
+"38041","041","North Dakota","ND","Hettinger County",130,120,92.3
+"42035","035","Pennsylvania","PA","Clinton County",2340,2160,92.3
+"42057","057","Pennsylvania","PA","Fulton County",1040,960,92.3
+"51029","029","Virginia","VA","Buckingham County",910,840,92.3
+"01023","023","Alabama","AL","Choctaw County",770,710,92.2
+"49025","025","Utah","UT","Kane County",500,460,92
+"20103","103","Kansas","KS","Leavenworth County",5770,5300,91.9
+"30087","087","Montana","MT","Rosebud County",850,780,91.8
+"51163","163","Virginia","VA","Rockbridge County",970,890,91.8
+"16019","019","Idaho","ID","Bonneville County",11860,10880,91.7
+"20051","051","Kansas","KS","Ellis County",1450,1330,91.7
+"01037","037","Alabama","AL","Coosa County",720,660,91.7
+"13007","007","Georgia","GA","Baker County",120,110,91.7
+"13291","291","Georgia","GA","Union County",1080,990,91.7
+"16043","043","Idaho","ID","Fremont County",960,880,91.7
+"38037","037","North Dakota","ND","Grant County",120,110,91.7
+"47091","091","Tennessee","TN","Johnson County",360,330,91.7
+"47175","175","Tennessee","TN","Van Buren County",360,330,91.7
+"55078","078","Wisconsin","WI","Menominee County",480,440,91.7
+"18175","175","Indiana","IN","Washington County",1880,1720,91.5
+"16029","029","Idaho","ID","Caribou County",580,530,91.4
+"26097","097","Michigan","MI","Mackinac County",460,420,91.3
+"20173","173","Kansas","KS","Sedgwick County",39350,35880,91.2
+"47083","083","Tennessee","TN","Houston County",340,310,91.2
+"35053","053","New Mexico","NM","Socorro County",1010,920,91.1
+"53043","043","Washington","WA","Lincoln County",560,510,91.1
+"04001","001","Arizona","AZ","Apache County",4350,3960,91
+"13263","263","Georgia","GA","Talbot County",220,200,90.9
+"16037","037","Idaho","ID","Custer County",110,100,90.9
+"16061","061","Idaho","ID","Lewis County",330,300,90.9
+"20129","129","Kansas","KS","Morton County",110,100,90.9
+"20183","183","Kansas","KS","Smith County",220,200,90.9
+"21063","063","Kentucky","KY","Elliott County",330,300,90.9
+"31165","165","Nebraska","NE","Sioux County",110,100,90.9
+"46009","009","South Dakota","SD","Bon Homme County",440,400,90.9
+"48431","431","Texas","TX","Sterling County",220,200,90.9
+"51005","005","Virginia","VA","Alleghany County",110,100,90.9
+"55007","007","Wisconsin","WI","Bayfield County",770,700,90.9
+"13011","011","Georgia","GA","Banks County",1300,1180,90.8
+"13079","079","Georgia","GA","Crawford County",650,590,90.8
+"19177","177","Iowa","IA","Van Buren County",640,580,90.6
+"22021","021","Louisiana","LA","Caldwell Parish",640,580,90.6
+"16073","073","Idaho","ID","Owyhee County",1170,1060,90.6
+"17173","173","Illinois","IL","Shelby County",1370,1240,90.5
+"47121","121","Tennessee","TN","Meigs County",840,760,90.5
+"37115","115","North Carolina","NC","Madison County",1150,1040,90.4
+"13101","101","Georgia","GA","Echols County",310,280,90.3
+"29153","153","Missouri","MO","Ozark County",410,370,90.2
+"19151","151","Iowa","IA","Pocahontas County",510,460,90.2
+"53051","051","Washington","WA","Pend Oreille County",810,730,90.1
+"36049","049","New York","NY","Lewis County",1720,1550,90.1
+"51175","175","Virginia","VA","Southampton County",910,820,90.1
+"05101","101","Arkansas","AR","Newton County",400,360,90
+"18111","111","Indiana","IN","Newton County",900,810,90
+"20049","049","Kansas","KS","Elk County",100,90,90
+"20165","165","Kansas","KS","Rush County",200,180,90
+"21011","011","Kentucky","KY","Bath County",900,810,90
+"21039","039","Kentucky","KY","Carlisle County",300,270,90
+"26085","085","Michigan","MI","Lake County",400,360,90
+"40053","053","Oklahoma","OK","Grant County",300,270,90
+"41025","025","Oregon","OR","Harney County",400,360,90
+"47181","181","Tennessee","TN","Wayne County",700,630,90
+"18055","055","Indiana","IN","Greene County",2090,1880,90
+"55001","001","Wisconsin","WI","Adams County",790,710,89.9
+"19107","107","Iowa","IA","Keokuk County",690,620,89.9
+"18153","153","Indiana","IN","Sullivan County",1280,1150,89.8
+"51037","037","Virginia","VA","Charlotte County",590,530,89.8
+"30009","009","Montana","MT","Carbon County",490,440,89.8
+"42131","131","Pennsylvania","PA","Wyoming County",1470,1320,89.8
+"51025","025","Virginia","VA","Brunswick County",680,610,89.7
+"06071","071","California","CA","San Bernardino County",168130,150770,89.7
+"17153","153","Illinois","IL","Pulaski County",290,260,89.7
+"29179","179","Missouri","MO","Reynolds County",290,260,89.7
+"21087","087","Kentucky","KY","Green County",670,600,89.6
+"46102","102","South Dakota","SD","Oglala Lakota County",1530,1370,89.5
+"46015","015","South Dakota","SD","Brule County",380,340,89.5
+"01105","105","Alabama","AL","Perry County",560,500,89.3
+"16027","027","Idaho","ID","Canyon County",19620,17490,89.1
+"13159","159","Georgia","GA","Jasper County",1000,890,89
+"13315","315","Georgia","GA","Wilcox County",540,480,88.9
+"16003","003","Idaho","ID","Adams County",180,160,88.9
+"30061","061","Montana","MT","Mineral County",360,320,88.9
+"38039","039","North Dakota","ND","Griggs County",90,80,88.9
+"46089","089","South Dakota","SD","McPherson County",180,160,88.9
+"47027","027","Tennessee","TN","Clay County",270,240,88.9
+"22043","043","Louisiana","LA","Grant Parish",1160,1030,88.8
+"37039","039","North Carolina","NC","Cherokee County",800,710,88.8
+"13229","229","Georgia","GA","Pierce County",1420,1260,88.7
+"20029","029","Kansas","KS","Cloud County",790,700,88.6
+"41023","023","Oregon","OR","Grant County",350,310,88.6
+"18107","107","Indiana","IN","Montgomery County",2700,2390,88.5
+"20195","195","Kansas","KS","Trego County",260,230,88.5
+"13099","099","Georgia","GA","Early County",950,840,88.4
+"51137","137","Virginia","VA","Orange County",2760,2440,88.4
+"51011","011","Virginia","VA","Appomattox County",1120,990,88.4
+"51171","171","Virginia","VA","Shenandoah County",2920,2580,88.4
+"16021","021","Idaho","ID","Boundary County",1030,910,88.3
+"29025","025","Missouri","MO","Caldwell County",600,530,88.3
+"16005","005","Idaho","ID","Bannock County",6670,5890,88.3
+"51063","063","Virginia","VA","Floyd County",850,750,88.2
+"53019","019","Washington","WA","Ferry County",340,300,88.2
+"39001","001","Ohio","OH","Adams County",1950,1720,88.2
+"54031","031","West Virginia","WV","Hardy County",760,670,88.2
+"28131","131","Mississippi","MS","Stone County",1180,1040,88.1
+"13221","221","Georgia","GA","Oglethorpe County",1010,890,88.1
+"51105","105","Virginia","VA","Lee County",1090,960,88.1
+"37015","015","North Carolina","NC","Bertie County",920,810,88
+"21169","169","Kentucky","KY","Metcalfe County",750,660,88
+"22023","023","Louisiana","LA","Cameron Parish",500,440,88
+"38011","011","North Dakota","ND","Bowman County",250,220,88
+"56045","045","Wyoming","WY","Weston County",250,220,88
+"16041","041","Idaho","ID","Franklin County",1330,1170,88
+"22125","125","Louisiana","LA","West Feliciana Parish",580,510,87.9
+"29121","121","Missouri","MO","Macon County",910,800,87.9
+"08019","019","Colorado","CO","Clear Creek County",330,290,87.9
+"13123","123","Georgia","GA","Gilmer County",2050,1800,87.8
+"51049","049","Virginia","VA","Cumberland County",410,360,87.8
+"05105","105","Arkansas","AR","Perry County",490,430,87.8
+"37019","019","North Carolina","NC","Brunswick County",6200,5440,87.7
+"51027","027","Virginia","VA","Buchanan County",1060,930,87.7
+"13109","109","Georgia","GA","Evans County",810,710,87.7
+"48289","289","Texas","TX","Leon County",1050,920,87.6
+"51101","101","Virginia","VA","King William County",1530,1340,87.6
+"02060","060","Alaska","AK","Bristol Bay Borough",80,70,87.5
+"16023","023","Idaho","ID","Butte County",160,140,87.5
+"26083","083","Michigan","MI","Keweenaw County",80,70,87.5
+"31073","073","Nebraska","NE","Gosper County",80,70,87.5
+"38083","083","North Dakota","ND","Sheridan County",80,70,87.5
+"46025","025","South Dakota","SD","Clark County",400,350,87.5
+"48295","295","Texas","TX","Lipscomb County",240,210,87.5
+"53069","069","Washington","WA","Wahkiakum County",160,140,87.5
+"20091","091","Kansas","KS","Johnson County",43420,37980,87.5
+"21055","055","Kentucky","KY","Crittenden County",550,480,87.3
+"17087","087","Illinois","IL","Johnson County",470,410,87.2
+"37099","099","North Carolina","NC","Jackson County",620,540,87.1
+"46053","053","South Dakota","SD","Gregory County",310,270,87.1
+"21027","027","Kentucky","KY","Breckinridge County",1390,1210,87.1
+"21025","025","Kentucky","KY","Breathitt County",1000,870,87
+"28129","129","Mississippi","MS","Smith County",1230,1070,87
+"16081","081","Idaho","ID","Teton County",690,600,87
+"20207","207","Kansas","KS","Woodson County",230,200,87
+"29141","141","Missouri","MO","Morgan County",1760,1530,86.9
+"13251","251","Georgia","GA","Screven County",1060,920,86.8
+"06029","029","California","CA","Kern County",77150,66960,86.8
+"01041","041","Alabama","AL","Crenshaw County",680,590,86.8
+"28079","079","Mississippi","MS","Leake County",1660,1440,86.7
+"29059","059","Missouri","MO","Dallas County",1580,1370,86.7
+"55095","095","Wisconsin","WI","Polk County",2180,1890,86.7
+"02195","195","Alaska","AK","Petersburg Borough",150,130,86.7
+"30055","055","Montana","MT","McCone County",150,130,86.7
+"47127","127","Tennessee","TN","Moore County",300,260,86.7
+"51103","103","Virginia","VA","Lancaster County",450,390,86.7
+"47049","049","Tennessee","TN","Fentress County",1120,970,86.6
+"51015","015","Virginia","VA","Augusta County",3950,3420,86.6
+"05025","025","Arkansas","AR","Cleveland County",370,320,86.5
+"51141","141","Virginia","VA","Patrick County",1030,890,86.4
+"05013","013","Arkansas","AR","Calhoun County",220,190,86.4
+"47089","089","Tennessee","TN","Jefferson County",3520,3040,86.4
+"51109","109","Virginia","VA","Louisa County",2420,2090,86.4
+"55037","037","Wisconsin","WI","Florence County",220,190,86.4
+"36097","097","New York","NY","Schuyler County",950,820,86.3
+"42059","059","Pennsylvania","PA","Greene County",1970,1700,86.3
+"05011","011","Arkansas","AR","Bradley County",800,690,86.2
+"55125","125","Wisconsin","WI","Vilas County",1090,940,86.2
+"13211","211","Georgia","GA","Morgan County",1380,1190,86.2
+"01063","063","Alabama","AL","Greene County",290,250,86.2
+"38005","005","North Dakota","ND","Benson County",580,500,86.2
+"46057","057","South Dakota","SD","Hamlin County",870,750,86.2
+"28057","057","Mississippi","MS","Itawamba County",1300,1120,86.2
+"05117","117","Arkansas","AR","Prairie County",430,370,86
+"08039","039","Colorado","CO","Elbert County",1430,1230,86
+"26135","135","Michigan","MI","Oscoda County",500,430,86
+"48171","171","Texas","TX","Gillespie County",1640,1410,86
+"21053","053","Kentucky","KY","Clinton County",570,490,86
+"29063","063","Missouri","MO","DeKalb County",780,670,85.9
+"47129","129","Tennessee","TN","Morgan County",1270,1090,85.8
+"18147","147","Indiana","IN","Spencer County",1340,1150,85.8
+"12065","065","Florida","FL","Jefferson County",770,660,85.7
+"17035","035","Illinois","IL","Cumberland County",770,660,85.7
+"18079","079","Indiana","IN","Jennings County",1820,1560,85.7
+"20179","179","Kansas","KS","Sheridan County",140,120,85.7
+"21045","045","Kentucky","KY","Casey County",1330,1140,85.7
+"22091","091","Louisiana","LA","St. Helena Parish",560,480,85.7
+"38001","001","North Dakota","ND","Adams County",140,120,85.7
+"47061","061","Tennessee","TN","Grundy County",980,840,85.7
+"54021","021","West Virginia","WV","Gilmer County",280,240,85.7
+"18091","091","Indiana","IN","LaPorte County",7460,6390,85.7
+"37009","009","North Carolina","NC","Ashe County",1250,1070,85.6
+"21219","219","Kentucky","KY","Todd County",970,830,85.6
+"42105","105","Pennsylvania","PA","Potter County",830,710,85.5
+"51735","735","Virginia","VA","Poquoson city",830,710,85.5
+"51099","099","Virginia","VA","King George County",1790,1530,85.5
+"17131","131","Illinois","IL","Mercer County",960,820,85.4
+"20149","149","Kansas","KS","Pottawatomie County",2330,1990,85.4
+"18045","045","Indiana","IN","Fountain County",1300,1110,85.4
+"42099","099","Pennsylvania","PA","Perry County",3200,2730,85.3
+"46051","051","South Dakota","SD","Grant County",340,290,85.3
+"55051","051","Wisconsin","WI","Iron County",340,290,85.3
+"08093","093","Colorado","CO","Park County",610,520,85.2
+"20107","107","Kansas","KS","Linn County",540,460,85.2
+"21129","129","Kentucky","KY","Lee County",270,230,85.2
+"54009","009","West Virginia","WV","Brooke County",1010,860,85.1
+"51035","035","Virginia","VA","Carroll County",1740,1480,85.1
+"21195","195","Kentucky","KY","Pike County",3540,3010,85
+"01129","129","Alabama","AL","Washington County",800,680,85
+"47039","039","Tennessee","TN","Decatur County",600,510,85
+"20133","133","Kansas","KS","Neosho County",930,790,84.9
+"06099","099","California","CA","Stanislaus County",45680,38800,84.9
+"20209","209","Kansas","KS","Wyandotte County",14670,12450,84.9
+"28155","155","Mississippi","MS","Webster County",660,560,84.8
+"21139","139","Kentucky","KY","Livingston County",590,500,84.7
+"55099","099","Wisconsin","WI","Price County",590,500,84.7
+"12041","041","Florida","FL","Gilchrist County",1110,940,84.7
+"18073","073","Indiana","IN","Jasper County",2350,1990,84.7
+"37193","193","North Carolina","NC","Wilkes County",3850,3260,84.7
+"08027","027","Colorado","CO","Custer County",130,110,84.6
+"27101","101","Minnesota","MN","Murray County",390,330,84.6
+"31063","063","Nebraska","NE","Frontier County",260,220,84.6
+"40045","045","Oklahoma","OK","Ellis County",260,220,84.6
+"48315","315","Texas","TX","Marion County",520,440,84.6
+"42009","009","Pennsylvania","PA","Bedford County",2790,2360,84.6
+"37069","069","North Carolina","NC","Franklin County",4730,4000,84.6
+"28031","031","Mississippi","MS","Covington County",1360,1150,84.6
+"28159","159","Mississippi","MS","Winston County",970,820,84.5
+"18061","061","Indiana","IN","Harrison County",2520,2130,84.5
+"51057","057","Virginia","VA","Essex County",580,490,84.5
+"47169","169","Tennessee","TN","Trousdale County",770,650,84.4
+"26001","001","Michigan","MI","Alcona County",320,270,84.4
+"46039","039","South Dakota","SD","Deuel County",320,270,84.4
+"46105","105","South Dakota","SD","Perkins County",320,270,84.4
+"51181","181","Virginia","VA","Surry County",320,270,84.4
+"13197","197","Georgia","GA","Marion County",510,430,84.3
+"54085","085","West Virginia","WV","Ritchie County",510,430,84.3
+"46121","121","South Dakota","SD","Todd County",1210,1020,84.3
+"18171","171","Indiana","IN","Warren County",700,590,84.3
+"21077","077","Kentucky","KY","Gallatin County",570,480,84.2
+"40093","093","Oklahoma","OK","Major County",570,480,84.2
+"48031","031","Texas","TX","Blanco County",570,480,84.2
+"48351","351","Texas","TX","Newton County",570,480,84.2
+"21099","099","Kentucky","KY","Hart County",1580,1330,84.2
+"16051","051","Idaho","ID","Jefferson County",2780,2340,84.2
+"16067","067","Idaho","ID","Minidoka County",1890,1590,84.1
+"19185","185","Iowa","IA","Wayne County",630,530,84.1
+"16001","001","Idaho","ID","Ada County",31990,26910,84.1
+"42115","115","Pennsylvania","PA","Susquehanna County",2140,1800,84.1
+"38085","085","North Dakota","ND","Sioux County",440,370,84.1
+"41063","063","Oregon","OR","Wallowa County",440,370,84.1
+"51033","033","Virginia","VA","Caroline County",2200,1850,84.1
+"51071","071","Virginia","VA","Giles County",880,740,84.1
+"20197","197","Kansas","KS","Wabaunsee County",500,420,84
+"31061","061","Nebraska","NE","Franklin County",250,210,84
+"22037","037","Louisiana","LA","East Feliciana Parish",1060,890,84
+"16055","055","Idaho","ID","Kootenai County",11840,9940,84
+"42103","103","Pennsylvania","PA","Pike County",2860,2400,83.9
+"48069","069","Texas","TX","Castro County",870,730,83.9
+"18155","155","Indiana","IN","Switzerland County",620,520,83.9
+"20119","119","Kansas","KS","Meade County",310,260,83.9
+"29171","171","Missouri","MO","Putnam County",310,260,83.9
+"46017","017","South Dakota","SD","Buffalo County",310,260,83.9
+"36039","039","New York","NY","Greene County",1730,1450,83.8
+"01049","049","Alabama","AL","DeKalb County",4810,4030,83.8
+"20031","031","Kansas","KS","Coffey County",370,310,83.8
+"35027","027","New Mexico","NM","Lincoln County",370,310,83.8
+"40149","149","Oklahoma","OK","Washita County",740,620,83.8
+"13317","317","Georgia","GA","Wilkes County",430,360,83.7
+"16007","007","Idaho","ID","Bear Lake County",430,360,83.7
+"54095","095","West Virginia","WV","Tyler County",490,410,83.7
+"47041","041","Tennessee","TN","DeKalb County",2020,1690,83.7
+"51081","081","Virginia","VA","Greensville County",610,510,83.6
+"05077","077","Arkansas","AR","Lee County",670,560,83.6
+"16085","085","Idaho","ID","Valley County",670,560,83.6
+"39067","067","Ohio","OH","Harrison County",670,560,83.6
+"18037","037","Indiana","IN","Dubois County",3100,2590,83.5
+"39121","121","Ohio","OH","Noble County",790,660,83.5
+"21135","135","Kentucky","KY","Lewis County",970,810,83.5
+"55061","061","Wisconsin","WI","Kewaunee County",1150,960,83.5
+"08091","091","Colorado","CO","Ouray County",120,100,83.3
+"16071","071","Idaho","ID","Oneida County",360,300,83.3
+"20143","143","Kansas","KS","Ottawa County",360,300,83.3
+"21003","003","Kentucky","KY","Allen County",1680,1400,83.3
+"21031","031","Kentucky","KY","Butler County",960,800,83.3
+"21201","201","Kentucky","KY","Robertson County",60,50,83.3
+"22025","025","Louisiana","LA","Catahoula Parish",540,450,83.3
+"26071","071","Michigan","MI","Iron County",600,500,83.3
+"30033","033","Montana","MT","Garfield County",60,50,83.3
+"30075","075","Montana","MT","Powder River County",120,100,83.3
+"31175","175","Nebraska","NE","Valley County",180,150,83.3
+"37005","005","North Carolina","NC","Alleghany County",540,450,83.3
+"38045","045","North Dakota","ND","LaMoure County",420,350,83.3
+"42053","053","Pennsylvania","PA","Forest County",60,50,83.3
+"56035","035","Wyoming","WY","Sublette County",480,400,83.3
+"09190","190","Connecticut","CT","Western Connecticut Planning Region",60,50,83.3
+"28061","061","Mississippi","MS","Jasper County",1130,940,83.2
+"29067","067","Missouri","MO","Douglas County",950,790,83.2
+"40061","061","Oklahoma","OK","Haskell County",890,740,83.1
+"36105","105","New York","NY","Sullivan County",5430,4510,83.1
+"29223","223","Missouri","MO","Wayne County",530,440,83
+"02180","180","Alaska","AK","Nome Census Area",940,780,83
+"21069","069","Kentucky","KY","Fleming County",1230,1020,82.9
+"29151","151","Missouri","MO","Osage County",820,680,82.9
+"54007","007","West Virginia","WV","Braxton County",410,340,82.9
+"54015","015","West Virginia","WV","Clay County",410,340,82.9
+"55129","129","Wisconsin","WI","Washburn County",820,680,82.9
+"13301","301","Georgia","GA","Warren County",350,290,82.9
+"47081","081","Tennessee","TN","Hickman County",1400,1160,82.9
+"51075","075","Virginia","VA","Goochland County",1050,870,82.9
+"28077","077","Mississippi","MS","Lawrence County",990,820,82.8
+"31107","107","Nebraska","NE","Knox County",580,480,82.8
+"39163","163","Ohio","OH","Vinton County",870,720,82.8
+"40043","043","Oklahoma","OK","Dewey County",290,240,82.8
+"46071","071","South Dakota","SD","Jackson County",290,240,82.8
+"54027","027","West Virginia","WV","Hampshire County",1390,1150,82.7
+"29011","011","Missouri","MO","Barton County",810,670,82.7
+"06063","063","California","CA","Plumas County",1040,860,82.7
+"05099","099","Arkansas","AR","Nevada County",750,620,82.7
+"55103","103","Wisconsin","WI","Richland County",980,810,82.7
+"47057","057","Tennessee","TN","Grainger County",1440,1190,82.6
+"04017","017","Arizona","AZ","Navajo County",7080,5850,82.6
+"13093","093","Georgia","GA","Dooly County",460,380,82.6
+"47109","109","Tennessee","TN","McNairy County",1610,1330,82.6
+"02122","122","Alaska","AK","Kenai Peninsula Borough",4240,3500,82.5
+"42109","109","Pennsylvania","PA","Snyder County",2750,2270,82.5
+"01009","009","Alabama","AL","Blount County",3950,3260,82.5
+"30091","091","Montana","MT","Sheridan County",400,330,82.5
+"23021","021","Maine","ME","Piscataquis County",970,800,82.5
+"13005","005","Georgia","GA","Bacon County",570,470,82.5
+"29061","061","Missouri","MO","Daviess County",740,610,82.4
+"51135","135","Virginia","VA","Nottoway County",910,750,82.4
+"13035","035","Georgia","GA","Butts County",1420,1170,82.4
+"05129","129","Arkansas","AR","Searcy County",340,280,82.4
+"12133","133","Florida","FL","Washington County",1530,1260,82.4
+"20007","007","Kansas","KS","Barber County",340,280,82.4
+"20019","019","Kansas","KS","Chautauqua County",170,140,82.4
+"30039","039","Montana","MT","Granite County",170,140,82.4
+"42113","113","Pennsylvania","PA","Sullivan County",170,140,82.4
+"49015","015","Utah","UT","Emery County",680,560,82.4
+"20155","155","Kansas","KS","Reno County",4130,3400,82.3
+"49037","037","Utah","UT","San Juan County",1130,930,82.3
+"01007","007","Alabama","AL","Bibb County",1410,1160,82.3
+"19115","115","Iowa","IA","Louisa County",730,600,82.2
+"05087","087","Arkansas","AR","Madison County",1290,1060,82.2
+"13145","145","Georgia","GA","Harris County",1790,1470,82.1
+"20043","043","Kansas","KS","Doniphan County",390,320,82.1
+"29197","197","Missouri","MO","Schuyler County",390,320,82.1
+"53031","031","Washington","WA","Jefferson County",1170,960,82.1
+"47025","025","Tennessee","TN","Claiborne County",2000,1640,82
+"12125","125","Florida","FL","Union County",1220,1000,82
+"45001","001","South Carolina","SC","Abbeville County",1220,1000,82
+"13019","019","Georgia","GA","Berrien County",1330,1090,82
+"32007","007","Nevada","NV","Elko County",4760,3900,81.9
+"08017","017","Colorado","CO","Cheyenne County",110,90,81.8
+"17065","065","Illinois","IL","Hamilton County",550,450,81.8
+"20203","203","Kansas","KS","Wichita County",220,180,81.8
+"46041","041","South Dakota","SD","Dewey County",770,630,81.8
+"46055","055","South Dakota","SD","Haakon County",110,90,81.8
+"46087","087","South Dakota","SD","McCook County",440,360,81.8
+"26027","027","Michigan","MI","Cass County",2790,2280,81.7
+"06009","009","California","CA","Calaveras County",2020,1650,81.7
+"51127","127","Virginia","VA","New Kent County",1200,980,81.7
+"01107","107","Alabama","AL","Pickens County",1090,890,81.7
+"13065","065","Georgia","GA","Clinch County",490,400,81.6
+"13043","043","Georgia","GA","Candler County",760,620,81.6
+"06035","035","California","CA","Lassen County",1840,1500,81.5
+"22049","049","Louisiana","LA","Jackson Parish",970,790,81.4
+"18075","075","Indiana","IN","Jay County",1670,1360,81.4
+"13001","001","Georgia","GA","Appling County",1400,1140,81.4
+"13169","169","Georgia","GA","Jones County",1720,1400,81.4
+"17123","123","Illinois","IL","Marshall County",860,700,81.4
+"17041","041","Illinois","IL","Douglas County",1610,1310,81.4
+"29186","186","Missouri","MO","Ste. Genevieve County",1340,1090,81.3
+"45053","053","South Carolina","SC","Jasper County",2090,1700,81.3
+"17193","193","Illinois","IL","White County",750,610,81.3
+"55013","013","Wisconsin","WI","Burnett County",750,610,81.3
+"28101","101","Mississippi","MS","Newton County",1710,1390,81.3
+"29039","039","Missouri","MO","Cedar County",1120,910,81.2
+"38065","065","North Dakota","ND","Oliver County",160,130,81.2
+"48243","243","Texas","TX","Jeff Davis County",160,130,81.2
+"54093","093","West Virginia","WV","Tucker County",160,130,81.2
+"55119","119","Wisconsin","WI","Taylor County",1170,950,81.2
+"19051","051","Iowa","IA","Davis County",1010,820,81.2
+"54077","077","West Virginia","WV","Preston County",1700,1380,81.2
+"39115","115","Ohio","OH","Morgan County",690,560,81.2
+"18083","083","Indiana","IN","Knox County",2280,1850,81.1
+"39065","065","Ohio","OH","Hardin County",2120,1720,81.1
+"13231","231","Georgia","GA","Pike County",1270,1030,81.1
+"47151","151","Tennessee","TN","Scott County",1640,1330,81.1
+"48407","407","Texas","TX","San Jacinto County",1640,1330,81.1
+"26003","003","Michigan","MI","Alger County",370,300,81.1
+"37143","143","North Carolina","NC","Perquimans County",580,470,81
+"29123","123","Missouri","MO","Madison County",790,640,81
+"26047","047","Michigan","MI","Emmet County",1630,1320,81
+"54059","059","West Virginia","WV","Mingo County",1840,1490,81
+"37141","141","North Carolina","NC","Pender County",4360,3530,81
+"05071","071","Arkansas","AR","Johnson County",2100,1700,81
+"21007","007","Kentucky","KY","Ballard County",420,340,81
+"26079","079","Michigan","MI","Kalkaska County",840,680,81
+"47137","137","Tennessee","TN","Pickett County",210,170,81
+"48457","457","Texas","TX","Tyler County",840,680,81
+"51159","159","Virginia","VA","Richmond County",630,510,81
+"13137","137","Georgia","GA","Habersham County",3300,2670,80.9
+"39131","131","Ohio","OH","Pike County",2040,1650,80.9
+"20177","177","Kansas","KS","Shawnee County",12180,9850,80.9
+"20095","095","Kansas","KS","Kingman County",470,380,80.9
+"54087","087","West Virginia","WV","Roane County",730,590,80.8
+"55019","019","Wisconsin","WI","Clark County",3110,2510,80.7
+"46125","125","South Dakota","SD","Turner County",570,460,80.7
+"47051","051","Tennessee","TN","Franklin County",2690,2170,80.7
+"53029","029","Washington","WA","Island County",5120,4130,80.7
+"12029","029","Florida","FL","Dixie County",930,750,80.6
+"16011","011","Idaho","ID","Bingham County",4030,3250,80.6
+"20081","081","Kansas","KS","Haskell County",310,250,80.6
+"51073","073","Virginia","VA","Gloucester County",2170,1750,80.6
+"28093","093","Mississippi","MS","Marshall County",2270,1830,80.6
+"51053","053","Virginia","VA","Dinwiddie County",1650,1330,80.6
+"55083","083","Wisconsin","WI","Oconto County",2010,1620,80.6
+"13269","269","Georgia","GA","Taylor County",410,330,80.5
+"48255","255","Texas","TX","Karnes County",820,660,80.5
+"20125","125","Kansas","KS","Montgomery County",2100,1690,80.5
+"41057","057","Oregon","OR","Tillamook County",1280,1030,80.5
+"27107","107","Minnesota","MN","Norman County",460,370,80.4
+"37175","175","North Carolina","NC","Transylvania County",1430,1150,80.4
+"18099","099","Indiana","IN","Marshall County",2960,2380,80.4
+"47071","071","Tennessee","TN","Hardin County",1480,1190,80.4
+"18025","025","Indiana","IN","Crawford County",560,450,80.4
+"04009","009","Arizona","AZ","Graham County",3410,2740,80.4
+"41035","035","Oregon","OR","Klamath County",5190,4170,80.3
+"12121","121","Florida","FL","Suwannee County",2440,1960,80.3
+"13273","273","Georgia","GA","Terrell County",610,490,80.3
+"48247","247","Texas","TX","Jim Hogg County",1320,1060,80.3
+"51111","111","Virginia","VA","Lunenburg County",660,530,80.3
+"13199","199","Georgia","GA","Meriwether County",1420,1140,80.3
+"18125","125","Indiana","IN","Pike County",810,650,80.2
+"29113","113","Missouri","MO","Lincoln County",5310,4260,80.2
+"39015","015","Ohio","OH","Brown County",2680,2150,80.2
+"13227","227","Georgia","GA","Pickens County",1920,1540,80.2
+"47013","013","Tennessee","TN","Campbell County",2270,1820,80.2
+"39125","125","Ohio","OH","Paulding County",1310,1050,80.2
+"16045","045","Idaho","ID","Gem County",1410,1130,80.1
+"06019","019","California","CA","Fresno County",86130,68970,80.1
+"06005","005","California","CA","Amador County",1750,1400,80
+"13033","033","Georgia","GA","Burke County",1500,1200,80
+"13155","155","Georgia","GA","Irwin County",600,480,80
+"20147","147","Kansas","KS","Phillips County",250,200,80
+"21161","161","Kentucky","KY","Mason County",1200,960,80
+"21181","181","Kentucky","KY","Nicholas County",450,360,80
+"29103","103","Missouri","MO","Knox County",400,320,80
+"30019","019","Montana","MT","Daniels County",50,40,80
+"31005","005","Nebraska","NE","Arthur County",100,80,80
+"31129","129","Nebraska","NE","Nuckolls County",200,160,80
+"35019","019","New Mexico","NM","Guadalupe County",200,160,80
+"40127","127","Oklahoma","OK","Pushmataha County",650,520,80
+"47133","133","Tennessee","TN","Overton County",1400,1120,80
+"51139","139","Virginia","VA","Page County",1500,1200,80
+"54101","101","West Virginia","WV","Webster County",500,400,80
+"26147","147","Michigan","MI","St. Clair County",9240,7390,80
+"36013","013","New York","NY","Chautauqua County",8280,6620,80
+"36075","075","New York","NY","Oswego County",7630,6100,79.9
+"51019","019","Virginia","VA","Bedford County",4280,3420,79.9
+"01019","019","Alabama","AL","Cherokee County",1190,950,79.8
+"51013","013","Virginia","VA","Arlington County",15470,12350,79.8
+"13083","083","Georgia","GA","Dade County",1090,870,79.8
+"29065","065","Missouri","MO","Dent County",990,790,79.8
+"06105","105","California","CA","Trinity County",790,630,79.7
+"21141","141","Kentucky","KY","Logan County",2320,1850,79.7
+"48497","497","Texas","TX","Wise County",5230,4170,79.7
+"21231","231","Kentucky","KY","Wayne County",1230,980,79.7
+"01045","045","Alabama","AL","Dale County",3540,2820,79.7
+"51149","149","Virginia","VA","Prince George County",2360,1880,79.7
+"20085","085","Kansas","KS","Jackson County",1130,900,79.6
+"20061","061","Kansas","KS","Geary County",5060,4030,79.6
+"47123","123","Tennessee","TN","Monroe County",2750,2190,79.6
+"02198","198","Alaska","AK","Prince of Wales-Hyder Census Area",490,390,79.6
+"51079","079","Virginia","VA","Greene County",1420,1130,79.6
+"39105","105","Ohio","OH","Meigs County",1370,1090,79.6
+"20201","201","Kansas","KS","Washington County",440,350,79.5
+"46045","045","South Dakota","SD","Edmunds County",440,350,79.5
+"18183","183","Indiana","IN","Whitley County",2540,2020,79.5
+"53057","057","Washington","WA","Skagit County",7960,6330,79.5
+"12067","067","Florida","FL","Lafayette County",390,310,79.5
+"55107","107","Wisconsin","WI","Rusk County",780,620,79.5
+"56023","023","Wyoming","WY","Lincoln County",1460,1160,79.5
+"20087","087","Kansas","KS","Jefferson County",1070,850,79.4
+"51001","001","Virginia","VA","Accomack County",1750,1390,79.4
+"40085","085","Oklahoma","OK","Love County",680,540,79.4
+"47111","111","Tennessee","TN","Macon County",2040,1620,79.4
+"26129","129","Michigan","MI","Ogemaw County",1310,1040,79.4
+"47135","135","Tennessee","TN","Perry County",630,500,79.4
+"29181","181","Missouri","MO","Ripley County",920,730,79.3
+"20193","193","Kansas","KS","Thomas County",580,460,79.3
+"29169","169","Missouri","MO","Pulaski County",4350,3450,79.3
+"56011","011","Wyoming","WY","Crook County",580,460,79.3
+"36021","021","New York","NY","Columbia County",2560,2030,79.3
+"29119","119","Missouri","MO","McDonald County",1930,1530,79.3
+"29221","221","Missouri","MO","Washington County",1640,1300,79.3
+"29017","017","Missouri","MO","Bollinger County",770,610,79.2
+"21221","221","Kentucky","KY","Trigg County",1010,800,79.2
+"12003","003","Florida","FL","Baker County",2260,1790,79.2
+"18077","077","Indiana","IN","Jefferson County",2260,1790,79.2
+"49049","049","Utah","UT","Utah County",71640,56740,79.2
+"22111","111","Louisiana","LA","Union Parish",1490,1180,79.2
+"51067","067","Virginia","VA","Franklin County",3170,2510,79.2
+"18173","173","Indiana","IN","Warrick County",4370,3460,79.2
+"05073","073","Arkansas","AR","Lafayette County",240,190,79.2
+"05109","109","Arkansas","AR","Pike County",720,570,79.2
+"22041","041","Louisiana","LA","Franklin Parish",1440,1140,79.2
+"27031","031","Minnesota","MN","Cook County",240,190,79.2
+"30095","095","Montana","MT","Stillwater County",480,380,79.2
+"37103","103","North Carolina","NC","Jones County",480,380,79.2
+"50009","009","Vermont","VT","Essex County",240,190,79.2
+"51157","157","Virginia","VA","Rappahannock County",240,190,79.2
+"38053","053","North Dakota","ND","McKenzie County",1870,1480,79.1
+"37079","079","North Carolina","NC","Greene County",1150,910,79.1
+"18181","181","Indiana","IN","White County",1820,1440,79.1
+"23029","029","Maine","ME","Washington County",1770,1400,79.1
+"54067","067","West Virginia","WV","Nicholas County",1290,1020,79.1
+"13213","213","Georgia","GA","Murray County",2620,2070,79
+"13025","025","Georgia","GA","Brantley County",1000,790,79
+"22011","011","Louisiana","LA","Beauregard Parish",3330,2630,79
+"47115","115","Tennessee","TN","Marion County",1950,1540,79
+"19161","161","Iowa","IA","Sac County",760,600,78.9
+"20105","105","Kansas","KS","Lincoln County",190,150,78.9
+"05057","057","Arkansas","AR","Hempstead County",1660,1310,78.9
+"42119","119","Pennsylvania","PA","Union County",2130,1680,78.9
+"18003","003","Indiana","IN","Allen County",30880,24350,78.9
+"08121","121","Colorado","CO","Washington County",330,260,78.8
+"21189","189","Kentucky","KY","Owsley County",330,260,78.8
+"26051","051","Michigan","MI","Gladwin County",1320,1040,78.8
+"26141","141","Michigan","MI","Presque Isle County",660,520,78.8
+"54017","017","West Virginia","WV","Doddridge County",330,260,78.8
+"06065","065","California","CA","Riverside County",174220,137250,78.8
+"18119","119","Indiana","IN","Owen County",1460,1150,78.8
+"21175","175","Kentucky","KY","Morgan County",800,630,78.8
+"45061","061","South Carolina","SC","Lee County",800,630,78.8
+"42087","087","Pennsylvania","PA","Mifflin County",3290,2590,78.7
+"53011","011","Washington","WA","Clark County",34200,26920,78.7
+"05023","023","Arkansas","AR","Cleburne County",1080,850,78.7
+"21159","159","Kentucky","KY","Martin County",610,480,78.7
+"18117","117","Indiana","IN","Orange County",1500,1180,78.7
+"54057","057","West Virginia","WV","Mineral County",1780,1400,78.7
+"13181","181","Georgia","GA","Lincoln County",420,330,78.6
+"29005","005","Missouri","MO","Atchison County",280,220,78.6
+"29167","167","Missouri","MO","Polk County",2240,1760,78.6
+"04007","007","Arizona","AZ","Gila County",2750,2160,78.5
+"13053","053","Georgia","GA","Chattahoochee County",790,620,78.5
+"29055","055","Missouri","MO","Crawford County",1580,1240,78.5
+"29219","219","Missouri","MO","Warren County",2500,1960,78.4
+"54043","043","West Virginia","WV","Lincoln County",1110,870,78.4
+"55123","123","Wisconsin","WI","Vernon County",2310,1810,78.4
+"29213","213","Missouri","MO","Taney County",3280,2570,78.4
+"13243","243","Georgia","GA","Randolph County",830,650,78.3
+"28065","065","Mississippi","MS","Jefferson Davis County",690,540,78.3
+"48437","437","Texas","TX","Swisher County",690,540,78.3
+"32023","023","Nevada","NV","Nye County",2710,2120,78.2
+"28023","023","Mississippi","MS","Clarke County",1010,790,78.2
+"45011","011","South Carolina","SC","Barnwell County",1560,1220,78.2
+"21023","023","Kentucky","KY","Bracken County",550,430,78.2
+"29125","125","Missouri","MO","Maries County",550,430,78.2
+"18021","021","Indiana","IN","Clay County",2060,1610,78.2
+"05083","083","Arkansas","AR","Logan County",1600,1250,78.1
+"08073","073","Colorado","CO","Lincoln County",320,250,78.1
+"01085","085","Alabama","AL","Lowndes County",730,570,78.1
+"13311","311","Georgia","GA","White County",1460,1140,78.1
+"21041","041","Kentucky","KY","Carroll County",730,570,78.1
+"51051","051","Virginia","VA","Dickenson County",730,570,78.1
+"55049","049","Wisconsin","WI","Iowa County",1550,1210,78.1
+"19165","165","Iowa","IA","Shelby County",910,710,78
+"42111","111","Pennsylvania","PA","Somerset County",4320,3370,78
+"21237","237","Kentucky","KY","Wolfe County",500,390,78
+"12123","123","Florida","FL","Taylor County",1180,920,78
+"24023","023","Maryland","MD","Garrett County",1450,1130,77.9
+"22085","085","Louisiana","LA","Sabine Parish",1540,1200,77.9
+"26149","149","Michigan","MI","St. Joseph County",4030,3140,77.9
+"05135","135","Arkansas","AR","Sharp County",1130,880,77.9
+"48239","239","Texas","TX","Jackson County",1310,1020,77.9
+"05003","003","Arkansas","AR","Ashley County",1400,1090,77.9
+"17203","203","Illinois","IL","Woodford County",2980,2320,77.9
+"15001","001","Hawaii","HI","Hawaii County",12720,9900,77.8
+"12043","043","Florida","FL","Glades County",630,490,77.8
+"21105","105","Kentucky","KY","Hickman County",270,210,77.8
+"28009","009","Mississippi","MS","Benton County",450,350,77.8
+"29185","185","Missouri","MO","St. Clair County",450,350,77.8
+"38043","043","North Dakota","ND","Kidder County",270,210,77.8
+"38055","055","North Dakota","ND","McLean County",720,560,77.8
+"48461","461","Texas","TX","Upton County",90,70,77.8
+"06047","047","California","CA","Merced County",24610,19130,77.7
+"26087","087","Michigan","MI","Lapeer County",4980,3870,77.7
+"55033","033","Wisconsin","WI","Dunn County",2780,2160,77.7
+"23027","027","Maine","ME","Waldo County",2150,1670,77.7
+"45059","059","South Carolina","SC","Laurens County",5010,3890,77.6
+"18127","127","Indiana","IN","Porter County",11040,8570,77.6
+"18137","137","Indiana","IN","Ripley County",2190,1700,77.6
+"29149","149","Missouri","MO","Oregon County",670,520,77.6
+"53065","065","Washington","WA","Stevens County",2990,2320,77.6
+"06115","115","California","CA","Yuba County",7270,5640,77.6
+"28115","115","Mississippi","MS","Pontotoc County",2630,2040,77.6
+"18159","159","Indiana","IN","Tipton County",980,760,77.6
+"29085","085","Missouri","MO","Hickory County",400,310,77.5
+"18059","059","Indiana","IN","Hancock County",5510,4270,77.5
+"26089","089","Michigan","MI","Leelanau County",1110,860,77.5
+"39027","027","Ohio","OH","Clinton County",3240,2510,77.5
+"17015","015","Illinois","IL","Carroll County",710,550,77.5
+"47103","103","Tennessee","TN","Lincoln County",2350,1820,77.4
+"54005","005","West Virginia","WV","Boone County",1330,1030,77.4
+"13037","037","Georgia","GA","Calhoun County",310,240,77.4
+"27093","093","Minnesota","MN","Meeker County",1550,1200,77.4
+"46109","109","South Dakota","SD","Roberts County",840,650,77.4
+"13321","321","Georgia","GA","Worth County",1370,1060,77.4
+"47007","007","Tennessee","TN","Bledsoe County",750,580,77.3
+"05075","075","Arkansas","AR","Lawrence County",1190,920,77.3
+"29209","209","Missouri","MO","Stone County",1630,1260,77.3
+"31035","035","Nebraska","NE","Clay County",440,340,77.3
+"13107","107","Georgia","GA","Emanuel County",1580,1220,77.2
+"36045","045","New York","NY","Jefferson County",9910,7650,77.2
+"21091","091","Kentucky","KY","Hancock County",570,440,77.2
+"47139","139","Tennessee","TN","Polk County",1140,880,77.2
+"13147","147","Georgia","GA","Hart County",1490,1150,77.2
+"36003","003","New York","NY","Allegany County",2760,2130,77.2
+"20057","057","Kansas","KS","Ford County",3460,2670,77.2
+"01065","065","Alabama","AL","Hale County",960,740,77.1
+"20069","069","Kansas","KS","Gray County",480,370,77.1
+"26019","019","Michigan","MI","Benzie County",960,740,77.1
+"29093","093","Missouri","MO","Iron County",480,370,77.1
+"06053","053","California","CA","Monterey County",35290,27200,77.1
+"29003","003","Missouri","MO","Andrew County",1090,840,77.1
+"05113","113","Arkansas","AR","Polk County",1480,1140,77
+"17189","189","Illinois","IL","Washington County",870,670,77
+"01021","021","Alabama","AL","Chilton County",3260,2510,77
+"51143","143","Virginia","VA","Pittsylvania County",2910,2240,77
+"21125","125","Kentucky","KY","Laurel County",3990,3070,76.9
+"05047","047","Arkansas","AR","Franklin County",1040,800,76.9
+"13129","129","Georgia","GA","Gordon County",4030,3100,76.9
+"28125","125","Mississippi","MS","Sharkey County",260,200,76.9
+"42031","031","Pennsylvania","PA","Clarion County",2210,1700,76.9
+"48271","271","Texas","TX","Kinney County",130,100,76.9
+"48385","385","Texas","TX","Real County",130,100,76.9
+"51167","167","Virginia","VA","Russell County",1560,1200,76.9
+"54075","075","West Virginia","WV","Pocahontas County",260,200,76.9
+"47073","073","Tennessee","TN","Hawkins County",3290,2530,76.9
+"37125","125","North Carolina","NC","Moore County",7140,5490,76.9
+"30081","081","Montana","MT","Ravalli County",2120,1630,76.9
+"37133","133","North Carolina","NC","Onslow County",20030,15400,76.9
+"21171","171","Kentucky","KY","Monroe County",820,630,76.8
+"53005","005","Washington","WA","Benton County",15990,12280,76.8
+"51165","165","Virginia","VA","Rockingham County",5510,4230,76.8
+"29215","215","Missouri","MO","Texas County",1420,1090,76.8
+"04021","021","Arizona","AZ","Pinal County",28910,22190,76.8
+"05089","089","Arkansas","AR","Marion County",860,660,76.7
+"13271","271","Georgia","GA","Telfair County",730,560,76.7
+"28139","139","Mississippi","MS","Tippah County",1760,1350,76.7
+"17185","185","Illinois","IL","Wabash County",600,460,76.7
+"20023","023","Kansas","KS","Cheyenne County",300,230,76.7
+"48297","297","Texas","TX","Live Oak County",900,690,76.7
+"19093","093","Iowa","IA","Ida County",470,360,76.6
+"41007","007","Oregon","OR","Clatsop County",2350,1800,76.6
+"18167","167","Indiana","IN","Vigo County",6900,5280,76.5
+"18133","133","Indiana","IN","Putnam County",1830,1400,76.5
+"05021","021","Arkansas","AR","Clay County",1020,780,76.5
+"47173","173","Tennessee","TN","Union County",1360,1040,76.5
+"18149","149","Indiana","IN","Starke County",1400,1070,76.4
+"48077","077","Texas","TX","Clay County",550,420,76.4
+"54103","103","West Virginia","WV","Wetzel County",930,710,76.3
+"01061","061","Alabama","AL","Geneva County",1690,1290,76.3
+"31167","167","Nebraska","NE","Stanton County",380,290,76.3
+"51530","530","Virginia","VA","Buena Vista city",380,290,76.3
+"06015","015","California","CA","Del Norte County",1730,1320,76.3
+"21061","061","Kentucky","KY","Edmonson County",590,450,76.3
+"37117","117","North Carolina","NC","Martin County",1180,900,76.3
+"47145","145","Tennessee","TN","Roane County",2990,2280,76.3
+"55121","121","Wisconsin","WI","Trempealeau County",2990,2280,76.3
+"18143","143","Indiana","IN","Scott County",1810,1380,76.2
+"29109","109","Missouri","MO","Lawrence County",3110,2370,76.2
+"47161","161","Tennessee","TN","Stewart County",1050,800,76.2
+"18049","049","Indiana","IN","Fulton County",1300,990,76.2
+"30035","035","Montana","MT","Glacier County",1090,830,76.1
+"06031","031","California","CA","Kings County",13240,10080,76.1
+"26113","113","Michigan","MI","Missaukee County",1130,860,76.1
+"28123","123","Mississippi","MS","Scott County",1590,1210,76.1
+"28039","039","Mississippi","MS","George County",2510,1910,76.1
+"53073","073","Washington","WA","Whatcom County",12780,9720,76.1
+"37167","167","North Carolina","NC","Stanly County",4210,3200,76
+"01027","027","Alabama","AL","Clay County",1000,760,76
+"06003","003","California","CA","Alpine County",250,190,76
+"28107","107","Mississippi","MS","Panola County",2540,1930,76
+"19005","005","Iowa","IA","Allamakee County",1040,790,76
+"55029","029","Wisconsin","WI","Door County",1330,1010,75.9
+"33003","003","New Hampshire","NH","Carroll County",2410,1830,75.9
+"36077","077","New York","NY","Otsego County",3030,2300,75.9
+"37061","061","North Carolina","NC","Duplin County",3440,2610,75.9
+"42085","085","Pennsylvania","PA","Mercer County",6090,4620,75.9
+"26151","151","Michigan","MI","Sanilac County",2360,1790,75.8
+"53035","035","Washington","WA","Kitsap County",17510,13270,75.8
+"53053","053","Washington","WA","Pierce County",69210,52450,75.8
+"01059","059","Alabama","AL","Franklin County",2640,2000,75.8
+"18101","101","Indiana","IN","Martin County",660,500,75.8
+"37185","185","North Carolina","NC","Warren County",990,750,75.8
+"40067","067","Oklahoma","OK","Jefferson County",330,250,75.8
+"21085","085","Kentucky","KY","Grayson County",2180,1650,75.7
+"26153","153","Michigan","MI","Schoolcraft County",370,280,75.7
+"21047","047","Kentucky","KY","Christian County",8260,6250,75.7
+"13131","131","Georgia","GA","Grady County",1890,1430,75.7
+"16009","009","Idaho","ID","Benewah County",780,590,75.6
+"16039","039","Idaho","ID","Elmore County",2870,2170,75.6
+"46115","115","South Dakota","SD","Spink County",410,310,75.6
+"47159","159","Tennessee","TN","Smith County",1270,960,75.6
+"31041","041","Nebraska","NE","Custer County",860,650,75.6
+"40075","075","Oklahoma","OK","Kiowa County",900,680,75.6
+"46007","007","South Dakota","SD","Bennett County",450,340,75.6
+"55077","077","Wisconsin","WI","Marquette County",900,680,75.6
+"51031","031","Virginia","VA","Campbell County",3270,2470,75.5
+"27075","075","Minnesota","MN","Lake County",490,370,75.5
+"53049","049","Washington","WA","Pacific County",1020,770,75.5
+"41013","013","Oregon","OR","Crook County",1710,1290,75.4
+"49027","027","Utah","UT","Millard County",1140,860,75.4
+"37053","053","North Carolina","NC","Currituck County",1750,1320,75.4
+"21163","163","Kentucky","KY","Meade County",1950,1470,75.4
+"47087","087","Tennessee","TN","Jackson County",650,490,75.4
+"18085","085","Indiana","IN","Kosciusko County",5930,4470,75.4
+"41031","031","Oregon","OR","Jefferson County",1990,1500,75.4
+"55041","041","Wisconsin","WI","Forest County",690,520,75.4
+"40105","105","Oklahoma","OK","Nowata County",850,640,75.3
+"47043","043","Tennessee","TN","Dickson County",3680,2770,75.3
+"13233","233","Georgia","GA","Polk County",3720,2800,75.3
+"39019","019","Ohio","OH","Carroll County",1490,1120,75.2
+"48177","177","Texas","TX","Gonzales County",1530,1150,75.2
+"05005","005","Arkansas","AR","Baxter County",2250,1690,75.1
+"02100","100","Alaska","AK","Haines Borough",40,30,75
+"08113","113","Colorado","CO","San Miguel County",240,180,75
+"13207","207","Georgia","GA","Monroe County",1560,1170,75
+"13267","267","Georgia","GA","Tattnall County",1120,840,75
+"17047","047","Illinois","IL","Edwards County",400,300,75
+"17069","069","Illinois","IL","Hardin County",80,60,75
+"18115","115","Indiana","IN","Ohio County",400,300,75
+"26011","011","Michigan","MI","Arenac County",880,660,75
+"28015","015","Mississippi","MS","Carroll County",560,420,75
+"29111","111","Missouri","MO","Lewis County",640,480,75
+"29195","195","Missouri","MO","Saline County",1560,1170,75
+"29199","199","Missouri","MO","Scotland County",400,300,75
+"38029","029","North Dakota","ND","Emmons County",120,90,75
+"45037","037","South Carolina","SC","Edgefield County",1360,1020,75
+"45049","049","South Carolina","SC","Hampton County",1200,900,75
+"46049","049","South Dakota","SD","Faulk County",160,120,75
+"47095","095","Tennessee","TN","Lake County",240,180,75
+"48405","405","Texas","TX","San Augustine County",320,240,75
+"51173","173","Virginia","VA","Smyth County",1520,1140,75
+"28085","085","Mississippi","MS","Lincoln County",2150,1610,74.9
+"18169","169","Indiana","IN","Wabash County",1990,1490,74.9
+"23007","007","Maine","ME","Franklin County",1670,1250,74.9
+"51145","145","Virginia","VA","Powhatan County",1630,1220,74.8
+"20055","055","Kansas","KS","Finney County",3530,2640,74.8
+"55047","047","Wisconsin","WI","Green Lake County",1150,860,74.8
+"22007","007","Louisiana","LA","Assumption Parish",1110,830,74.8
+"48473","473","Texas","TX","Waller County",4270,3190,74.7
+"08083","083","Colorado","CO","Montezuma County",1580,1180,74.7
+"48131","131","Texas","TX","Duval County",790,590,74.7
+"21119","119","Kentucky","KY","Knott County",750,560,74.7
+"18151","151","Indiana","IN","Steuben County",2090,1560,74.6
+"20079","079","Kansas","KS","Harvey County",2050,1530,74.6
+"20117","117","Kansas","KS","Marshall County",670,500,74.6
+"48185","185","Texas","TX","Grimes County",1930,1440,74.6
+"01123","123","Alabama","AL","Tallapoosa County",2520,1880,74.6
+"18051","051","Indiana","IN","Gibson County",2400,1790,74.6
+"47075","075","Tennessee","TN","Haywood County",1180,880,74.6
+"55015","015","Wisconsin","WI","Calumet County",3340,2490,74.6
+"13183","183","Georgia","GA","Long County",1650,1230,74.5
+"01025","025","Alabama","AL","Clarke County",1610,1200,74.5
+"16017","017","Idaho","ID","Bonner County",2670,1990,74.5
+"51169","169","Virginia","VA","Scott County",1060,790,74.5
+"20121","121","Kansas","KS","Miami County",2080,1550,74.5
+"42127","127","Pennsylvania","PA","Wayne County",2590,1930,74.5
+"17039","039","Illinois","IL","De Witt County",1020,760,74.5
+"19073","073","Iowa","IA","Greene County",510,380,74.5
+"48459","459","Texas","TX","Upshur County",2510,1870,74.5
+"01043","043","Alabama","AL","Cullman County",6390,4760,74.5
+"18093","093","Indiana","IN","Lawrence County",3370,2510,74.5
+"01057","057","Alabama","AL","Fayette County",940,700,74.5
+"26035","035","Michigan","MI","Clare County",1880,1400,74.5
+"40117","117","Oklahoma","OK","Pawnee County",940,700,74.5
+"48019","019","Texas","TX","Bandera County",940,700,74.5
+"41041","041","Oregon","OR","Lincoln County",2310,1720,74.5
+"20015","015","Kansas","KS","Butler County",4580,3410,74.5
+"12047","047","Florida","FL","Hamilton County",900,670,74.4
+"28117","117","Mississippi","MS","Prentiss County",1800,1340,74.4
+"29131","131","Missouri","MO","Miller County",1800,1340,74.4
+"53009","009","Washington","WA","Clallam County",3240,2410,74.4
+"20127","127","Kansas","KS","Morris County",390,290,74.4
+"54063","063","West Virginia","WV","Monroe County",780,580,74.4
+"35031","031","New Mexico","NM","McKinley County",5030,3740,74.4
+"15007","007","Hawaii","HI","Kauai County",4870,3620,74.3
+"21187","187","Kentucky","KY","Owen County",740,550,74.3
+"22075","075","Louisiana","LA","Plaquemines Parish",1790,1330,74.3
+"42039","039","Pennsylvania","PA","Crawford County",5290,3930,74.3
+"13201","201","Georgia","GA","Miller County",350,260,74.3
+"47153","153","Tennessee","TN","Sequatchie County",1050,780,74.3
+"21205","205","Kentucky","KY","Rowan County",1320,980,74.2
+"19043","043","Iowa","IA","Clayton County",1280,950,74.2
+"55023","023","Wisconsin","WI","Crawford County",930,690,74.2
+"55053","053","Wisconsin","WI","Jackson County",1510,1120,74.2
+"17149","149","Illinois","IL","Pike County",1200,890,74.2
+"20011","011","Kansas","KS","Bourbon County",890,660,74.2
+"51197","197","Virginia","VA","Wythe County",1780,1320,74.2
+"01071","071","Alabama","AL","Jackson County",3360,2490,74.1
+"26107","107","Michigan","MI","Mecosta County",2510,1860,74.1
+"36033","033","New York","NY","Franklin County",2470,1830,74.1
+"06077","077","California","CA","San Joaquin County",61680,45690,74.1
+"01075","075","Alabama","AL","Lamar County",1080,800,74.1
+"01127","127","Alabama","AL","Walker County",4280,3170,74.1
+"18165","165","Indiana","IN","Vermillion County",1040,770,74
+"51093","093","Virginia","VA","Isle of Wight County",2460,1820,74
+"48035","035","Texas","TX","Bosque County",960,710,74
+"37033","033","North Carolina","NC","Caswell County",1150,850,73.9
+"36087","087","New York","NY","Rockland County",33410,24690,73.9
+"29105","105","Missouri","MO","Laclede County",2950,2180,73.9
+"18039","039","Indiana","IN","Elkhart County",18110,13380,73.9
+"37047","047","North Carolina","NC","Columbus County",3060,2260,73.9
+"26061","061","Michigan","MI","Houghton County",2180,1610,73.9
+"30049","049","Montana","MT","Lewis and Clark County",4930,3640,73.8
+"51147","147","Virginia","VA","Prince Edward County",1070,790,73.8
+"42025","025","Pennsylvania","PA","Carbon County",3930,2900,73.8
+"20131","131","Kansas","KS","Nemaha County",800,590,73.8
+"48379","379","Texas","TX","Rains County",570,420,73.7
+"51185","185","Virginia","VA","Tazewell County",2280,1680,73.7
+"42065","065","Pennsylvania","PA","Jefferson County",2810,2070,73.7
+"51187","187","Virginia","VA","Warren County",2350,1730,73.6
+"20067","067","Kansas","KS","Grant County",720,530,73.6
+"48501","501","Texas","TX","Yoakum County",720,530,73.6
+"53021","021","Washington","WA","Franklin County",9760,7180,73.6
+"48013","013","Texas","TX","Atascosa County",4080,3000,73.5
+"21157","157","Kentucky","KY","Marshall County",1850,1360,73.5
+"37031","031","North Carolina","NC","Carteret County",2790,2050,73.5
+"30001","001","Montana","MT","Beaverhead County",490,360,73.5
+"01067","067","Alabama","AL","Henry County",940,690,73.4
+"48387","387","Texas","TX","Red River County",940,690,73.4
+"54001","001","West Virginia","WV","Barbour County",940,690,73.4
+"55115","115","Wisconsin","WI","Shawano County",2480,1820,73.4
+"49003","003","Utah","UT","Box Elder County",5070,3720,73.4
+"12013","013","Florida","FL","Calhoun County",750,550,73.3
+"13187","187","Georgia","GA","Lumpkin County",1650,1210,73.3
+"27073","073","Minnesota","MN","Lac qui Parle County",450,330,73.3
+"31049","049","Nebraska","NE","Deuel County",150,110,73.3
+"38075","075","North Dakota","ND","Renville County",150,110,73.3
+"46023","023","South Dakota","SD","Charles Mix County",1050,770,73.3
+"06107","107","California","CA","Tulare County",41730,30600,73.3
+"16075","075","Idaho","ID","Payette County",1830,1340,73.2
+"35059","059","New Mexico","NM","Union County",410,300,73.2
+"27001","001","Minnesota","MN","Aitkin County",670,490,73.1
+"36037","037","New York","NY","Genesee County",3460,2530,73.1
+"39031","031","Ohio","OH","Coshocton County",2900,2120,73.1
+"13143","143","Georgia","GA","Haralson County",2080,1520,73.1
+"26031","031","Michigan","MI","Cheboygan County",1300,950,73.1
+"46101","101","South Dakota","SD","Moody County",520,380,73.1
+"18001","001","Indiana","IN","Adams County",3710,2710,73
+"54029","029","West Virginia","WV","Hancock County",1520,1110,73
+"26039","039","Michigan","MI","Crawford County",630,460,73
+"53025","025","Washington","WA","Grant County",8370,6110,73
+"27081","081","Minnesota","MN","Lincoln County",370,270,73
+"54041","041","West Virginia","WV","Lewis County",960,700,72.9
+"21071","071","Kentucky","KY","Floyd County",2510,1830,72.9
+"22069","069","Louisiana","LA","Natchitoches Parish",2540,1850,72.8
+"38061","061","North Dakota","ND","Mountrail County",920,670,72.8
+"22117","117","Louisiana","LA","Washington Parish",3420,2490,72.8
+"20199","199","Kansas","KS","Wallace County",110,80,72.7
+"21233","233","Kentucky","KY","Webster County",990,720,72.7
+"48327","327","Texas","TX","Menard County",110,80,72.7
+"48365","365","Texas","TX","Panola County",1540,1120,72.7
+"48417","417","Texas","TX","Shackelford County",220,160,72.7
+"53055","055","Washington","WA","San Juan County",770,560,72.7
+"37161","161","North Carolina","NC","Rutherford County",3700,2690,72.7
+"08045","045","Colorado","CO","Garfield County",4760,3460,72.7
+"51061","061","Virginia","VA","Fauquier County",5160,3750,72.7
+"48493","493","Texas","TX","Wilson County",3730,2710,72.7
+"36099","099","New York","NY","Seneca County",2230,1620,72.6
+"47185","185","Tennessee","TN","White County",1900,1380,72.6
+"51195","195","Virginia","VA","Wise County",1900,1380,72.6
+"13029","029","Georgia","GA","Bryan County",3980,2890,72.6
+"21223","223","Kentucky","KY","Trimble County",400,290,72.5
+"31161","161","Nebraska","NE","Sheridan County",400,290,72.5
+"56009","009","Wyoming","WY","Converse County",1090,790,72.5
+"37107","107","North Carolina","NC","Lenoir County",3630,2630,72.5
+"27115","115","Minnesota","MN","Pine County",1850,1340,72.4
+"48107","107","Texas","TX","Crosby County",290,210,72.4
+"40123","123","Oklahoma","OK","Pontotoc County",2970,2150,72.4
+"28143","143","Mississippi","MS","Tunica County",1050,760,72.4
+"40107","107","Oklahoma","OK","Okfuskee County",650,470,72.3
+"49047","047","Utah","UT","Uintah County",3250,2350,72.3
+"36107","107","New York","NY","Tioga County",3430,2480,72.3
+"40083","083","Oklahoma","OK","Logan County",3140,2270,72.3
+"48053","053","Texas","TX","Burnet County",3320,2400,72.3
+"39073","073","Ohio","OH","Hocking County",1910,1380,72.3
+"26015","015","Michigan","MI","Barry County",3890,2810,72.2
+"05147","147","Arkansas","AR","Woodruff County",360,260,72.2
+"13085","085","Georgia","GA","Dawson County",1980,1430,72.2
+"16059","059","Idaho","ID","Lemhi County",360,260,72.2
+"17175","175","Illinois","IL","Stark County",360,260,72.2
+"28021","021","Mississippi","MS","Claiborne County",540,390,72.2
+"38057","057","North Dakota","ND","Mercer County",540,390,72.2
+"39111","111","Ohio","OH","Monroe County",720,520,72.2
+"53041","041","Washington","WA","Lewis County",5400,3900,72.2
+"16047","047","Idaho","ID","Gooding County",1330,960,72.2
+"17061","061","Illinois","IL","Greene County",790,570,72.2
+"47021","021","Tennessee","TN","Cheatham County",2690,1940,72.1
+"28161","161","Mississippi","MS","Yalobusha County",860,620,72.1
+"21001","001","Kentucky","KY","Adair County",930,670,72
+"13027","027","Georgia","GA","Brooks County",1180,850,72
+"21081","081","Kentucky","KY","Grant County",2000,1440,72
+"55127","127","Wisconsin","WI","Walworth County",5780,4160,72
+"42093","093","Pennsylvania","PA","Montour County",1320,950,72
+"22059","059","Louisiana","LA","LaSalle Parish",1070,770,72
+"48373","373","Texas","TX","Polk County",3100,2230,71.9
+"08003","003","Colorado","CO","Alamosa County",1140,820,71.9
+"22029","029","Louisiana","LA","Concordia Parish",1210,870,71.9
+"13193","193","Georgia","GA","Macon County",640,460,71.9
+"30085","085","Montana","MT","Roosevelt County",960,690,71.9
+"01093","093","Alabama","AL","Marion County",1990,1430,71.9
+"18031","031","Indiana","IN","Decatur County",1740,1250,71.8
+"51155","155","Virginia","VA","Pulaski County",1740,1250,71.8
+"01115","115","Alabama","AL","St. Clair County",6210,4460,71.8
+"04011","011","Arizona","AZ","Greenlee County",920,660,71.7
+"26029","029","Michigan","MI","Charlevoix County",1380,990,71.7
+"48175","175","Texas","TX","Goliad County",460,330,71.7
+"54065","065","West Virginia","WV","Morgan County",990,710,71.7
+"28099","099","Mississippi","MS","Neshoba County",2510,1800,71.7
+"05149","149","Arkansas","AR","Yell County",1590,1140,71.7
+"32019","019","Nevada","NV","Lyon County",4200,3010,71.7
+"47079","079","Tennessee","TN","Henry County",1940,1390,71.6
+"37163","163","North Carolina","NC","Sampson County",4550,3260,71.6
+"37173","173","North Carolina","NC","Swain County",670,480,71.6
+"39175","175","Ohio","OH","Wyandot County",1340,960,71.6
+"40011","011","Oklahoma","OK","Blaine County",670,480,71.6
+"55065","065","Wisconsin","WI","Lafayette County",1340,960,71.6
+"56041","041","Wyoming","WY","Uinta County",1410,1010,71.6
+"12075","075","Florida","FL","Levy County",2290,1640,71.6
+"12131","131","Florida","FL","Walton County",5270,3770,71.5
+"51047","047","Virginia","VA","Culpeper County",4250,3040,71.5
+"21043","043","Kentucky","KY","Carter County",1860,1330,71.5
+"21193","193","Kentucky","KY","Perry County",2000,1430,71.5
+"13265","265","Georgia","GA","Taliaferro County",140,100,71.4
+"13287","287","Georgia","GA","Turner County",910,650,71.4
+"19011","011","Iowa","IA","Benton County",1750,1250,71.4
+"20063","063","Kansas","KS","Gove County",210,150,71.4
+"22013","013","Louisiana","LA","Bienville Parish",1050,750,71.4
+"23003","003","Maine","ME","Aroostook County",3990,2850,71.4
+"29173","173","Missouri","MO","Ralls County",630,450,71.4
+"31125","125","Nebraska","NE","Nance County",280,200,71.4
+"35039","039","New Mexico","NM","Rio Arriba County",2240,1600,71.4
+"37037","037","North Carolina","NC","Chatham County",4410,3150,71.4
+"39053","053","Ohio","OH","Gallia County",2380,1700,71.4
+"46037","037","South Dakota","SD","Day County",350,250,71.4
+"48009","009","Texas","TX","Archer County",560,400,71.4
+"49031","031","Utah","UT","Piute County",70,50,71.4
+"39127","127","Ohio","OH","Perry County",2550,1820,71.4
+"51191","191","Virginia","VA","Washington County",2550,1820,71.4
+"50017","017","Vermont","VT","Orange County",1570,1120,71.3
+"51023","023","Virginia","VA","Botetourt County",1880,1340,71.3
+"54035","035","West Virginia","WV","Jackson County",1670,1190,71.3
+"47069","069","Tennessee","TN","Hardeman County",1600,1140,71.2
+"36095","095","New York","NY","Schoharie County",1390,990,71.2
+"48051","051","Texas","TX","Burleson County",1390,990,71.2
+"22031","031","Louisiana","LA","De Soto Parish",1910,1360,71.2
+"51009","009","Virginia","VA","Amherst County",1700,1210,71.2
+"45027","027","South Carolina","SC","Clarendon County",1560,1110,71.2
+"29107","107","Missouri","MO","Lafayette County",1970,1400,71.1
+"47077","077","Tennessee","TN","Henderson County",1970,1400,71.1
+"23017","017","Maine","ME","Oxford County",2660,1890,71.1
+"29015","015","Missouri","MO","Benton County",1000,710,71
+"12087","087","Florida","FL","Monroe County",4240,3010,71
+"54025","025","West Virginia","WV","Greenbrier County",1930,1370,71
+"17141","141","Illinois","IL","Ogle County",3480,2470,71
+"20157","157","Kansas","KS","Republic County",310,220,71
+"42117","117","Pennsylvania","PA","Tioga County",2370,1680,70.9
+"48343","343","Texas","TX","Morris County",790,560,70.9
+"05015","015","Arkansas","AR","Carroll County",1820,1290,70.9
+"16031","031","Idaho","ID","Cassia County",2470,1750,70.9
+"31133","133","Nebraska","NE","Pawnee County",240,170,70.8
+"37085","085","North Carolina","NC","Harnett County",12170,8620,70.8
+"36071","071","New York","NY","Orange County",32440,22970,70.8
+"26059","059","Michigan","MI","Hillsdale County",2740,1940,70.8
+"36121","121","New York","NY","Wyoming County",2020,1430,70.8
+"17011","011","Illinois","IL","Bureau County",2190,1550,70.8
+"27089","089","Minnesota","MN","Marshall County",650,460,70.8
+"18103","103","Indiana","IN","Miami County",2220,1570,70.7
+"46093","093","South Dakota","SD","Meade County",1810,1280,70.7
+"26143","143","Michigan","MI","Roscommon County",990,700,70.7
+"55003","003","Wisconsin","WI","Ashland County",990,700,70.7
+"05133","133","Arkansas","AR","Sevier County",1330,940,70.7
+"19075","075","Iowa","IA","Grundy County",750,530,70.7
+"28005","005","Mississippi","MS","Amite County",750,530,70.7
+"55081","081","Wisconsin","WI","Monroe County",3710,2620,70.6
+"33005","005","New Hampshire","NH","Cheshire County",4150,2930,70.6
+"21133","133","Kentucky","KY","Letcher County",1190,840,70.6
+"27045","045","Minnesota","MN","Fillmore County",1190,840,70.6
+"39083","083","Ohio","OH","Knox County",4520,3190,70.6
+"39079","079","Ohio","OH","Jackson County",2580,1820,70.5
+"47047","047","Tennessee","TN","Fayette County",2580,1820,70.5
+"53007","007","Washington","WA","Chelan County",5190,3660,70.5
+"29225","225","Missouri","MO","Webster County",3490,2460,70.5
+"12059","059","Florida","FL","Holmes County",1050,740,70.5
+"06093","093","California","CA","Siskiyou County",2370,1670,70.5
+"28063","063","Mississippi","MS","Jefferson County",440,310,70.5
+"54073","073","West Virginia","WV","Pleasants County",440,310,70.5
+"45081","081","South Carolina","SC","Saluda County",1150,810,70.4
+"17067","067","Illinois","IL","Hancock County",980,690,70.4
+"12035","035","Florida","FL","Flagler County",5000,3520,70.4
+"55137","137","Wisconsin","WI","Waushara County",1250,880,70.4
+"23009","009","Maine","ME","Hancock County",2770,1950,70.4
+"53045","045","Washington","WA","Mason County",3680,2590,70.4
+"22027","027","Louisiana","LA","Claiborne Parish",810,570,70.4
+"22127","127","Louisiana","LA","Winn Parish",810,570,70.4
+"29143","143","Missouri","MO","New Madrid County",1080,760,70.4
+"13119","119","Georgia","GA","Franklin County",1720,1210,70.3
+"28137","137","Mississippi","MS","Tate County",1820,1280,70.3
+"29229","229","Missouri","MO","Wright County",1550,1090,70.3
+"48055","055","Texas","TX","Caldwell County",3400,2390,70.3
+"45029","029","South Carolina","SC","Colleton County",2490,1750,70.3
+"13303","303","Georgia","GA","Washington County",1110,780,70.3
+"21127","127","Kentucky","KY","Lawrence County",1110,780,70.3
+"30071","071","Montana","MT","Phillips County",370,260,70.3
+"47143","143","Tennessee","TN","Rhea County",2690,1890,70.3
+"48291","291","Texas","TX","Liberty County",8910,6260,70.3
+"48021","021","Texas","TX","Bastrop County",8270,5810,70.3
+"29013","013","Missouri","MO","Bates County",1310,920,70.2
+"05081","081","Arkansas","AR","Little River County",940,660,70.2
+"18095","095","Indiana","IN","Madison County",8760,6150,70.2
+"51117","117","Virginia","VA","Mecklenburg County",1980,1390,70.2
+"17079","079","Illinois","IL","Jasper County",570,400,70.2
+"40145","145","Oklahoma","OK","Wagoner County",5830,4090,70.2
+"51131","131","Virginia","VA","Northampton County",670,470,70.1
+"18179","179","Indiana","IN","Wells County",2110,1480,70.1
+"29089","089","Missouri","MO","Howard County",770,540,70.1
+"28013","013","Mississippi","MS","Calhoun County",870,610,70.1
+"36043","043","New York","NY","Herkimer County",3370,2360,70
+"08023","023","Colorado","CO","Costilla County",200,140,70
+"17157","157","Illinois","IL","Randolph County",1600,1120,70
+"19001","001","Iowa","IA","Adair County",600,420,70
+"19159","159","Iowa","IA","Ringgold County",300,210,70
+"20185","185","Kansas","KS","Stafford County",300,210,70
+"31139","139","Nebraska","NE","Pierce County",700,490,70
+"37131","131","North Carolina","NC","Northampton County",1000,700,70
+"38051","051","North Dakota","ND","McIntosh County",100,70,70
+"38063","063","North Dakota","ND","Nelson County",200,140,70
+"48217","217","Texas","TX","Hill County",2530,1770,70
+"36123","123","New York","NY","Yates County",1830,1280,69.9
+"29001","001","Missouri","MO","Adair County",1630,1140,69.9
+"18139","139","Indiana","IN","Rush County",930,650,69.9
+"26157","157","Michigan","MI","Tuscola County",3120,2180,69.9
+"19025","025","Iowa","IA","Calhoun County",730,510,69.9
+"20159","159","Kansas","KS","Rice County",730,510,69.9
+"39117","117","Ohio","OH","Morrow County",2190,1530,69.9
+"41019","019","Oregon","OR","Douglas County",5900,4120,69.8
+"12079","079","Florida","FL","Madison County",1160,810,69.8
+"30067","067","Montana","MT","Park County",1060,740,69.8
+"37169","169","North Carolina","NC","Stokes County",2150,1500,69.8
+"48015","015","Texas","TX","Austin County",2050,1430,69.8
+"41049","049","Oregon","OR","Morrow County",990,690,69.7
+"22081","081","Louisiana","LA","Red River Parish",560,390,69.6
+"40049","049","Oklahoma","OK","Garvin County",1910,1330,69.6
+"28095","095","Mississippi","MS","Monroe County",2270,1580,69.6
+"32003","003","Nevada","NV","Clark County",157390,109480,69.6
+"13087","087","Georgia","GA","Decatur County",2560,1780,69.5
+"29029","029","Missouri","MO","Camden County",2330,1620,69.5
+"05121","121","Arkansas","AR","Randolph County",1310,910,69.5
+"39047","047","Ohio","OH","Fayette County",2030,1410,69.5
+"13013","013","Georgia","GA","Barrow County",7170,4980,69.5
+"13195","195","Georgia","GA","Madison County",2290,1590,69.4
+"05009","009","Arkansas","AR","Boone County",2320,1610,69.4
+"46079","079","South Dakota","SD","Lake County",490,340,69.4
+"06109","109","California","CA","Tuolumne County",2710,1880,69.4
+"21229","229","Kentucky","KY","Washington County",1110,770,69.4
+"41043","043","Oregon","OR","Linn County",8650,6000,69.4
+"17127","127","Illinois","IL","Massac County",620,430,69.4
+"48147","147","Texas","TX","Fannin County",2020,1400,69.3
+"05053","053","Arkansas","AR","Grant County",1270,880,69.3
+"26117","117","Michigan","MI","Montcalm County",4070,2820,69.3
+"47055","055","Tennessee","TN","Giles County",2050,1420,69.3
+"47155","155","Tennessee","TN","Sevier County",6310,4370,69.3
+"47099","099","Tennessee","TN","Lawrence County",3610,2500,69.3
+"01035","035","Alabama","AL","Conecuh County",650,450,69.2
+"01091","091","Alabama","AL","Marengo County",1300,900,69.2
+"01131","131","Alabama","AL","Wilcox County",780,540,69.2
+"13319","319","Georgia","GA","Wilkinson County",520,360,69.2
+"16035","035","Idaho","ID","Clearwater County",390,270,69.2
+"20167","167","Kansas","KS","Russell County",390,270,69.2
+"40055","055","Oklahoma","OK","Greer County",260,180,69.2
+"46043","043","South Dakota","SD","Douglas County",260,180,69.2
+"46069","069","South Dakota","SD","Hyde County",130,90,69.2
+"46073","073","South Dakota","SD","Jerauld County",130,90,69.2
+"48287","287","Texas","TX","Lee County",1430,990,69.2
+"48403","403","Texas","TX","Sabine County",780,540,69.2
+"48165","165","Texas","TX","Gaines County",2760,1910,69.2
+"42071","071","Pennsylvania","PA","Lancaster County",42080,29110,69.2
+"36017","017","New York","NY","Chenango County",2790,1930,69.2
+"16049","049","Idaho","ID","Idaho County",940,650,69.1
+"21203","203","Kentucky","KY","Rockcastle County",940,650,69.1
+"45025","025","South Carolina","SC","Chesterfield County",2820,1950,69.1
+"17129","129","Illinois","IL","Menard County",810,560,69.1
+"19167","167","Iowa","IA","Sioux County",2980,2060,69.1
+"29207","207","Missouri","MO","Stoddard County",2170,1500,69.1
+"20161","161","Kansas","KS","Riley County",4630,3200,69.1
+"49001","001","Utah","UT","Beaver County",550,380,69.1
+"36089","089","New York","NY","St. Lawrence County",6430,4440,69.1
+"19023","023","Iowa","IA","Butler County",840,580,69
+"47023","023","Tennessee","TN","Chester County",1260,870,69
+"39071","071","Ohio","OH","Highland County",3230,2230,69
+"47105","105","Tennessee","TN","Loudon County",3100,2140,69
+"50015","015","Vermont","VT","Lamoille County",1580,1090,69
+"31027","027","Nebraska","NE","Cedar County",580,400,69
+"18029","029","Indiana","IN","Dearborn County",3250,2240,68.9
+"18109","109","Indiana","IN","Morgan County",4660,3210,68.9
+"01133","133","Alabama","AL","Winston County",1220,840,68.9
+"55005","005","Wisconsin","WI","Barron County",3050,2100,68.9
+"19137","137","Iowa","IA","Montgomery County",770,530,68.8
+"17147","147","Illinois","IL","Piatt County",930,640,68.8
+"18033","033","Indiana","IN","DeKalb County",3270,2250,68.8
+"27153","153","Minnesota","MN","Todd County",2180,1500,68.8
+"12007","007","Florida","FL","Bradford County",1570,1080,68.8
+"01079","079","Alabama","AL","Lawrence County",2050,1410,68.8
+"20135","135","Kansas","KS","Ness County",160,110,68.8
+"21115","115","Kentucky","KY","Johnson County",1280,880,68.8
+"21153","153","Kentucky","KY","Magoffin County",800,550,68.8
+"29087","087","Missouri","MO","Holt County",160,110,68.8
+"47029","029","Tennessee","TN","Cocke County",2750,1890,68.7
+"47035","035","Tennessee","TN","Cumberland County",3130,2150,68.7
+"13161","161","Georgia","GA","Jeff Davis County",990,680,68.7
+"18053","053","Indiana","IN","Grant County",4630,3180,68.7
+"42005","005","Pennsylvania","PA","Armstrong County",3480,2390,68.7
+"30013","013","Montana","MT","Cascade County",6350,4360,68.7
+"13283","283","Georgia","GA","Treutlen County",510,350,68.6
+"01051","051","Alabama","AL","Elmore County",5510,3780,68.6
+"13015","015","Georgia","GA","Bartow County",7800,5350,68.6
+"21097","097","Kentucky","KY","Harrison County",1560,1070,68.6
+"17169","169","Illinois","IL","Schuyler County",350,240,68.6
+"40015","015","Oklahoma","OK","Caddo County",1750,1200,68.6
+"55027","027","Wisconsin","WI","Dodge County",4510,3090,68.5
+"05033","033","Arkansas","AR","Crawford County",4570,3130,68.5
+"19039","039","Iowa","IA","Clarke County",920,630,68.5
+"55111","111","Wisconsin","WI","Sauk County",4250,2910,68.5
+"53075","075","Washington","WA","Whitman County",2250,1540,68.4
+"20037","037","Kansas","KS","Crawford County",2630,1800,68.4
+"19003","003","Iowa","IA","Adams County",190,130,68.4
+"31021","021","Nebraska","NE","Burt County",380,260,68.4
+"40095","095","Oklahoma","OK","Marshall County",1140,780,68.4
+"42015","015","Pennsylvania","PA","Bradford County",3800,2600,68.4
+"48119","119","Texas","TX","Delta County",570,390,68.4
+"01053","053","Alabama","AL","Escambia County",2880,1970,68.4
+"55071","071","Wisconsin","WI","Manitowoc County",5660,3870,68.4
+"32013","013","Nevada","NV","Humboldt County",1390,950,68.3
+"05079","079","Arkansas","AR","Lincoln County",600,410,68.3
+"28067","067","Mississippi","MS","Jones County",5400,3690,68.3
+"51183","183","Virginia","VA","Sussex County",600,410,68.3
+"20021","021","Kansas","KS","Cherokee County",1420,970,68.3
+"53047","047","Washington","WA","Okanogan County",2840,1940,68.3
+"32033","033","Nevada","NV","White Pine County",410,280,68.3
+"27087","087","Minnesota","MN","Mahnomen County",630,430,68.3
+"42063","063","Pennsylvania","PA","Indiana County",4410,3010,68.3
+"26133","133","Michigan","MI","Osceola County",1480,1010,68.2
+"40073","073","Oklahoma","OK","Kingfisher County",1070,730,68.2
+"28019","019","Mississippi","MS","Choctaw County",440,300,68.2
+"37137","137","North Carolina","NC","Pamlico County",440,300,68.2
+"47033","033","Tennessee","TN","Crockett County",1100,750,68.2
+"48123","123","Texas","TX","DeWitt County",1320,900,68.2
+"18135","135","Indiana","IN","Randolph County",1820,1240,68.1
+"13295","295","Georgia","GA","Walker County",4330,2950,68.1
+"45033","033","South Carolina","SC","Dillon County",2510,1710,68.1
+"48325","325","Texas","TX","Medina County",3230,2200,68.1
+"29007","007","Missouri","MO","Audrain County",1850,1260,68.1
+"29163","163","Missouri","MO","Pike County",940,640,68.1
+"39149","149","Ohio","OH","Shelby County",3570,2430,68.1
+"13305","305","Georgia","GA","Wayne County",1910,1300,68.1
+"21183","183","Kentucky","KY","Ohio County",1690,1150,68
+"01111","111","Alabama","AL","Randolph County",1500,1020,68
+"13055","055","Georgia","GA","Chattooga County",1500,1020,68
+"48425","425","Texas","TX","Somervell County",500,340,68
+"29027","027","Missouri","MO","Callaway County",2780,1890,68
+"21177","177","Kentucky","KY","Muhlenberg County",1870,1270,67.9
+"54049","049","West Virginia","WV","Marion County",3300,2240,67.9
+"53027","027","Washington","WA","Grays Harbor County",4570,3100,67.8
+"42061","061","Pennsylvania","PA","Huntingdon County",2080,1410,67.8
+"53061","061","Washington","WA","Snohomish County",61630,41750,67.7
+"37151","151","North Carolina","NC","Randolph County",9760,6610,67.7
+"30047","047","Montana","MT","Lake County",1950,1320,67.7
+"40103","103","Oklahoma","OK","Noble County",650,440,67.7
+"42001","001","Pennsylvania","PA","Adams County",5930,4010,67.6
+"18017","017","Indiana","IN","Cass County",2470,1670,67.6
+"49053","053","Utah","UT","Washington County",13210,8930,67.6
+"20005","005","Kansas","KS","Atchison County",1080,730,67.6
+"21225","225","Kentucky","KY","Union County",740,500,67.6
+"26137","137","Michigan","MI","Otsego County",1540,1040,67.5
+"17139","139","Illinois","IL","Moultrie County",800,540,67.5
+"31051","051","Nebraska","NE","Dixon County",400,270,67.5
+"33007","007","New Hampshire","NH","Coos County",1200,810,67.5
+"29009","009","Missouri","MO","Barry County",2890,1950,67.5
+"30041","041","Montana","MT","Hill County",1660,1120,67.5
+"29211","211","Missouri","MO","Sullivan County",430,290,67.4
+"49043","043","Utah","UT","Summit County",2180,1470,67.4
+"22077","077","Louisiana","LA","Pointe Coupee Parish",1380,930,67.4
+"37159","159","North Carolina","NC","Rowan County",9840,6630,67.4
+"48161","161","Texas","TX","Freestone County",1500,1010,67.3
+"13179","179","Georgia","GA","Liberty County",7800,5250,67.3
+"19007","007","Iowa","IA","Appanoose County",520,350,67.3
+"53037","037","Washington","WA","Kittitas County",2140,1440,67.3
+"21191","191","Kentucky","KY","Pendleton County",1100,740,67.3
+"54099","099","West Virginia","WV","Wayne County",2200,1480,67.3
+"18071","071","Indiana","IN","Jackson County",4030,2710,67.2
+"55085","085","Wisconsin","WI","Oneida County",1740,1170,67.2
+"55091","091","Wisconsin","WI","Pepin County",580,390,67.2
+"48331","331","Texas","TX","Milam County",1770,1190,67.2
+"13237","237","Georgia","GA","Putnam County",1250,840,67.2
+"31093","093","Nebraska","NE","Howard County",640,430,67.2
+"51640","640","Virginia","VA","Galax city",640,430,67.2
+"55011","011","Wisconsin","WI","Buffalo County",640,430,67.2
+"39097","097","Ohio","OH","Madison County",2590,1740,67.2
+"05127","127","Arkansas","AR","Scott County",670,450,67.2
+"26053","053","Michigan","MI","Gogebic County",670,450,67.2
+"27173","173","Minnesota","MN","Yellow Medicine County",700,470,67.1
+"33009","009","New Hampshire","NH","Grafton County",4230,2840,67.1
+"36057","057","New York","NY","Montgomery County",3530,2370,67.1
+"21137","137","Kentucky","KY","Lincoln County",1520,1020,67.1
+"40069","069","Oklahoma","OK","Johnston County",760,510,67.1
+"51043","043","Virginia","VA","Clarke County",790,530,67.1
+"01083","083","Alabama","AL","Limestone County",7320,4910,67.1
+"51600","600","Virginia","VA","Fairfax city",2460,1650,67.1
+"05017","017","Arkansas","AR","Chicot County",850,570,67.1
+"51800","800","Virginia","VA","Suffolk city",6920,4640,67.1
+"01029","029","Alabama","AL","Cleburne County",1030,690,67
+"22121","121","Louisiana","LA","West Baton Rouge Parish",2150,1440,67
+"37057","057","North Carolina","NC","Davidson County",11100,7430,66.9
+"47003","003","Tennessee","TN","Bedford County",3750,2510,66.9
+"08107","107","Colorado","CO","Routt County",1270,850,66.9
+"51003","003","Virginia","VA","Albemarle County",6500,4350,66.9
+"12063","063","Florida","FL","Jackson County",3050,2040,66.9
+"17075","075","Illinois","IL","Iroquois County",1720,1150,66.9
+"05145","145","Arkansas","AR","White County",5250,3510,66.9
+"37153","153","North Carolina","NC","Richmond County",3530,2360,66.9
+"42097","097","Pennsylvania","PA","Northumberland County",5730,3830,66.8
+"20045","045","Kansas","KS","Douglas County",6030,4030,66.8
+"36025","025","New York","NY","Delaware County",2410,1610,66.8
+"36053","053","New York","NY","Madison County",3880,2590,66.8
+"04012","012","Arizona","AZ","La Paz County",810,540,66.7
+"05039","039","Arkansas","AR","Dallas County",360,240,66.7
+"08053","053","Colorado","CO","Hinsdale County",30,20,66.7
+"13081","081","Georgia","GA","Crisp County",1590,1060,66.7
+"13091","091","Georgia","GA","Dodge County",1080,720,66.7
+"13249","249","Georgia","GA","Schley County",150,100,66.7
+"13309","309","Georgia","GA","Wheeler County",360,240,66.7
+"19071","071","Iowa","IA","Fremont County",300,200,66.7
+"20093","093","Kansas","KS","Kearny County",330,220,66.7
+"21143","143","Kentucky","KY","Lyon County",450,300,66.7
+"21197","197","Kentucky","KY","Powell County",900,600,66.7
+"29073","073","Missouri","MO","Gasconade County",1020,680,66.7
+"31069","069","Nebraska","NE","Garden County",120,80,66.7
+"31163","163","Nebraska","NE","Sherman County",240,160,66.7
+"40153","153","Oklahoma","OK","Woodward County",1410,940,66.7
+"48023","023","Texas","TX","Baylor County",270,180,66.7
+"48299","299","Texas","TX","Llano County",990,660,66.7
+"54089","089","West Virginia","WV","Summers County",390,260,66.7
+"18089","089","Indiana","IN","Lake County",34680,23080,66.6
+"30111","111","Montana","MT","Yellowstone County",11740,7810,66.5
+"48419","419","Texas","TX","Shelby County",1940,1290,66.5
+"39037","037","Ohio","OH","Darke County",3700,2460,66.5
+"18047","047","Indiana","IN","Franklin County",1640,1090,66.5
+"22083","083","Louisiana","LA","Richland Parish",1520,1010,66.4
+"29071","071","Missouri","MO","Franklin County",7330,4870,66.4
+"42055","055","Pennsylvania","PA","Franklin County",10270,6820,66.4
+"28007","007","Mississippi","MS","Attala County",1250,830,66.4
+"48279","279","Texas","TX","Lamb County",1190,790,66.4
+"29147","147","Missouri","MO","Nodaway County",1130,750,66.4
+"40041","041","Oklahoma","OK","Delaware County",2260,1500,66.4
+"08123","123","Colorado","CO","Weld County",28010,18590,66.4
+"18081","081","Indiana","IN","Johnson County",11350,7530,66.3
+"20139","139","Kansas","KS","Osage County",980,650,66.3
+"28147","147","Mississippi","MS","Walthall County",920,610,66.3
+"17099","099","Illinois","IL","LaSalle County",6380,4230,66.3
+"35006","006","New Mexico","NM","Cibola County",1750,1160,66.3
+"17045","045","Illinois","IL","Edgar County",860,570,66.3
+"21065","065","Kentucky","KY","Estill County",860,570,66.3
+"37071","071","North Carolina","NC","Gaston County",16210,10740,66.3
+"45069","069","South Carolina","SC","Marlboro County",1450,960,66.2
+"05111","111","Arkansas","AR","Poinsett County",1420,940,66.2
+"27057","057","Minnesota","MN","Hubbard County",1390,920,66.2
+"47167","167","Tennessee","TN","Tipton County",4080,2700,66.2
+"22097","097","Louisiana","LA","St. Landry Parish",6820,4510,66.1
+"18005","005","Indiana","IN","Bartholomew County",6520,4310,66.1
+"01095","095","Alabama","AL","Marshall County",8990,5940,66.1
+"17145","145","Illinois","IL","Perry County",1120,740,66.1
+"29135","135","Missouri","MO","Moniteau County",1120,740,66.1
+"48241","241","Texas","TX","Jasper County",2180,1440,66.1
+"37171","171","North Carolina","NC","Surry County",4500,2970,66
+"45005","005","South Carolina","SC","Allendale County",470,310,66
+"37041","041","North Carolina","NC","Chowan County",910,600,65.9
+"04005","005","Arizona","AZ","Coconino County",8480,5590,65.9
+"08125","125","Colorado","CO","Yuma County",880,580,65.9
+"13173","173","Georgia","GA","Lanier County",880,580,65.9
+"42121","121","Pennsylvania","PA","Venango County",2900,1910,65.9
+"31011","011","Nebraska","NE","Boone County",410,270,65.9
+"37073","073","North Carolina","NC","Gates County",410,270,65.9
+"06045","045","California","CA","Mendocino County",6230,4100,65.8
+"26067","067","Michigan","MI","Ionia County",4270,2810,65.8
+"29083","083","Missouri","MO","Henry County",1550,1020,65.8
+"27105","105","Minnesota","MN","Nobles County",2310,1520,65.8
+"22009","009","Louisiana","LA","Avoyelles Parish",3070,2020,65.8
+"08043","043","Colorado","CO","Fremont County",2250,1480,65.8
+"20059","059","Kansas","KS","Franklin County",1490,980,65.8
+"55017","017","Wisconsin","WI","Chippewa County",4060,2670,65.8
+"47031","031","Tennessee","TN","Coffee County",4380,2880,65.8
+"38073","073","North Dakota","ND","Ransom County",350,230,65.7
+"28109","109","Mississippi","MS","Pearl River County",3790,2490,65.7
+"47005","005","Tennessee","TN","Benton County",1020,670,65.7
+"45009","009","South Carolina","SC","Bamberg County",670,440,65.7
+"08029","029","Colorado","CO","Delta County",1630,1070,65.6
+"01087","087","Alabama","AL","Macon County",1280,840,65.6
+"55093","093","Wisconsin","WI","Pierce County",2820,1850,65.6
+"40081","081","Oklahoma","OK","Lincoln County",2180,1430,65.6
+"08007","007","Colorado","CO","Archuleta County",610,400,65.6
+"05103","103","Arkansas","AR","Ouachita County",1510,990,65.6
+"28017","017","Mississippi","MS","Chickasaw County",1450,950,65.5
+"48073","073","Texas","TX","Cherokee County",3910,2560,65.5
+"37059","059","North Carolina","NC","Davie County",2490,1630,65.5
+"19121","121","Iowa","IA","Madison County",1100,720,65.5
+"42047","047","Pennsylvania","PA","Elk County",1650,1080,65.5
+"37157","157","North Carolina","NC","Rockingham County",5520,3610,65.4
+"19077","077","Iowa","IA","Guthrie County",520,340,65.4
+"48467","467","Texas","TX","Van Zandt County",4360,2850,65.4
+"28127","127","Mississippi","MS","Simpson County",2050,1340,65.4
+"39013","013","Ohio","OH","Belmont County",3580,2340,65.4
+"05115","115","Arkansas","AR","Pope County",4560,2980,65.4
+"48363","363","Texas","TX","Palo Pinto County",2020,1320,65.3
+"08085","085","Colorado","CO","Montrose County",2510,1640,65.3
+"13171","171","Georgia","GA","Lamar County",1240,810,65.3
+"09150","150","Connecticut","CT","Northeastern Connecticut",5190,3390,65.3
+"26013","013","Michigan","MI","Baraga County",490,320,65.3
+"48253","253","Texas","TX","Jones County",980,640,65.3
+"31089","089","Nebraska","NE","Holt County",720,470,65.3
+"28003","003","Mississippi","MS","Alcorn County",2390,1560,65.3
+"13189","189","Georgia","GA","McDuffie County",1180,770,65.3
+"54097","097","West Virginia","WV","Upshur County",1410,920,65.2
+"17033","033","Illinois","IL","Crawford County",1150,750,65.2
+"48159","159","Texas","TX","Franklin County",690,450,65.2
+"49017","017","Utah","UT","Garfield County",230,150,65.2
+"17051","051","Illinois","IL","Fayette County",1580,1030,65.2
+"48395","395","Texas","TX","Robertson County",1550,1010,65.2
+"35007","007","New Mexico","NM","Colfax County",660,430,65.2
+"46067","067","South Dakota","SD","Hutchinson County",660,430,65.2
+"05043","043","Arkansas","AR","Drew County",1290,840,65.1
+"20137","137","Kansas","KS","Norton County",430,280,65.1
+"18069","069","Indiana","IN","Huntington County",2350,1530,65.1
+"47085","085","Tennessee","TN","Humphreys County",1060,690,65.1
+"39169","169","Ohio","OH","Wayne County",8890,5780,65
+"17155","155","Illinois","IL","Putnam County",400,260,65
+"30007","007","Montana","MT","Broadwater County",400,260,65
+"38067","067","North Dakota","ND","Pembina County",400,260,65
+"48065","065","Texas","TX","Carson County",400,260,65
+"48391","391","Texas","TX","Refugio County",400,260,65
+"53015","015","Washington","WA","Cowlitz County",7450,4840,65
+"21215","215","Kentucky","KY","Spencer County",1370,890,65
+"54047","047","West Virginia","WV","McDowell County",970,630,64.9
+"21149","149","Kentucky","KY","McLean County",570,370,64.9
+"30053","053","Montana","MT","Lincoln County",1140,740,64.9
+"48007","007","Texas","TX","Aransas County",1140,740,64.9
+"37189","189","North Carolina","NC","Watauga County",1510,980,64.9
+"17049","049","Illinois","IL","Effingham County",2990,1940,64.9
+"42007","007","Pennsylvania","PA","Beaver County",9850,6390,64.9
+"48097","097","Texas","TX","Cooke County",3300,2140,64.8
+"12093","093","Florida","FL","Okeechobee County",2730,1770,64.8
+"05049","049","Arkansas","AR","Fulton County",710,460,64.8
+"54053","053","West Virginia","WV","Mason County",1590,1030,64.8
+"37013","013","North Carolina","NC","Beaufort County",2270,1470,64.8
+"04023","023","Arizona","AZ","Santa Cruz County",3460,2240,64.7
+"48221","221","Texas","TX","Hood County",4140,2680,64.7
+"26005","005","Michigan","MI","Allegan County",8620,5580,64.7
+"23023","023","Maine","ME","Sagadahoc County",1870,1210,64.7
+"29041","041","Missouri","MO","Chariton County",510,330,64.7
+"31077","077","Nebraska","NE","Greeley County",170,110,64.7
+"13177","177","Georgia","GA","Lee County",2520,1630,64.7
+"17191","191","Illinois","IL","Wayne County",960,620,64.6
+"47147","147","Tennessee","TN","Robertson County",5610,3620,64.5
+"17197","197","Illinois","IL","Will County",46110,29750,64.5
+"30077","077","Montana","MT","Powell County",310,200,64.5
+"37077","077","North Carolina","NC","Granville County",3860,2490,64.5
+"41011","011","Oregon","OR","Coos County",3550,2290,64.5
+"13205","205","Georgia","GA","Mitchell County",1380,890,64.5
+"19119","119","Iowa","IA","Lyon County",1070,690,64.5
+"47177","177","Tennessee","TN","Warren County",2900,1870,64.5
+"47117","117","Tennessee","TN","Marshall County",2360,1520,64.4
+"30027","027","Montana","MT","Fergus County",730,470,64.4
+"05059","059","Arkansas","AR","Hot Spring County",2130,1370,64.3
+"08025","025","Colorado","CO","Crowley County",140,90,64.3
+"20205","205","Kansas","KS","Wilson County",560,360,64.3
+"27021","021","Minnesota","MN","Cass County",1680,1080,64.3
+"40013","013","Oklahoma","OK","Bryan County",3640,2340,64.3
+"46027","027","South Dakota","SD","Clay County",980,630,64.3
+"48283","283","Texas","TX","La Salle County",140,90,64.3
+"35061","061","New Mexico","NM","Valencia County",4870,3130,64.3
+"20111","111","Kansas","KS","Lyon County",2070,1330,64.3
+"22057","057","Louisiana","LA","Lafourche Parish",7380,4740,64.2
+"51199","199","Virginia","VA","York County",4500,2890,64.2
+"01005","005","Alabama","AL","Barbour County",1620,1040,64.2
+"27029","029","Minnesota","MN","Clearwater County",530,340,64.2
+"28037","037","Mississippi","MS","Franklin County",530,340,64.2
+"35043","043","New Mexico","NM","Sandoval County",8550,5480,64.1
+"22047","047","Louisiana","LA","Iberville Parish",1920,1230,64.1
+"38099","099","North Dakota","ND","Walsh County",640,410,64.1
+"40033","033","Oklahoma","OK","Cotton County",250,160,64
+"28153","153","Mississippi","MS","Wayne County",1610,1030,64
+"26069","069","Michigan","MI","Iosco County",1470,940,63.9
+"06057","057","California","CA","Nevada County",5320,3400,63.9
+"48199","199","Texas","TX","Hardin County",4350,2780,63.9
+"13103","103","Georgia","GA","Effingham County",5230,3340,63.9
+"06039","039","California","CA","Madera County",13140,8390,63.9
+"47183","183","Tennessee","TN","Weakley County",1770,1130,63.8
+"22053","053","Louisiana","LA","Jefferson Davis Parish",2710,1730,63.8
+"42051","051","Pennsylvania","PA","Fayette County",7600,4850,63.8
+"20027","027","Kansas","KS","Clay County",580,370,63.8
+"20151","151","Kansas","KS","Pratt County",580,370,63.8
+"29091","091","Missouri","MO","Howell County",2870,1830,63.8
+"23015","015","Maine","ME","Lincoln County",1930,1230,63.7
+"21155","155","Kentucky","KY","Marion County",1570,1000,63.7
+"40057","057","Oklahoma","OK","Harmon County",110,70,63.6
+"54109","109","West Virginia","WV","Wyoming County",990,630,63.6
+"55073","073","Wisconsin","WI","Marathon County",8880,5650,63.6
+"36115","115","New York","NY","Washington County",3160,2010,63.6
+"47059","059","Tennessee","TN","Greene County",3790,2410,63.6
+"42089","089","Pennsylvania","PA","Monroe County",9830,6250,63.6
+"55009","009","Wisconsin","WI","Brown County",18850,11980,63.6
+"29099","099","Missouri","MO","Jefferson County",15410,9790,63.5
+"27135","135","Minnesota","MN","Roseau County",850,540,63.5
+"12055","055","Florida","FL","Highlands County",4770,3030,63.5
+"28069","069","Mississippi","MS","Kemper County",630,400,63.5
+"37001","001","North Carolina","NC","Alamance County",12480,7920,63.5
+"13075","075","Georgia","GA","Cook County",1530,970,63.4
+"28105","105","Mississippi","MS","Oktibbeha County",2840,1800,63.4
+"12119","119","Florida","FL","Sumter County",2920,1850,63.4
+"19029","029","Iowa","IA","Cass County",600,380,63.3
+"37017","017","North Carolina","NC","Bladen County",1800,1140,63.3
+"39059","059","Ohio","OH","Guernsey County",2400,1520,63.3
+"48205","205","Texas","TX","Hartley County",300,190,63.3
+"54045","045","West Virginia","WV","Logan County",1990,1260,63.3
+"41065","065","Oregon","OR","Wasco County",1690,1070,63.3
+"51089","089","Virginia","VA","Henry County",2970,1880,63.3
+"37111","111","North Carolina","NC","McDowell County",1960,1240,63.3
+"05063","063","Arkansas","AR","Independence County",2830,1790,63.3
+"19171","171","Iowa","IA","Tama County",1170,740,63.2
+"38079","079","North Dakota","ND","Rolette County",1060,670,63.2
+"51083","083","Virginia","VA","Halifax County",2010,1270,63.2
+"36065","065","New York","NY","Oneida County",15720,9930,63.2
+"20113","113","Kansas","KS","McPherson County",1900,1200,63.2
+"27061","061","Minnesota","MN","Itasca County",2470,1560,63.2
+"48127","127","Texas","TX","Dimmit County",760,480,63.2
+"49029","029","Utah","UT","Morgan County",1030,650,63.1
+"48341","341","Texas","TX","Moore County",2330,1470,63.1
+"17077","077","Illinois","IL","Jackson County",3440,2170,63.1
+"37091","091","North Carolina","NC","Hertford County",1110,700,63.1
+"28157","157","Mississippi","MS","Wilkinson County",460,290,63
+"47017","017","Tennessee","TN","Carroll County",1730,1090,63
+"30031","031","Montana","MT","Gallatin County",6750,4250,63
+"46123","123","South Dakota","SD","Tripp County",540,340,63
+"20013","013","Kansas","KS","Brown County",620,390,62.9
+"45043","043","South Carolina","SC","Georgetown County",3100,1950,62.9
+"55021","021","Wisconsin","WI","Columbia County",3720,2340,62.9
+"39135","135","Ohio","OH","Preble County",2560,1610,62.9
+"55043","043","Wisconsin","WI","Grant County",3340,2100,62.9
+"55097","097","Wisconsin","WI","Portage County",3690,2320,62.9
+"40001","001","Oklahoma","OK","Adair County",1480,930,62.8
+"48223","223","Texas","TX","Hopkins County",2690,1690,62.8
+"06033","033","California","CA","Lake County",4330,2720,62.8
+"19129","129","Iowa","IA","Mills County",940,590,62.8
+"47009","009","Tennessee","TN","Blount County",8190,5140,62.8
+"27143","143","Minnesota","MN","Sibley County",1020,640,62.7
+"37179","179","North Carolina","NC","Union County",15420,9670,62.7
+"17105","105","Illinois","IL","Livingston County",2600,1630,62.7
+"13167","167","Georgia","GA","Johnson County",670,420,62.7
+"51790","790","Virginia","VA","Staunton city",2010,1260,62.7
+"31039","039","Nebraska","NE","Cuming County",750,470,62.7
+"21151","151","Kentucky","KY","Madison County",6450,4040,62.6
+"29177","177","Missouri","MO","Ray County",1550,970,62.6
+"49045","045","Utah","UT","Tooele County",6520,4080,62.6
+"26127","127","Michigan","MI","Oceana County",1710,1070,62.6
+"48367","367","Texas","TX","Parker County",11480,7180,62.5
+"01013","013","Alabama","AL","Butler County",1200,750,62.5
+"29045","045","Missouri","MO","Clark County",640,400,62.5
+"31065","065","Nebraska","NE","Furnas County",320,200,62.5
+"31143","143","Nebraska","NE","Polk County",320,200,62.5
+"47097","097","Tennessee","TN","Lauderdale County",1920,1200,62.5
+"48191","191","Texas","TX","Hall County",160,100,62.5
+"48267","267","Texas","TX","Kimble County",320,200,62.5
+"13157","157","Georgia","GA","Jackson County",5570,3480,62.5
+"06089","089","California","CA","Shasta County",12060,7530,62.4
+"47165","165","Tennessee","TN","Sumner County",14100,8800,62.4
+"22089","089","Louisiana","LA","St. Charles Parish",3270,2040,62.4
+"19069","069","Iowa","IA","Franklin County",850,530,62.4
+"48063","063","Texas","TX","Camp County",770,480,62.3
+"05055","055","Arkansas","AR","Greene County",3450,2150,62.3
+"29049","049","Missouri","MO","Clinton County",1300,810,62.3
+"17089","089","Illinois","IL","Kane County",36810,22930,62.3
+"39167","167","Ohio","OH","Washington County",3420,2130,62.3
+"24037","037","Maryland","MD","St. Mary's County",8720,5430,62.3
+"31127","127","Nebraska","NE","Nemaha County",530,330,62.3
+"12107","107","Florida","FL","Putnam County",4580,2850,62.2
+"26063","063","Michigan","MI","Huron County",1720,1070,62.2
+"06101","101","California","CA","Sutter County",7170,4460,62.2
+"38077","077","North Dakota","ND","Richland County",1190,740,62.2
+"48213","213","Texas","TX","Henderson County",5260,3270,62.2
+"04027","027","Arizona","AZ","Yuma County",16960,10540,62.1
+"47063","063","Tennessee","TN","Hamblen County",5150,3200,62.1
+"39157","157","Ohio","OH","Tuscarawas County",7160,4440,62
+"04015","015","Arizona","AZ","Mohave County",10500,6510,62
+"08055","055","Colorado","CO","Huerfano County",500,310,62
+"42033","033","Pennsylvania","PA","Clearfield County",4210,2610,62
+"17183","183","Illinois","IL","Vermilion County",5260,3260,62
+"26023","023","Michigan","MI","Branch County",3310,2050,61.9
+"19017","017","Iowa","IA","Bremer County",1970,1220,61.9
+"23025","025","Maine","ME","Somerset County",2940,1820,61.9
+"48411","411","Texas","TX","San Saba County",420,260,61.9
+"05061","061","Arkansas","AR","Howard County",970,600,61.9
+"05029","029","Arkansas","AR","Conway County",1520,940,61.8
+"45073","073","South Carolina","SC","Oconee County",4350,2690,61.8
+"37067","067","North Carolina","NC","Forsyth County",26970,16670,61.8
+"51095","095","Virginia","VA","James City County",4920,3040,61.8
+"13049","049","Georgia","GA","Charlton County",680,420,61.8
+"51830","830","Virginia","VA","Williamsburg city",340,210,61.8
+"30029","029","Montana","MT","Flathead County",6850,4230,61.8
+"54083","083","West Virginia","WV","Randolph County",1490,920,61.7
+"22105","105","Louisiana","LA","Tangipahoa Parish",10660,6580,61.7
+"19065","065","Iowa","IA","Fayette County",1280,790,61.7
+"19015","015","Iowa","IA","Boone County",1750,1080,61.7
+"05037","037","Arkansas","AR","Cross County",1410,870,61.7
+"28071","071","Mississippi","MS","Lafayette County",3290,2030,61.7
+"55131","131","Wisconsin","WI","Washington County",8120,5010,61.7
+"18177","177","Indiana","IN","Wayne County",4280,2640,61.7
+"46081","081","South Dakota","SD","Lawrence County",1070,660,61.7
+"22061","061","Louisiana","LA","Lincoln Parish",2790,1720,61.6
+"19089","089","Iowa","IA","Howard County",860,530,61.6
+"22101","101","Louisiana","LA","St. Mary Parish",3930,2420,61.6
+"40091","091","Oklahoma","OK","McIntosh County",1300,800,61.5
+"49039","039","Utah","UT","Sanpete County",1950,1200,61.5
+"55031","031","Wisconsin","WI","Douglas County",2520,1550,61.5
+"45055","055","South Carolina","SC","Kershaw County",4780,2940,61.5
+"26043","043","Michigan","MI","Dickinson County",1480,910,61.5
+"48281","281","Texas","TX","Lampasas County",1270,780,61.4
+"37165","165","North Carolina","NC","Scotland County",2410,1480,61.4
+"27033","033","Minnesota","MN","Cottonwood County",880,540,61.4
+"39137","137","Ohio","OH","Putnam County",2640,1620,61.4
+"22099","099","Louisiana","LA","St. Martin Parish",3930,2410,61.3
+"42125","125","Pennsylvania","PA","Washington County",12870,7890,61.3
+"20153","153","Kansas","KS","Rawlins County",310,190,61.3
+"17043","043","Illinois","IL","DuPage County",63220,38720,61.2
+"55105","105","Wisconsin","WI","Rock County",11220,6870,61.2
+"19173","173","Iowa","IA","Taylor County",490,300,61.2
+"48225","225","Texas","TX","Houston County",1340,820,61.2
+"13223","223","Georgia","GA","Paulding County",12910,7900,61.2
+"24029","029","Maryland","MD","Kent County",850,520,61.2
+"27059","059","Minnesota","MN","Isanti County",2910,1780,61.2
+"20035","035","Kansas","KS","Cowley County",2240,1370,61.2
+"19055","055","Iowa","IA","Delaware County",1210,740,61.2
+"13139","139","Georgia","GA","Hall County",15110,9240,61.2
+"21167","167","Kentucky","KY","Mercer County",1850,1130,61.1
+"06095","095","California","CA","Solano County",31430,19180,61
+"06067","067","California","CA","Sacramento County",115150,70220,61
+"48499","499","Texas","TX","Wood County",2460,1500,61
+"39005","005","Ohio","OH","Ashland County",3330,2030,61
+"40047","047","Oklahoma","OK","Garfield County",4760,2900,60.9
+"18105","105","Indiana","IN","Monroe County",7010,4270,60.9
+"27023","023","Minnesota","MN","Chippewa County",1100,670,60.9
+"46011","011","South Dakota","SD","Brookings County",2480,1510,60.9
+"31097","097","Nebraska","NE","Johnson County",230,140,60.9
+"31173","173","Nebraska","NE","Thurston County",690,420,60.9
+"01031","031","Alabama","AL","Coffee County",4210,2560,60.8
+"48455","455","Texas","TX","Trinity County",510,310,60.8
+"41029","029","Oregon","OR","Jackson County",12830,7790,60.7
+"20039","039","Kansas","KS","Decatur County",280,170,60.7
+"13313","313","Georgia","GA","Whitfield County",7910,4800,60.7
+"17055","055","Illinois","IL","Franklin County",2690,1630,60.6
+"39171","171","Ohio","OH","Williams County",2360,1430,60.6
+"21095","095","Kentucky","KY","Harlan County",2030,1230,60.6
+"47189","189","Tennessee","TN","Wilson County",10680,6470,60.6
+"37105","105","North Carolina","NC","Lee County",4920,2980,60.6
+"12089","089","Florida","FL","Nassau County",5270,3190,60.5
+"30101","101","Montana","MT","Toole County",380,230,60.5
+"23013","013","Maine","ME","Knox County",2000,1210,60.5
+"51041","041","Virginia","VA","Chesterfield County",26240,15870,60.5
+"44005","005","Rhode Island","RI","Newport County",4200,2540,60.5
+"31185","185","Nebraska","NE","York County",860,520,60.5
+"36073","073","New York","NY","Orleans County",2150,1300,60.5
+"47119","119","Tennessee","TN","Maury County",8220,4970,60.5
+"36101","101","New York","NY","Steuben County",6070,3670,60.5
+"01099","099","Alabama","AL","Monroe County",910,550,60.4
+"47101","101","Tennessee","TN","Lewis County",910,550,60.4
+"06027","027","California","CA","Inyo County",1060,640,60.4
+"27071","071","Minnesota","MN","Koochiching County",580,350,60.3
+"08041","041","Colorado","CO","El Paso County",55410,33430,60.3
+"47179","179","Tennessee","TN","Washington County",7760,4680,60.3
+"42123","123","Pennsylvania","PA","Warren County",2620,1580,60.3
+"49013","013","Utah","UT","Duchesne County",1990,1200,60.3
+"19117","117","Iowa","IA","Lucas County",680,410,60.3
+"36009","009","New York","NY","Cattaraugus County",4910,2960,60.3
+"26159","159","Michigan","MI","Van Buren County",5210,3140,60.3
+"29165","165","Missouri","MO","Platte County",7600,4580,60.3
+"42129","129","Pennsylvania","PA","Westmoreland County",17920,10780,60.2
+"16083","083","Idaho","ID","Twin Falls County",7050,4240,60.1
+"45075","075","South Carolina","SC","Orangeburg County",5440,3270,60.1
+"28059","059","Mississippi","MS","Jackson County",9850,5920,60.1
+"45067","067","South Carolina","SC","Marion County",2080,1250,60.1
+"17081","081","Illinois","IL","Jefferson County",2730,1640,60.1
+"22115","115","Louisiana","LA","Vernon Parish",4530,2720,60
+"21079","079","Kentucky","KY","Garrard County",1000,600,60
+"27005","005","Minnesota","MN","Becker County",2650,1590,60
+"27155","155","Minnesota","MN","Traverse County",250,150,60
+"29075","075","Missouri","MO","Gentry County",500,300,60
+"31087","087","Nebraska","NE","Hitchcock County",150,90,60
+"31181","181","Nebraska","NE","Webster County",250,150,60
+"37003","003","North Carolina","NC","Alexander County",2250,1350,60
+"48133","133","Texas","TX","Eastland County",1250,750,60
+"56015","015","Wyoming","WY","Goshen County",1000,600,60
+"06017","017","California","CA","El Dorado County",10220,6130,60
+"39029","029","Ohio","OH","Columbiana County",5870,3520,60
+"55135","135","Wisconsin","WI","Waupaca County",3070,1840,59.9
+"18063","063","Indiana","IN","Hendricks County",12180,7300,59.9
+"51065","065","Virginia","VA","Fluvanna County",1670,1000,59.9
+"17007","007","Illinois","IL","Boone County",3510,2100,59.8
+"54019","019","West Virginia","WV","Fayette County",2340,1400,59.8
+"20041","041","Kansas","KS","Dickinson County",1120,670,59.8
+"47107","107","Tennessee","TN","McMinn County",3480,2080,59.8
+"37197","197","North Carolina","NC","Yadkin County",2410,1440,59.8
+"55069","069","Wisconsin","WI","Lincoln County",1910,1140,59.7
+"26033","033","Michigan","MI","Chippewa County",1860,1110,59.7
+"49023","023","Utah","UT","Juab County",1240,740,59.7
+"13297","297","Georgia","GA","Walton County",7040,4200,59.7
+"51121","121","Virginia","VA","Montgomery County",4610,2750,59.7
+"17023","023","Illinois","IL","Clark County",1140,680,59.6
+"37045","045","North Carolina","NC","Cleveland County",7060,4210,59.6
+"40029","029","Oklahoma","OK","Coal County",470,280,59.6
+"48193","193","Texas","TX","Hamilton County",470,280,59.6
+"42075","075","Pennsylvania","PA","Lebanon County",9300,5540,59.6
+"39069","069","Ohio","OH","Henry County",1830,1090,59.6
+"35017","017","New Mexico","NM","Grant County",1360,810,59.6
+"19037","037","Iowa","IA","Chickasaw County",890,530,59.6
+"49007","007","Utah","UT","Carbon County",1730,1030,59.5
+"40065","065","Oklahoma","OK","Jackson County",2150,1280,59.5
+"08049","049","Colorado","CO","Grand County",840,500,59.5
+"29101","101","Missouri","MO","Johnson County",4150,2470,59.5
+"29115","115","Missouri","MO","Linn County",790,470,59.5
+"26007","007","Michigan","MI","Alpena County",1530,910,59.5
+"13253","253","Georgia","GA","Seminole County",370,220,59.5
+"40005","005","Oklahoma","OK","Atoka County",740,440,59.5
+"28045","045","Mississippi","MS","Hancock County",2390,1420,59.4
+"24041","041","Maryland","MD","Talbot County",2020,1200,59.4
+"31031","031","Nebraska","NE","Cherry County",320,190,59.4
+"34029","029","New Jersey","NJ","Ocean County",55390,32880,59.4
+"41001","001","Oregon","OR","Baker County",910,540,59.3
+"16069","069","Idaho","ID","Nez Perce County",3000,1780,59.3
+"37021","021","North Carolina","NC","Buncombe County",15540,9220,59.3
+"55055","055","Wisconsin","WI","Jefferson County",5010,2970,59.3
+"56029","029","Wyoming","WY","Park County",1890,1120,59.3
+"51760","760","Virginia","VA","Richmond city",15770,9340,59.2
+"42133","133","Pennsylvania","PA","York County",30460,18040,59.2
+"21173","173","Kentucky","KY","Montgomery County",1790,1060,59.2
+"13069","069","Georgia","GA","Coffee County",3480,2060,59.2
+"28091","091","Mississippi","MS","Marion County",1740,1030,59.2
+"56019","019","Wyoming","WY","Johnson County",490,290,59.2
+"39051","051","Ohio","OH","Fulton County",2890,1710,59.2
+"55057","057","Wisconsin","WI","Juneau County",1420,840,59.2
+"13073","073","Georgia","GA","Columbia County",11940,7060,59.1
+"36079","079","New York","NY","Putnam County",5820,3440,59.1
+"31147","147","Nebraska","NE","Richardson County",440,260,59.1
+"26115","115","Michigan","MI","Monroe County",9790,5780,59
+"54037","037","West Virginia","WV","Jefferson County",3540,2090,59
+"19031","031","Iowa","IA","Cedar County",1000,590,59
+"29217","217","Missouri","MO","Vernon County",1390,820,59
+"06069","069","California","CA","San Benito County",4950,2920,59
+"13191","191","Georgia","GA","McIntosh County",390,230,59
+"20099","099","Kansas","KS","Labette County",1560,920,59
+"54003","003","West Virginia","WV","Berkeley County",9140,5390,59
+"01039","039","Alabama","AL","Covington County",2680,1580,59
+"28141","141","Mississippi","MS","Tishomingo County",1290,760,58.9
+"42021","021","Pennsylvania","PA","Cambria County",7350,4330,58.9
+"28163","163","Mississippi","MS","Yazoo County",1800,1060,58.9
+"12017","017","Florida","FL","Citrus County",6250,3680,58.9
+"47125","125","Tennessee","TN","Montgomery County",21520,12670,58.9
+"29157","157","Missouri","MO","Perry County",1410,830,58.9
+"17195","195","Illinois","IL","Whiteside County",3500,2060,58.9
+"21029","029","Kentucky","KY","Bullitt County",5200,3060,58.8
+"17005","005","Illinois","IL","Bond County",680,400,58.8
+"20123","123","Kansas","KS","Mitchell County",340,200,58.8
+"31155","155","Nebraska","NE","Saunders County",1530,900,58.8
+"48203","203","Texas","TX","Harrison County",4880,2870,58.8
+"37097","097","North Carolina","NC","Iredell County",12000,7050,58.8
+"21207","207","Kentucky","KY","Russell County",1260,740,58.7
+"48231","231","Texas","TX","Hunt County",7240,4250,58.7
+"21199","199","Kentucky","KY","Pulaski County",4770,2800,58.7
+"01003","003","Alabama","AL","Baldwin County",15640,9180,58.7
+"21057","057","Kentucky","KY","Cumberland County",460,270,58.7
+"48305","305","Texas","TX","Lynn County",460,270,58.7
+"21101","101","Kentucky","KY","Henderson County",3120,1830,58.7
+"12039","039","Florida","FL","Gadsden County",3070,1800,58.6
+"39129","129","Ohio","OH","Pickaway County",3890,2280,58.6
+"12069","069","Florida","FL","Lake County",23610,13830,58.6
+"29031","031","Missouri","MO","Cape Girardeau County",6030,3530,58.5
+"38009","009","North Dakota","ND","Bottineau County",410,240,58.5
+"51550","550","Virginia","VA","Chesapeake city",18630,10900,58.5
+"13217","217","Georgia","GA","Newton County",8530,4990,58.5
+"21109","109","Kentucky","KY","Jackson County",1060,620,58.5
+"12037","037","Florida","FL","Franklin County",650,380,58.5
+"55109","109","Wisconsin","WI","St. Croix County",6090,3560,58.5
+"28145","145","Mississippi","MS","Union County",2190,1280,58.4
+"49005","005","Utah","UT","Cache County",12680,7410,58.4
+"40131","131","Oklahoma","OK","Rogers County",6640,3880,58.4
+"55113","113","Wisconsin","WI","Sawyer County",1010,590,58.4
+"42037","037","Pennsylvania","PA","Columbia County",3510,2050,58.4
+"18043","043","Indiana","IN","Floyd County",5360,3130,58.4
+"13045","045","Georgia","GA","Carroll County",9300,5430,58.4
+"24035","035","Maryland","MD","Queen Anne's County",3100,1810,58.4
+"13133","133","Georgia","GA","Greene County",960,560,58.3
+"17083","083","Illinois","IL","Jersey County",1200,700,58.3
+"20077","077","Kansas","KS","Harper County",360,210,58.3
+"31071","071","Nebraska","NE","Garfield County",120,70,58.3
+"31149","149","Nebraska","NE","Rock County",120,70,58.3
+"38081","081","North Dakota","ND","Sargent County",240,140,58.3
+"48195","195","Texas","TX","Hansford County",480,280,58.3
+"56031","031","Wyoming","WY","Platte County",480,280,58.3
+"04025","025","Arizona","AZ","Yavapai County",10790,6290,58.3
+"32001","001","Nevada","NV","Churchill County",1870,1090,58.3
+"48071","071","Texas","TX","Chambers County",3740,2180,58.3
+"21113","113","Kentucky","KY","Jessamine County",3760,2190,58.2
+"21009","009","Kentucky","KY","Barren County",3160,1840,58.2
+"18041","041","Indiana","IN","Fayette County",1530,890,58.2
+"38059","059","North Dakota","ND","Morton County",2510,1460,58.2
+"26057","057","Michigan","MI","Gratiot County",2390,1390,58.2
+"53067","067","Washington","WA","Thurston County",19950,11600,58.1
+"19019","019","Iowa","IA","Buchanan County",1720,1000,58.1
+"38021","021","North Dakota","ND","Dickey County",430,250,58.1
+"01081","081","Alabama","AL","Lee County",11770,6840,58.1
+"17135","135","Illinois","IL","Montgomery County",1480,860,58.1
+"40089","089","Oklahoma","OK","McCurtain County",2410,1400,58.1
+"17009","009","Illinois","IL","Brown County",310,180,58.1
+"56003","003","Wyoming","WY","Big Horn County",620,360,58.1
+"21179","179","Kentucky","KY","Nelson County",3600,2090,58.1
+"37055","055","North Carolina","NC","Dare County",2050,1190,58
+"31131","131","Nebraska","NE","Otoe County",1120,650,58
+"28027","027","Mississippi","MS","Coahoma County",1930,1120,58
+"17063","063","Illinois","IL","Grundy County",4050,2350,58
+"17085","085","Illinois","IL","Jo Daviess County",1000,580,58
+"41037","037","Oregon","OR","Lake County",500,290,58
+"26037","037","Michigan","MI","Clinton County",5470,3170,58
+"40051","051","Oklahoma","OK","Grady County",3710,2150,58
+"56013","013","Wyoming","WY","Fremont County",3020,1750,57.9
+"19149","149","Iowa","IA","Plymouth County",1830,1060,57.9
+"01121","121","Alabama","AL","Talladega County",4610,2670,57.9
+"37109","109","North Carolina","NC","Lincoln County",5580,3230,57.9
+"22063","063","Louisiana","LA","Livingston Parish",11600,6710,57.8
+"19053","053","Iowa","IA","Decatur County",640,370,57.8
+"37139","139","North Carolina","NC","Pasquotank County",3010,1740,57.8
+"40037","037","Oklahoma","OK","Creek County",5000,2890,57.8
+"40023","023","Oklahoma","OK","Choctaw County",1090,630,57.8
+"39007","007","Ohio","OH","Ashtabula County",6460,3730,57.7
+"31151","151","Nebraska","NE","Saline County",1230,710,57.7
+"05095","095","Arkansas","AR","Monroe County",520,300,57.7
+"17021","021","Illinois","IL","Christian County",1890,1090,57.7
+"48057","057","Texas","TX","Calhoun County",1370,790,57.7
+"36019","019","New York","NY","Clinton County",3850,2220,57.7
+"26155","155","Michigan","MI","Shiawassee County",4250,2450,57.6
+"40121","121","Oklahoma","OK","Pittsburg County",3140,1810,57.6
+"19095","095","Iowa","IA","Iowa County",1180,680,57.6
+"55075","075","Wisconsin","WI","Marinette County",2430,1400,57.6
+"36051","051","New York","NY","Livingston County",3350,1930,57.6
+"48099","099","Texas","TX","Coryell County",6270,3610,57.6
+"22003","003","Louisiana","LA","Allen Parish",1720,990,57.6
+"40113","113","Oklahoma","OK","Osage County",2660,1530,57.5
+"44009","009","Rhode Island","RI","Washington County",5530,3180,57.5
+"17027","027","Illinois","IL","Clinton County",2400,1380,57.5
+"51119","119","Virginia","VA","Middlesex County",400,230,57.5
+"55141","141","Wisconsin","WI","Wood County",4860,2790,57.4
+"45089","089","South Carolina","SC","Williamsburg County",1760,1010,57.4
+"21213","213","Kentucky","KY","Simpson County",1640,940,57.3
+"18023","023","Indiana","IN","Clinton County",2670,1530,57.3
+"01055","055","Alabama","AL","Etowah County",7070,4050,57.3
+"47163","163","Tennessee","TN","Sullivan County",9130,5230,57.3
+"27097","097","Minnesota","MN","Morrison County",2130,1220,57.3
+"36011","011","New York","NY","Cayuga County",4540,2600,57.3
+"26123","123","Michigan","MI","Newaygo County",2760,1580,57.2
+"45031","031","South Carolina","SC","Darlington County",4280,2450,57.2
+"17093","093","Illinois","IL","Kendall County",10170,5820,57.2
+"26099","099","Michigan","MI","Macomb County",55520,31750,57.2
+"36083","083","New York","NY","Rensselaer County",10060,5750,57.2
+"08105","105","Colorado","CO","Rio Grande County",840,480,57.1
+"13259","259","Georgia","GA","Stewart County",70,40,57.1
+"18129","129","Indiana","IN","Posey County",1610,920,57.1
+"19085","085","Iowa","IA","Harrison County",1260,720,57.1
+"20047","047","Kansas","KS","Edwards County",210,120,57.1
+"20071","071","Kansas","KS","Greeley County",140,80,57.1
+"22001","001","Louisiana","LA","Acadia Parish",4620,2640,57.1
+"29079","079","Missouri","MO","Grundy County",910,520,57.1
+"29137","137","Missouri","MO","Monroe County",630,360,57.1
+"35037","037","New Mexico","NM","Quay County",350,200,57.1
+"40077","077","Oklahoma","OK","Latimer County",770,440,57.1
+"45065","065","South Carolina","SC","McCormick County",350,200,57.1
+"45071","071","South Carolina","SC","Newberry County",2030,1160,57.1
+"46117","117","South Dakota","SD","Stanley County",140,80,57.1
+"26163","163","Michigan","MI","Wayne County",134950,77110,57.1
+"42107","107","Pennsylvania","PA","Schuylkill County",8490,4850,57.1
+"37191","191","North Carolina","NC","Wayne County",9020,5150,57.1
+"40133","133","Oklahoma","OK","Seminole County",1910,1090,57.1
+"06079","079","California","CA","San Luis Obispo County",14370,8200,57.1
+"44003","003","Rhode Island","RI","Kent County",9520,5430,57
+"27035","035","Minnesota","MN","Crow Wing County",4210,2400,57
+"21123","123","Kentucky","KY","Larue County",1000,570,57
+"01033","033","Alabama","AL","Colbert County",3790,2160,57
+"17117","117","Illinois","IL","Macoupin County",2580,1470,57
+"06051","051","California","CA","Mono County",790,450,57
+"22045","045","Louisiana","LA","Iberia Parish",5390,3070,57
+"13175","175","Georgia","GA","Laurens County",3480,1980,56.9
+"51710","710","Virginia","VA","Norfolk city",18530,10540,56.9
+"28103","103","Mississippi","MS","Noxubee County",1020,580,56.9
+"50027","027","Vermont","VT","Windsor County",2710,1540,56.8
+"37101","101","North Carolina","NC","Johnston County",16400,9310,56.8
+"46127","127","South Dakota","SD","Union County",1110,630,56.8
+"36117","117","New York","NY","Wayne County",6080,3450,56.7
+"01001","001","Alabama","AL","Autauga County",4090,2320,56.7
+"48483","483","Texas","TX","Wheeler County",300,170,56.7
+"54023","023","West Virginia","WV","Grant County",830,470,56.6
+"45013","013","South Carolina","SC","Beaufort County",11320,6410,56.6
+"13077","077","Georgia","GA","Coweta County",9890,5600,56.6
+"26103","103","Michigan","MI","Marquette County",3870,2190,56.6
+"25007","007","Massachusetts","MA","Dukes County",920,520,56.5
+"30073","073","Montana","MT","Pondera County",460,260,56.5
+"48079","079","Texas","TX","Cochran County",230,130,56.5
+"06103","103","California","CA","Tehama County",4620,2610,56.5
+"19101","101","Iowa","IA","Jefferson County",1080,610,56.5
+"40111","111","Oklahoma","OK","Okmulgee County",2550,1440,56.5
+"53077","077","Washington","WA","Yakima County",22300,12590,56.5
+"27133","133","Minnesota","MN","Rock County",620,350,56.5
+"40135","135","Oklahoma","OK","Sequoyah County",3100,1750,56.5
+"21083","083","Kentucky","KY","Graves County",2960,1670,56.4
+"01109","109","Alabama","AL","Pike County",1950,1100,56.4
+"51059","059","Virginia","VA","Fairfax County",81250,45830,56.4
+"29175","175","Missouri","MO","Randolph County",1720,970,56.4
+"48265","265","Texas","TX","Kerr County",3210,1810,56.4
+"39109","109","Ohio","OH","Miami County",7380,4160,56.4
+"06049","049","California","CA","Modoc County",550,310,56.4
+"16087","087","Idaho","ID","Washington County",550,310,56.4
+"48277","277","Texas","TX","Lamar County",3870,2180,56.3
+"27129","129","Minnesota","MN","Renville County",1030,580,56.3
+"08067","067","Colorado","CO","La Plata County",2700,1520,56.3
+"22093","093","Louisiana","LA","St. James Parish",1350,760,56.3
+"41047","047","Oregon","OR","Marion County",24980,14060,56.3
+"22019","019","Louisiana","LA","Calcasieu Parish",16960,9540,56.2
+"27065","065","Minnesota","MN","Kanabec County",960,540,56.2
+"27149","149","Minnesota","MN","Stevens County",640,360,56.2
+"30021","021","Montana","MT","Dawson County",480,270,56.2
+"39123","123","Ohio","OH","Ottawa County",1850,1040,56.2
+"21211","211","Kentucky","KY","Shelby County",3400,1910,56.2
+"05051","051","Arkansas","AR","Garland County",6320,3550,56.2
+"18065","065","Indiana","IN","Henry County",2920,1640,56.2
+"18019","019","Indiana","IN","Clark County",9010,5060,56.2
+"35055","055","New Mexico","NM","Taos County",1140,640,56.1
+"22039","039","Louisiana","LA","Evangeline Parish",2620,1470,56.1
+"47019","019","Tennessee","TN","Carter County",2050,1150,56.1
+"13279","279","Georgia","GA","Toombs County",2300,1290,56.1
+"47011","011","Tennessee","TN","Bradley County",7150,4010,56.1
+"21235","235","Kentucky","KY","Whitley County",2960,1660,56.1
+"08051","051","Colorado","CO","Gunnison County",660,370,56.1
+"40035","035","Oklahoma","OK","Craig County",660,370,56.1
+"53001","001","Washington","WA","Adams County",2160,1210,56
+"37127","127","North Carolina","NC","Nash County",6730,3770,56
+"55133","133","Wisconsin","WI","Waukesha County",24300,13610,56
+"06023","023","California","CA","Humboldt County",8020,4490,56
+"26041","041","Michigan","MI","Delta County",2090,1170,56
+"42073","073","Pennsylvania","PA","Lawrence County",5270,2950,56
+"13009","009","Georgia","GA","Baldwin County",2520,1410,56
+"34009","009","New Jersey","NJ","Cape May County",4790,2680,55.9
+"21121","121","Kentucky","KY","Knox County",2110,1180,55.9
+"51115","115","Virginia","VA","Mathews County",340,190,55.9
+"17201","201","Illinois","IL","Winnebago County",21150,11810,55.8
+"48285","285","Texas","TX","Lavaca County",1380,770,55.8
+"47053","053","Tennessee","TN","Gibson County",3710,2070,55.8
+"22113","113","Louisiana","LA","Vermilion Parish",4590,2560,55.8
+"08063","063","Colorado","CO","Kit Carson County",520,290,55.8
+"19195","195","Iowa","IA","Worth County",520,290,55.8
+"06059","059","California","CA","Orange County",204920,114180,55.7
+"17101","101","Illinois","IL","Lawrence County",700,390,55.7
+"46019","019","South Dakota","SD","Butte County",700,390,55.7
+"08001","001","Colorado","CO","Adams County",41830,23300,55.7
+"48067","067","Texas","TX","Cass County",1850,1030,55.7
+"48505","505","Texas","TX","Zapata County",1420,790,55.6
+"27095","095","Minnesota","MN","Mille Lacs County",2050,1140,55.6
+"06097","097","California","CA","Sonoma County",27560,15320,55.6
+"08037","037","Colorado","CO","Eagle County",2160,1200,55.6
+"20097","097","Kansas","KS","Kiowa County",180,100,55.6
+"27051","051","Minnesota","MN","Grant County",450,250,55.6
+"27121","121","Minnesota","MN","Pope County",720,400,55.6
+"48011","011","Texas","TX","Armstrong County",180,100,55.6
+"12023","023","Florida","FL","Columbia County",5060,2810,55.5
+"24015","015","Maryland","MD","Cecil County",6900,3830,55.5
+"41059","059","Oregon","OR","Umatilla County",5680,3150,55.5
+"42019","019","Pennsylvania","PA","Butler County",11920,6610,55.5
+"37155","155","North Carolina","NC","Robeson County",9630,5340,55.5
+"40063","063","Oklahoma","OK","Hughes County",830,460,55.4
+"26093","093","Michigan","MI","Livingston County",10700,5930,55.4
+"18163","163","Indiana","IN","Vanderburgh County",12780,7080,55.4
+"29145","145","Missouri","MO","Newton County",4230,2340,55.3
+"46129","129","South Dakota","SD","Walworth County",470,260,55.3
+"48149","149","Texas","TX","Fayette County",1410,780,55.3
+"24009","009","Maryland","MD","Calvert County",6060,3350,55.3
+"37145","145","North Carolina","NC","Person County",2390,1320,55.2
+"08119","119","Colorado","CO","Teller County",960,530,55.2
+"13255","255","Georgia","GA","Spalding County",4710,2600,55.2
+"48347","347","Texas","TX","Nacogdoches County",4620,2550,55.2
+"26095","095","Michigan","MI","Luce County",290,160,55.2
+"40141","141","Oklahoma","OK","Tillman County",580,320,55.2
+"40079","079","Oklahoma","OK","Le Flore County",3390,1870,55.2
+"06007","007","California","CA","Butte County",12690,7000,55.2
+"39009","009","Ohio","OH","Athens County",2230,1230,55.2
+"53071","071","Washington","WA","Walla Walla County",3990,2200,55.1
+"48043","043","Texas","TX","Brewster County",490,270,55.1
+"17091","091","Illinois","IL","Kankakee County",7260,4000,55.1
+"34019","019","New Jersey","NJ","Hunterdon County",6770,3730,55.1
+"20191","191","Kansas","KS","Sumner County",1670,920,55.1
+"17025","025","Illinois","IL","Clay County",890,490,55.1
+"34037","037","New Jersey","NJ","Sussex County",8740,4810,55
+"55139","139","Wisconsin","WI","Winnebago County",10850,5970,55
+"29069","069","Missouri","MO","Dunklin County",2200,1210,55
+"48359","359","Texas","TX","Oldham County",200,110,55
+"17119","119","Illinois","IL","Madison County",16970,9330,55
+"54091","091","West Virginia","WV","Taylor County",910,500,54.9
+"19009","009","Iowa","IA","Audubon County",510,280,54.9
+"48489","489","Texas","TX","Willacy County",1750,960,54.9
+"08101","101","Colorado","CO","Pueblo County",10320,5660,54.8
+"36091","091","New York","NY","Saratoga County",13150,7210,54.8
+"26021","021","Michigan","MI","Berrien County",9760,5350,54.8
+"55117","117","Wisconsin","WI","Sheboygan County",7280,3990,54.8
+"13047","047","Georgia","GA","Catoosa County",4380,2400,54.8
+"48477","477","Texas","TX","Washington County",2520,1380,54.8
+"12049","049","Florida","FL","Hardee County",1790,980,54.7
+"17121","121","Illinois","IL","Marion County",2740,1500,54.7
+"41071","071","Oregon","OR","Yamhill County",6650,3640,54.7
+"31081","081","Nebraska","NE","Hamilton County",530,290,54.7
+"13071","071","Georgia","GA","Colquitt County",3620,1980,54.7
+"48293","293","Texas","TX","Limestone County",1500,820,54.7
+"36111","111","New York","NY","Ulster County",9130,4990,54.7
+"48091","091","Texas","TX","Comal County",11310,6180,54.6
+"45003","003","South Carolina","SC","Aiken County",11800,6440,54.6
+"49011","011","Utah","UT","Davis County",31730,17310,54.6
+"19083","083","Iowa","IA","Hardin County",990,540,54.5
+"26109","109","Michigan","MI","Menominee County",1210,660,54.5
+"38097","097","North Dakota","ND","Traill County",660,360,54.5
+"40021","021","Oklahoma","OK","Cherokee County",3190,1740,54.5
+"48001","001","Texas","TX","Anderson County",3490,1900,54.4
+"33019","019","New Hampshire","NH","Sullivan County",2170,1180,54.4
+"40099","099","Oklahoma","OK","Murray County",1030,560,54.4
+"47037","037","Tennessee","TN","Davidson County",56130,30510,54.4
+"21103","103","Kentucky","KY","Henry County",920,500,54.3
+"29155","155","Missouri","MO","Pemiscot County",1270,690,54.3
+"41061","061","Oregon","OR","Union County",1400,760,54.3
+"48163","163","Texas","TX","Frio County",1750,950,54.3
+"53063","063","Washington","WA","Spokane County",35770,19410,54.3
+"45007","007","South Carolina","SC","Anderson County",14470,7850,54.3
+"22103","103","Louisiana","LA","St. Tammany Parish",20020,10850,54.2
+"05007","007","Arkansas","AR","Benton County",24560,13310,54.2
+"29043","043","Missouri","MO","Christian County",6590,3570,54.2
+"20109","109","Kansas","KS","Logan County",240,130,54.2
+"12129","129","Florida","FL","Wakulla County",2290,1240,54.1
+"27127","127","Minnesota","MN","Redwood County",1350,730,54.1
+"09160","160","Connecticut","CT","Northwest Hills",5400,2920,54.1
+"21049","049","Kentucky","KY","Clark County",2460,1330,54.1
+"18035","035","Indiana","IN","Delaware County",6530,3530,54.1
+"28135","135","Mississippi","MS","Tallahatchie County",740,400,54.1
+"48507","507","Texas","TX","Zavala County",740,400,54.1
+"54069","069","West Virginia","WV","Ohio County",2720,1470,54
+"28025","025","Mississippi","MS","Clay County",1240,670,54
+"54033","033","West Virginia","WV","Harrison County",4110,2220,54
+"17181","181","Illinois","IL","Union County",1000,540,54
+"48445","445","Texas","TX","Terry County",1000,540,54
+"21013","013","Kentucky","KY","Bell County",1630,880,54
+"35047","047","New Mexico","NM","San Miguel County",1260,680,54
+"49021","021","Utah","UT","Iron County",4560,2460,53.9
+"29047","047","Missouri","MO","Clay County",18570,10010,53.9
+"01017","017","Alabama","AL","Chambers County",2320,1250,53.9
+"19147","147","Iowa","IA","Palo Alto County",650,350,53.8
+"31023","023","Nebraska","NE","Butler County",650,350,53.8
+"45021","021","South Carolina","SC","Cherokee County",3680,1980,53.8
+"12097","097","Florida","FL","Osceola County",28970,15580,53.8
+"40125","125","Oklahoma","OK","Pottawatomie County",5170,2780,53.8
+"54107","107","West Virginia","WV","Wood County",5320,2860,53.8
+"27159","159","Minnesota","MN","Wadena County",1210,650,53.7
+"37007","007","North Carolina","NC","Anson County",1210,650,53.7
+"13057","057","Georgia","GA","Cherokee County",18480,9920,53.7
+"01113","113","Alabama","AL","Russell County",5070,2720,53.6
+"08089","089","Colorado","CO","Otero County",1250,670,53.6
+"18011","011","Indiana","IN","Boone County",5170,2770,53.6
+"19109","109","Iowa","IA","Kossuth County",840,450,53.6
+"27017","017","Minnesota","MN","Carlton County",2520,1350,53.6
+"47093","093","Tennessee","TN","Knox County",33340,17850,53.5
+"55101","101","Wisconsin","WI","Racine County",13580,7270,53.5
+"42027","027","Pennsylvania","PA","Centre County",7350,3930,53.5
+"17109","109","Illinois","IL","McDonough County",1460,780,53.4
+"29161","161","Missouri","MO","Phelps County",3070,1640,53.4
+"48471","471","Texas","TX","Walker County",3620,1930,53.3
+"26165","165","Michigan","MI","Wexford County",2420,1290,53.3
+"48401","401","Texas","TX","Rusk County",3340,1780,53.3
+"06055","055","California","CA","Napa County",7620,4060,53.3
+"35045","045","New Mexico","NM","San Juan County",8390,4470,53.3
+"19131","131","Iowa","IA","Mitchell County",770,410,53.2
+"24039","039","Maryland","MD","Somerset County",1540,820,53.2
+"48415","415","Texas","TX","Scurry County",1410,750,53.2
+"20073","073","Kansas","KS","Greenwood County",320,170,53.1
+"28043","043","Mississippi","MS","Grenada County",1600,850,53.1
+"21089","089","Kentucky","KY","Greenup County",2110,1120,53.1
+"01117","117","Alabama","AL","Shelby County",14150,7510,53.1
+"12083","083","Florida","FL","Marion County",21940,11640,53.1
+"48349","349","Texas","TX","Navarro County",4260,2260,53.1
+"19091","091","Iowa","IA","Humboldt County",660,350,53
+"28051","051","Mississippi","MS","Holmes County",1320,700,53
+"06011","011","California","CA","Colusa County",1660,880,53
+"41033","033","Oregon","OR","Josephine County",4980,2640,53
+"37089","089","North Carolina","NC","Henderson County",6570,3480,53
+"20145","145","Kansas","KS","Pawnee County",340,180,52.9
+"27011","011","Minnesota","MN","Big Stone County",340,180,52.9
+"27049","049","Minnesota","MN","Goodhue County",3400,1800,52.9
+"45023","023","South Carolina","SC","Chester County",2230,1180,52.9
+"23019","019","Maine","ME","Penobscot County",8070,4270,52.9
+"41009","009","Oregon","OR","Columbia County",3100,1640,52.9
+"17037","037","Illinois","IL","DeKalb County",6410,3390,52.9
+"21185","185","Kentucky","KY","Oldham County",4160,2200,52.9
+"17001","001","Illinois","IL","Adams County",4860,2570,52.9
+"06025","025","California","CA","Imperial County",15110,7990,52.9
+"51177","177","Virginia","VA","Spotsylvania County",9740,5150,52.9
+"48369","369","Texas","TX","Parmer County",700,370,52.9
+"50019","019","Vermont","VT","Orleans County",1610,850,52.8
+"36103","103","New York","NY","Suffolk County",91670,48390,52.8
+"54081","081","West Virginia","WV","Raleigh County",4680,2470,52.8
+"55067","067","Wisconsin","WI","Langlade County",1100,580,52.7
+"29133","133","Missouri","MO","Mississippi County",740,390,52.7
+"37129","129","North Carolina","NC","New Hanover County",12750,6710,52.6
+"13115","115","Georgia","GA","Floyd County",6350,3340,52.6
+"17137","137","Illinois","IL","Morgan County",2150,1130,52.6
+"51810","810","Virginia","VA","Virginia Beach city",33080,17380,52.5
+"39087","087","Ohio","OH","Lawrence County",3350,1760,52.5
+"51750","750","Virginia","VA","Radford city",800,420,52.5
+"33013","013","New Hampshire","NH","Merrimack County",8210,4310,52.5
+"45015","015","South Carolina","SC","Berkeley County",16750,8790,52.5
+"13257","257","Georgia","GA","Stephens County",2250,1180,52.4
+"21033","033","Kentucky","KY","Caldwell County",820,430,52.4
+"18157","157","Indiana","IN","Tippecanoe County",12130,6360,52.4
+"50025","025","Vermont","VT","Windham County",2080,1090,52.4
+"48259","259","Texas","TX","Kendall County",2710,1420,52.4
+"48047","047","Texas","TX","Brooks County",210,110,52.4
+"48211","211","Texas","TX","Hemphill County",210,110,52.4
+"54051","051","West Virginia","WV","Marshall County",1490,780,52.3
+"36035","035","New York","NY","Fulton County",3020,1580,52.3
+"19123","123","Iowa","IA","Mahaska County",1740,910,52.3
+"26101","101","Michigan","MI","Manistee County",1110,580,52.3
+"05031","031","Arkansas","AR","Craighead County",9150,4780,52.2
+"05045","045","Arkansas","AR","Faulkner County",9060,4730,52.2
+"05123","123","Arkansas","AR","St. Francis County",1590,830,52.2
+"21217","217","Kentucky","KY","Taylor County",1840,960,52.2
+"47141","141","Tennessee","TN","Putnam County",5180,2700,52.1
+"20115","115","Kansas","KS","Marion County",730,380,52.1
+"30093","093","Montana","MT","Silver Bow County",2440,1270,52
+"18067","067","Indiana","IN","Howard County",6110,3180,52
+"19105","105","Iowa","IA","Jones County",1230,640,52
+"32031","031","Nevada","NV","Washoe County",31250,16260,52
+"19097","097","Iowa","IA","Jackson County",1250,650,52
+"28029","029","Mississippi","MS","Copiah County",1750,910,52
+"46065","065","South Dakota","SD","Hughes County",1270,660,52
+"35049","049","New Mexico","NM","Santa Fe County",6890,3580,52
+"13031","031","Georgia","GA","Bulloch County",5930,3080,51.9
+"17133","133","Illinois","IL","Monroe County",2330,1210,51.9
+"51179","179","Virginia","VA","Stafford County",12370,6420,51.9
+"08081","081","Colorado","CO","Moffat County",790,410,51.9
+"30063","063","Montana","MT","Missoula County",6630,3440,51.9
+"19027","027","Iowa","IA","Carroll County",1330,690,51.9
+"12113","113","Florida","FL","Santa Rosa County",12130,6290,51.9
+"01015","015","Alabama","AL","Calhoun County",7600,3940,51.8
+"13017","017","Georgia","GA","Ben Hill County",1100,570,51.8
+"17057","057","Illinois","IL","Fulton County",2220,1150,51.8
+"37087","087","North Carolina","NC","Haywood County",3110,1610,51.8
+"27055","055","Minnesota","MN","Houston County",1140,590,51.8
+"06111","111","California","CA","Ventura County",53670,27770,51.7
+"48251","251","Texas","TX","Johnson County",14000,7240,51.7
+"27141","141","Minnesota","MN","Sherburne County",8200,4230,51.6
+"56007","007","Wyoming","WY","Carbon County",950,490,51.6
+"04003","003","Arizona","AZ","Cochise County",7760,4000,51.5
+"56005","005","Wyoming","WY","Campbell County",3570,1840,51.5
+"39089","089","Ohio","OH","Licking County",13310,6860,51.5
+"48427","427","Texas","TX","Starr County",7290,3750,51.4
+"31169","169","Nebraska","NE","Thayer County",350,180,51.4
+"46047","047","South Dakota","SD","Fall River County",350,180,51.4
+"19059","059","Iowa","IA","Dickinson County",1070,550,51.4
+"21227","227","Kentucky","KY","Warren County",10450,5370,51.4
+"12105","105","Florida","FL","Polk County",51780,26580,51.3
+"39161","161","Ohio","OH","Van Wert County",2320,1190,51.3
+"39091","091","Ohio","OH","Logan County",3100,1590,51.3
+"29201","201","Missouri","MO","Scott County",2730,1400,51.3
+"38105","105","North Dakota","ND","Williams County",4430,2270,51.2
+"37049","049","North Carolina","NC","Craven County",7340,3760,51.2
+"40039","039","Oklahoma","OK","Custer County",2050,1050,51.2
+"13039","039","Georgia","GA","Camden County",4570,2340,51.2
+"08015","015","Colorado","CO","Chaffee County",860,440,51.2
+"19067","067","Iowa","IA","Floyd County",1290,660,51.2
+"50001","001","Vermont","VT","Addison County",1720,880,51.2
+"51107","107","Virginia","VA","Loudoun County",32310,16530,51.2
+"47113","113","Tennessee","TN","Madison County",7390,3780,51.2
+"29053","053","Missouri","MO","Cooper County",1310,670,51.1
+"55087","087","Wisconsin","WI","Outagamie County",13790,7040,51.1
+"37195","195","North Carolina","NC","Wilson County",5960,3040,51
+"01125","125","Alabama","AL","Tuscaloosa County",16150,8230,51
+"13275","275","Georgia","GA","Thomas County",3160,1610,50.9
+"17073","073","Illinois","IL","Henry County",3180,1620,50.9
+"42083","083","Pennsylvania","PA","McKean County",2120,1080,50.9
+"27167","167","Minnesota","MN","Wilkin County",550,280,50.9
+"48237","237","Texas","TX","Jack County",570,290,50.9
+"13293","293","Georgia","GA","Upson County",2300,1170,50.9
+"37065","065","North Carolina","NC","Edgecombe County",3070,1560,50.8
+"08087","087","Colorado","CO","Morgan County",2540,1290,50.8
+"26139","139","Michigan","MI","Ottawa County",20530,10410,50.7
+"27025","025","Minnesota","MN","Chisago County",3570,1810,50.7
+"45077","077","South Carolina","SC","Pickens County",7180,3640,50.7
+"36015","015","New York","NY","Chemung County",5090,2580,50.7
+"41003","003","Oregon","OR","Benton County",4400,2230,50.7
+"51590","590","Virginia","VA","Danville city",2940,1490,50.7
+"13261","261","Georgia","GA","Sumter County",2250,1140,50.7
+"37027","027","North Carolina","NC","Caldwell County",4520,2290,50.7
+"27157","157","Minnesota","MN","Wabasha County",1520,770,50.7
+"37147","147","North Carolina","NC","Pitt County",11410,5780,50.7
+"27111","111","Minnesota","MN","Otter Tail County",3810,1930,50.7
+"40087","087","Oklahoma","OK","McClain County",3120,1580,50.6
+"24011","011","Maryland","MD","Caroline County",2350,1190,50.6
+"50005","005","Vermont","VT","Caledonia County",1580,800,50.6
+"48481","481","Texas","TX","Wharton County",3540,1790,50.6
+"02130","130","Alaska","AK","Ketchikan Gateway Borough",950,480,50.5
+"39141","141","Ohio","OH","Ross County",5010,2530,50.5
+"16013","013","Idaho","ID","Blaine County",1010,510,50.5
+"35029","029","New Mexico","NM","Luna County",2020,1020,50.5
+"48337","337","Texas","TX","Montague County",1030,520,50.5
+"36063","063","New York","NY","Niagara County",12710,6410,50.4
+"18141","141","Indiana","IN","St. Joseph County",20190,10180,50.4
+"31177","177","Nebraska","NE","Washington County",1250,630,50.4
+"46103","103","South Dakota","SD","Pennington County",7960,4010,50.4
+"28087","087","Mississippi","MS","Lowndes County",4170,2100,50.4
+"50021","021","Vermont","VT","Rutland County",2870,1440,50.2
+"27007","007","Minnesota","MN","Beltrami County",3630,1820,50.1
+"47149","149","Tennessee","TN","Rutherford County",26550,13300,50.1
+"26055","055","Michigan","MI","Grand Traverse County",5470,2740,50.1
+"02230","230","Alaska","AK","Skagway Municipality",60,30,50
+"08071","071","Colorado","CO","Las Animas County",940,470,50
+"13141","141","Georgia","GA","Hancock County",140,70,50
+"19035","035","Iowa","IA","Cherokee County",760,380,50
+"19133","133","Iowa","IA","Monona County",540,270,50
+"19135","135","Iowa","IA","Monroe County",580,290,50
+"20163","163","Kansas","KS","Rooks County",280,140,50
+"20171","171","Kansas","KS","Scott County",360,180,50
+"22119","119","Louisiana","LA","Webster Parish",2540,1270,50
+"29033","033","Missouri","MO","Carroll County",540,270,50
+"31015","015","Nebraska","NE","Boyd County",40,20,50
+"31135","135","Nebraska","NE","Perkins County",120,60,50
+"39055","055","Ohio","OH","Geauga County",6140,3070,50
+"41045","045","Oregon","OR","Malheur County",2240,1120,50
+"45039","039","South Carolina","SC","Fairfield County",1080,540,50
+"48059","059","Texas","TX","Callahan County",920,460,50
+"48207","207","Texas","TX","Haskell County",260,130,50
+"48233","233","Texas","TX","Hutchinson County",1380,690,50
+"48475","475","Texas","TX","Ward County",1020,510,50
+"49019","019","Utah","UT","Grand County",480,240,50
+"50011","011","Vermont","VT","Franklin County",3410,1700,49.9
+"29023","023","Missouri","MO","Butler County",3350,1670,49.9
+"36069","069","New York","NY","Ontario County",6260,3120,49.8
+"39159","159","Ohio","OH","Union County",4980,2480,49.8
+"39077","077","Ohio","OH","Huron County",4080,2030,49.8
+"45087","087","South Carolina","SC","Union County",1850,920,49.7
+"35025","025","New Mexico","NM","Lea County",7300,3630,49.7
+"06061","061","California","CA","Placer County",24500,12170,49.7
+"51650","650","Virginia","VA","Hampton city",9870,4900,49.6
+"19099","099","Iowa","IA","Jasper County",2320,1150,49.6
+"51153","153","Virginia","VA","Prince William County",40100,19870,49.6
+"48049","049","Texas","TX","Brown County",2200,1090,49.5
+"19157","157","Iowa","IA","Poweshiek County",1090,540,49.5
+"17115","115","Illinois","IL","Macon County",7530,3730,49.5
+"13113","113","Georgia","GA","Fayette County",6320,3130,49.5
+"21019","019","Kentucky","KY","Boyd County",2770,1370,49.5
+"56037","037","Wyoming","WY","Sweetwater County",2630,1300,49.4
+"42079","079","Pennsylvania","PA","Luzerne County",20600,10180,49.4
+"31145","145","Nebraska","NE","Red Willow County",810,400,49.4
+"42095","095","Pennsylvania","PA","Northampton County",17950,8860,49.4
+"45035","035","South Carolina","SC","Dorchester County",11170,5510,49.3
+"19125","125","Iowa","IA","Marion County",2110,1040,49.3
+"48005","005","Texas","TX","Angelina County",6940,3420,49.3
+"18097","097","Indiana","IN","Marion County",81520,40130,49.2
+"19047","047","Iowa","IA","Crawford County",1240,610,49.2
+"12045","045","Florida","FL","Gulf County",610,300,49.2
+"17199","199","Illinois","IL","Williamson County",4150,2040,49.2
+"32005","005","Nevada","NV","Douglas County",2340,1150,49.1
+"48025","025","Texas","TX","Bee County",1730,850,49.1
+"48219","219","Texas","TX","Hockley County",1630,800,49.1
+"29187","187","Missouri","MO","St. Francois County",3770,1850,49.1
+"28097","097","Mississippi","MS","Montgomery County",530,260,49.1
+"48313","313","Texas","TX","Madison County",1020,500,49
+"48075","075","Texas","TX","Childress County",490,240,49
+"21107","107","Kentucky","KY","Hopkins County",2920,1430,49
+"23031","031","Maine","ME","York County",11890,5820,48.9
+"47065","065","Tennessee","TN","Hamilton County",25660,12560,48.9
+"42041","041","Pennsylvania","PA","Cumberland County",16410,8030,48.9
+"37123","123","North Carolina","NC","Montgomery County",1370,670,48.9
+"48145","145","Texas","TX","Falls County",880,430,48.9
+"47045","045","Tennessee","TN","Dyer County",2600,1270,48.8
+"05085","085","Arkansas","AR","Lonoke County",5880,2870,48.8
+"48409","409","Texas","TX","San Patricio County",5860,2860,48.8
+"26075","075","Michigan","MI","Jackson County",10350,5050,48.8
+"05125","125","Arkansas","AR","Saline County",8690,4240,48.8
+"27169","169","Minnesota","MN","Winona County",2480,1210,48.8
+"39107","107","Ohio","OH","Mercer County",3690,1800,48.8
+"48249","249","Texas","TX","Jim Wells County",2850,1390,48.8
+"29117","117","Missouri","MO","Livingston County",800,390,48.8
+"39081","081","Ohio","OH","Jefferson County",4230,2060,48.7
+"25011","011","Massachusetts","MA","Franklin County",3370,1640,48.7
+"17187","187","Illinois","IL","Warren County",1070,520,48.6
+"56017","017","Wyoming","WY","Hot Springs County",350,170,48.6
+"05093","093","Arkansas","AR","Mississippi County",3130,1520,48.6
+"37093","093","North Carolina","NC","Hoke County",5130,2490,48.5
+"01011","011","Alabama","AL","Bullock County",680,330,48.5
+"30017","017","Montana","MT","Custer County",680,330,48.5
+"28073","073","Mississippi","MS","Lamar County",4720,2290,48.5
+"13111","111","Georgia","GA","Fannin County",1010,490,48.5
+"05019","019","Arkansas","AR","Clark County",1340,650,48.5
+"31123","123","Nebraska","NE","Morrill County",330,160,48.5
+"36027","027","New York","NY","Dutchess County",15990,7750,48.5
+"17107","107","Illinois","IL","Logan County",1610,780,48.4
+"53033","033","Washington","WA","King County",144350,69920,48.4
+"17029","029","Illinois","IL","Coles County",2810,1360,48.4
+"17017","017","Illinois","IL","Cass County",930,450,48.4
+"35023","023","New Mexico","NM","Hidalgo County",310,150,48.4
+"45057","057","South Carolina","SC","Lancaster County",6820,3300,48.4
+"39173","173","Ohio","OH","Wood County",8050,3890,48.3
+"48115","115","Texas","TX","Dawson County",890,430,48.3
+"37043","043","North Carolina","NC","Clay County",560,270,48.2
+"19079","079","Iowa","IA","Hamilton County",830,400,48.2
+"12071","071","Florida","FL","Lee County",43150,20790,48.2
+"13299","299","Georgia","GA","Ware County",2740,1320,48.2
+"17053","053","Illinois","IL","Ford County",810,390,48.1
+"29021","021","Missouri","MO","Buchanan County",5860,2820,48.1
+"39119","119","Ohio","OH","Muskingum County",6360,3060,48.1
+"40097","097","Oklahoma","OK","Mayes County",3160,1520,48.1
+"28119","119","Mississippi","MS","Quitman County",520,250,48.1
+"09180","180","Connecticut","CT","Southeastern Connecticut",16110,7740,48
+"48465","465","Texas","TX","Val Verde County",4330,2080,48
+"38089","089","North Dakota","ND","Stark County",3270,1570,48
+"16077","077","Idaho","ID","Power County",750,360,48
+"19191","191","Iowa","IA","Winneshiek County",1250,600,48
+"39147","147","Ohio","OH","Seneca County",3480,1670,48
+"37051","051","North Carolina","NC","Cumberland County",30220,14500,48
+"22109","109","Louisiana","LA","Terrebonne Parish",8510,4080,47.9
+"05067","067","Arkansas","AR","Jackson County",1190,570,47.9
+"55045","045","Wisconsin","WI","Green County",2360,1130,47.9
+"25001","001","Massachusetts","MA","Barnstable County",9630,4610,47.9
+"49057","057","Utah","UT","Weber County",21370,10230,47.9
+"01077","077","Alabama","AL","Lauderdale County",5850,2800,47.9
+"24001","001","Maryland","MD","Allegany County",3510,1680,47.9
+"17177","177","Illinois","IL","Stephenson County",2570,1230,47.9
+"45047","047","South Carolina","SC","Greenwood County",4660,2230,47.9
+"37187","187","North Carolina","NC","Washington County",230,110,47.8
+"19141","141","Iowa","IA","O'Brien County",1130,540,47.8
+"28089","089","Mississippi","MS","Madison County",8330,3980,47.8
+"19041","041","Iowa","IA","Clay County",900,430,47.8
+"19081","081","Iowa","IA","Hancock County",670,320,47.8
+"21035","035","Kentucky","KY","Calloway County",2010,960,47.8
+"31101","101","Nebraska","NE","Keith County",440,210,47.7
+"48209","209","Texas","TX","Hays County",17850,8510,47.7
+"08077","077","Colorado","CO","Mesa County",10280,4900,47.7
+"13163","163","Georgia","GA","Jefferson County",1070,510,47.7
+"40019","019","Oklahoma","OK","Carter County",3570,1700,47.6
+"48399","399","Texas","TX","Runnels County",630,300,47.6
+"06037","037","California","CA","Los Angeles County",620260,295250,47.6
+"32510","510","Nevada","NV","Carson City",3510,1670,47.6
+"17125","125","Illinois","IL","Mason County",820,390,47.6
+"19057","057","Iowa","IA","Des Moines County",2460,1170,47.6
+"54055","055","West Virginia","WV","Mercer County",3430,1630,47.5
+"48487","487","Texas","TX","Wilbarger County",1200,570,47.5
+"42011","011","Pennsylvania","PA","Berks County",29230,13870,47.5
+"13105","105","Georgia","GA","Elbert County",1560,740,47.4
+"39021","021","Ohio","OH","Champaign County",2910,1380,47.4
+"05001","001","Arkansas","AR","Arkansas County",1160,550,47.4
+"44001","001","Rhode Island","RI","Bristol County",2490,1180,47.4
+"46111","111","South Dakota","SD","Sanborn County",190,90,47.4
+"48139","139","Texas","TX","Ellis County",15760,7460,47.3
+"39101","101","Ohio","OH","Marion County",4040,1910,47.3
+"05041","041","Arkansas","AR","Desha County",910,430,47.3
+"19021","021","Iowa","IA","Buena Vista County",1820,860,47.3
+"36109","109","New York","NY","Tompkins County",4360,2060,47.2
+"22035","035","Louisiana","LA","East Carroll Parish",360,170,47.2
+"45051","051","South Carolina","SC","Horry County",18870,8900,47.2
+"27131","131","Minnesota","MN","Rice County",4560,2150,47.1
+"36007","007","New York","NY","Broome County",11920,5620,47.1
+"06073","073","California","CA","San Diego County",226130,106600,47.1
+"17095","095","Illinois","IL","Knox County",3080,1450,47.1
+"24013","013","Maryland","MD","Carroll County",11240,5290,47.1
+"45063","063","South Carolina","SC","Lexington County",20590,9690,47.1
+"28075","075","Mississippi","MS","Lauderdale County",5270,2480,47.1
+"26091","091","Michigan","MI","Lenawee County",5910,2780,47
+"05139","139","Arkansas","AR","Union County",2870,1350,47
+"17143","143","Illinois","IL","Peoria County",15340,7210,47
+"01097","097","Alabama","AL","Mobile County",31810,14950,47
+"33001","001","New Hampshire","NH","Belknap County",3150,1480,47
+"40031","031","Oklahoma","OK","Comanche County",9090,4270,47
+"42013","013","Pennsylvania","PA","Blair County",7380,3460,46.9
+"39011","011","Ohio","OH","Auglaize County",3180,1490,46.9
+"05091","091","Arkansas","AR","Miller County",3480,1630,46.8
+"37183","183","North Carolina","NC","Wake County",80380,37630,46.8
+"47001","001","Tennessee","TN","Anderson County",4850,2270,46.8
+"39039","039","Ohio","OH","Defiance County",2500,1170,46.8
+"31105","105","Nebraska","NE","Kimball County",150,70,46.7
+"38003","003","North Dakota","ND","Barnes County",600,280,46.7
+"27047","047","Minnesota","MN","Freeborn County",1760,820,46.6
+"13097","097","Georgia","GA","Douglas County",10410,4850,46.6
+"42069","069","Pennsylvania","PA","Lackawanna County",12950,6030,46.6
+"48361","361","Texas","TX","Orange County",6740,3130,46.4
+"23011","011","Maine","ME","Kennebec County",7300,3390,46.4
+"38103","103","North Dakota","ND","Wells County",280,130,46.4
+"26045","045","Michigan","MI","Eaton County",6660,3090,46.4
+"12053","053","Florida","FL","Hernando County",10520,4880,46.4
+"20181","181","Kansas","KS","Sherman County",410,190,46.3
+"31047","047","Nebraska","NE","Dawson County",2010,930,46.3
+"01103","103","Alabama","AL","Morgan County",8820,4080,46.3
+"12061","061","Florida","FL","Indian River County",7290,3370,46.2
+"28033","033","Mississippi","MS","DeSoto County",12680,5860,46.2
+"28121","121","Mississippi","MS","Rankin County",10690,4940,46.2
+"13061","061","Georgia","GA","Clay County",130,60,46.2
+"46097","097","South Dakota","SD","Miner County",130,60,46.2
+"48089","089","Texas","TX","Colorado County",1560,720,46.2
+"40115","115","Oklahoma","OK","Ottawa County",2320,1070,46.1
+"21093","093","Kentucky","KY","Hardin County",8330,3840,46.1
+"27063","063","Minnesota","MN","Jackson County",630,290,46
+"51161","161","Virginia","VA","Roanoke County",5890,2710,46
+"13151","151","Georgia","GA","Henry County",16110,7410,46
+"08099","099","Colorado","CO","Prowers County",980,450,45.9
+"36023","023","New York","NY","Cortland County",2750,1260,45.8
+"24047","047","Maryland","MD","Worcester County",2360,1080,45.8
+"26049","049","Michigan","MI","Genesee County",27320,12500,45.8
+"48093","093","Texas","TX","Comanche County",940,430,45.7
+"19183","183","Iowa","IA","Washington County",1640,750,45.7
+"12115","115","Florida","FL","Sarasota County",17320,7910,45.7
+"19179","179","Iowa","IA","Wapello County",2540,1160,45.7
+"51085","085","Virginia","VA","Hanover County",6660,3040,45.6
+"17113","113","Illinois","IL","McLean County",12140,5540,45.6
+"55089","089","Wisconsin","WI","Ozaukee County",5590,2550,45.6
+"40151","151","Oklahoma","OK","Woods County",570,260,45.6
+"54039","039","West Virginia","WV","Kanawha County",10510,4790,45.6
+"48423","423","Texas","TX","Smith County",17550,7980,45.5
+"05027","027","Arkansas","AR","Columbia County",1650,750,45.5
+"47187","187","Tennessee","TN","Williamson County",15730,7150,45.5
+"47131","131","Tennessee","TN","Obion County",1960,890,45.4
+"45083","083","South Carolina","SC","Spartanburg County",24960,11330,45.4
+"39023","023","Ohio","OH","Clark County",9520,4320,45.4
+"42029","029","Pennsylvania","PA","Chester County",33580,15230,45.4
+"22073","073","Louisiana","LA","Ouachita Parish",12310,5580,45.3
+"40071","071","Oklahoma","OK","Kay County",3620,1640,45.3
+"40009","009","Oklahoma","OK","Beckham County",1570,710,45.2
+"50023","023","Vermont","VT","Washington County",2720,1230,45.2
+"39043","043","Ohio","OH","Erie County",4360,1970,45.2
+"37119","119","North Carolina","NC","Mecklenburg County",88410,39940,45.2
+"27069","069","Minnesota","MN","Kittson County",310,140,45.2
+"29159","159","Missouri","MO","Pettis County",4030,1820,45.2
+"48143","143","Texas","TX","Erath County",3190,1440,45.1
+"08075","075","Colorado","CO","Logan County",1020,460,45.1
+"22079","079","Louisiana","LA","Rapides Parish",10200,4600,45.1
+"12111","111","Florida","FL","St. Lucie County",20300,9150,45.1
+"39145","145","Ohio","OH","Scioto County",4660,2100,45.1
+"26105","105","Michigan","MI","Mason County",1820,820,45.1
+"17163","163","Illinois","IL","St. Clair County",17760,8000,45
+"48187","187","Texas","TX","Guadalupe County",12280,5530,45
+"46029","029","South Dakota","SD","Codington County",1910,860,45
+"28047","047","Mississippi","MS","Harrison County",15260,6870,45
+"10005","005","Delaware","DE","Sussex County",14210,6390,45
+"51700","700","Virginia","VA","Newport News city",15690,7050,44.9
+"28113","113","Mississippi","MS","Pike County",2920,1310,44.9
+"36029","029","New York","NY","Erie County",61190,27450,44.9
+"42049","049","Pennsylvania","PA","Erie County",16970,7600,44.8
+"22051","051","Louisiana","LA","Jefferson Parish",33370,14940,44.8
+"26121","121","Michigan","MI","Muskegon County",11980,5360,44.7
+"48189","189","Texas","TX","Hale County",2460,1100,44.7
+"17111","111","Illinois","IL","McHenry County",20050,8950,44.6
+"34033","033","New Jersey","NJ","Salem County",4280,1910,44.6
+"56033","033","Wyoming","WY","Sheridan County",1860,830,44.6
+"21005","005","Kentucky","KY","Anderson County",1750,780,44.6
+"26025","025","Michigan","MI","Calhoun County",9680,4310,44.5
+"19197","197","Iowa","IA","Wright County",990,440,44.4
+"40101","101","Oklahoma","OK","Muskogee County",5020,2230,44.4
+"39025","025","Ohio","OH","Clermont County",14840,6590,44.4
+"17103","103","Illinois","IL","Lee County",1940,860,44.3
+"10001","001","Delaware","DE","Kent County",13570,6010,44.3
+"24033","033","Maryland","MD","Prince George's County",71930,31850,44.3
+"31099","099","Nebraska","NE","Kearney County",520,230,44.2
+"27091","091","Minnesota","MN","Martin County",1380,610,44.2
+"24019","019","Maryland","MD","Dorchester County",2150,950,44.2
+"49041","041","Utah","UT","Sevier County",1720,760,44.2
+"41053","053","Oregon","OR","Polk County",5980,2640,44.1
+"17159","159","Illinois","IL","Richland County",1110,490,44.1
+"17179","179","Illinois","IL","Tazewell County",8120,3580,44.1
+"19127","127","Iowa","IA","Marshall County",2790,1230,44.1
+"12091","091","Florida","FL","Okaloosa County",15620,6880,44
+"48329","329","Texas","TX","Midland County",17930,7870,43.9
+"38093","093","North Dakota","ND","Stutsman County",1390,610,43.9
+"55039","039","Wisconsin","WI","Fond du Lac County",6770,2970,43.9
+"19087","087","Iowa","IA","Henry County",1300,570,43.8
+"21017","017","Kentucky","KY","Bourbon County",1620,710,43.8
+"48339","339","Texas","TX","Montgomery County",50040,21930,43.8
+"39133","133","Ohio","OH","Portage County",8580,3760,43.8
+"33017","017","New Hampshire","NH","Strafford County",6850,3000,43.8
+"32015","015","Nevada","NV","Lander County",320,140,43.8
+"13051","051","Georgia","GA","Chatham County",20940,9160,43.7
+"38101","101","North Dakota","ND","Ward County",6050,2640,43.6
+"46005","005","South Dakota","SD","Beadle County",1880,820,43.6
+"41017","017","Oregon","OR","Deschutes County",11930,5200,43.6
+"39103","103","Ohio","OH","Medina County",10350,4510,43.6
+"06083","083","California","CA","Santa Barbara County",31960,13900,43.5
+"48169","169","Texas","TX","Garza County",460,200,43.5
+"24017","017","Maryland","MD","Charles County",11490,4990,43.4
+"29127","127","Missouri","MO","Marion County",2280,990,43.4
+"42003","003","Pennsylvania","PA","Allegheny County",74640,32360,43.4
+"37083","083","North Carolina","NC","Halifax County",3210,1390,43.3
+"21059","059","Kentucky","KY","Daviess County",7760,3360,43.3
+"48273","273","Texas","TX","Kleberg County",2220,960,43.2
+"21209","209","Kentucky","KY","Scott County",4210,1820,43.2
+"28149","149","Mississippi","MS","Warren County",3540,1530,43.2
+"27099","099","Minnesota","MN","Mower County",3170,1370,43.2
+"31025","025","Nebraska","NE","Cass County",1760,760,43.2
+"37035","035","North Carolina","NC","Catawba County",10190,4400,43.2
+"21145","145","Kentucky","KY","McCracken County",4610,1990,43.2
+"01069","069","Alabama","AL","Houston County",8390,3620,43.1
+"05143","143","Arkansas","AR","Washington County",19450,8390,43.1
+"40137","137","Oklahoma","OK","Stephens County",3110,1340,43.1
+"33015","015","New Hampshire","NH","Rockingham County",17060,7350,43.1
+"17161","161","Illinois","IL","Rock Island County",10220,4400,43.1
+"13219","219","Georgia","GA","Oconee County",2280,980,43
+"48389","389","Texas","TX","Reeves County",1140,490,43
+"48227","227","Texas","TX","Howard County",2400,1030,42.9
+"39155","155","Ohio","OH","Trumbull County",12150,5210,42.9
+"12015","015","Florida","FL","Charlotte County",6810,2920,42.9
+"30023","023","Montana","MT","Deer Lodge County",420,180,42.9
+"31095","095","Nebraska","NE","Jefferson County",560,240,42.9
+"48275","275","Texas","TX","Knox County",210,90,42.9
+"27103","103","Minnesota","MN","Nicollet County",2500,1070,42.8
+"37025","025","North Carolina","NC","Cabarrus County",16380,7010,42.8
+"12033","033","Florida","FL","Escambia County",23160,9910,42.8
+"26073","073","Michigan","MI","Isabella County",3790,1620,42.7
+"36067","067","New York","NY","Onondaga County",30710,13120,42.7
+"35041","041","New Mexico","NM","Roosevelt County",1780,760,42.7
+"29097","097","Missouri","MO","Jasper County",9420,4020,42.7
+"39063","063","Ohio","OH","Hancock County",5110,2180,42.7
+"19189","189","Iowa","IA","Winnebago County",610,260,42.6
+"25015","015","Massachusetts","MA","Hampshire County",6320,2690,42.6
+"39033","033","Ohio","OH","Crawford County",2820,1200,42.6
+"36113","113","New York","NY","Warren County",2610,1110,42.5
+"21075","075","Kentucky","KY","Fulton County",400,170,42.5
+"27119","119","Minnesota","MN","Polk County",2190,930,42.5
+"41005","005","Oregon","OR","Clackamas County",24760,10500,42.4
+"31121","121","Nebraska","NE","Merrick County",590,250,42.4
+"20001","001","Kansas","KS","Allen County",850,360,42.4
+"48429","429","Texas","TX","Stephens County",520,220,42.3
+"48135","135","Texas","TX","Ector County",17330,7330,42.3
+"31059","059","Nebraska","NE","Fillmore County",450,190,42.2
+"50013","013","Vermont","VT","Grand Isle County",450,190,42.2
+"31159","159","Nebraska","NE","Seward County",1280,540,42.2
+"27043","043","Minnesota","MN","Faribault County",760,320,42.1
+"35015","015","New Mexico","NM","Eddy County",5320,2240,42.1
+"21239","239","Kentucky","KY","Woodford County",1830,770,42.1
+"04019","019","Arizona","AZ","Pima County",62600,26330,42.1
+"31067","067","Nebraska","NE","Gage County",1380,580,42
+"04013","013","Arizona","AZ","Maricopa County",310520,130380,42
+"28011","011","Mississippi","MS","Bolivar County",2390,1000,41.8
+"42081","081","Pennsylvania","PA","Lycoming County",6820,2850,41.8
+"24003","003","Maryland","MD","Anne Arundel County",42810,17880,41.8
+"29051","051","Missouri","MO","Cole County",5340,2230,41.8
+"12021","021","Florida","FL","Collier County",19110,7980,41.8
+"12085","085","Florida","FL","Martin County",7310,3050,41.7
+"48321","321","Texas","TX","Matagorda County",3070,1280,41.7
+"26145","145","Michigan","MI","Saginaw County",13150,5480,41.7
+"20065","065","Kansas","KS","Graham County",120,50,41.7
+"27151","151","Minnesota","MN","Swift County",600,250,41.7
+"41039","039","Oregon","OR","Lane County",19660,8190,41.7
+"17031","031","Illinois","IL","Cook County",347620,144730,41.6
+"12005","005","Florida","FL","Bay County",11660,4850,41.6
+"40017","017","Oklahoma","OK","Canadian County",13310,5530,41.5
+"27171","171","Minnesota","MN","Wright County",11890,4940,41.5
+"06113","113","California","CA","Yolo County",13250,5500,41.5
+"21015","015","Kentucky","KY","Boone County",10820,4490,41.5
+"48257","257","Texas","TX","Kaufman County",13980,5800,41.5
+"34041","041","New Jersey","NJ","Warren County",6180,2560,41.4
+"48449","449","Texas","TX","Titus County",2850,1180,41.4
+"17167","167","Illinois","IL","Sangamon County",13250,5480,41.4
+"13285","285","Georgia","GA","Troup County",5030,2080,41.4
+"54061","061","West Virginia","WV","Monongalia County",5450,2250,41.3
+"18057","057","Indiana","IN","Hamilton County",25470,10490,41.2
+"46035","035","South Dakota","SD","Davison County",2040,840,41.2
+"36001","001","New York","NY","Albany County",17590,7240,41.2
+"22015","015","Louisiana","LA","Bossier Parish",9460,3890,41.1
+"48003","003","Texas","TX","Andrews County",1630,670,41.1
+"51740","740","Virginia","VA","Portsmouth city",7980,3280,41.1
+"48463","463","Texas","TX","Uvalde County",2070,850,41.1
+"12019","019","Florida","FL","Clay County",13980,5730,41
+"37181","181","North Carolina","NC","Vance County",3490,1430,41
+"27113","113","Minnesota","MN","Pennington County",1050,430,41
+"05069","069","Arkansas","AR","Jefferson County",4520,1850,40.9
+"05107","107","Arkansas","AR","Phillips County",1420,580,40.8
+"05035","035","Arkansas","AR","Crittenden County",4360,1780,40.8
+"42043","043","Pennsylvania","PA","Dauphin County",19720,8050,40.8
+"50003","003","Vermont","VT","Bennington County",1790,730,40.8
+"27145","145","Minnesota","MN","Stearns County",12530,5100,40.7
+"17003","003","Illinois","IL","Alexander County",320,130,40.6
+"19181","181","Iowa","IA","Warren County",3840,1560,40.6
+"26017","017","Michigan","MI","Bay County",5640,2290,40.6
+"37023","023","North Carolina","NC","Burke County",4980,2020,40.6
+"06013","013","California","CA","Contra Costa County",75070,30430,40.5
+"24043","043","Maryland","MD","Washington County",10170,4120,40.5
+"39139","139","Ohio","OH","Richland County",8160,3300,40.4
+"38015","015","North Dakota","ND","Burleigh County",7570,3060,40.4
+"55063","063","Wisconsin","WI","La Crosse County",7160,2890,40.4
+"13023","023","Georgia","GA","Bleckley County",570,230,40.4
+"48181","181","Texas","TX","Grayson County",11090,4470,40.3
+"22067","067","Louisiana","LA","Morehouse Parish",1870,750,40.1
+"13127","127","Georgia","GA","Glynn County",5490,2200,40.1
+"12051","051","Florida","FL","Hendry County",3370,1350,40.1
+"21021","021","Kentucky","KY","Boyle County",1800,720,40
+"29019","019","Missouri","MO","Boone County",12800,5120,40
+"31033","033","Nebraska","NE","Cheyenne County",750,300,40
+"48111","111","Texas","TX","Dallam County",850,340,40
+"45091","091","South Carolina","SC","York County",19390,7740,39.9
+"08005","005","Colorado","CO","Arapahoe County",46810,18670,39.9
+"54079","079","West Virginia","WV","Putnam County",2970,1180,39.7
+"12109","109","Florida","FL","St. Johns County",16720,6630,39.7
+"27041","041","Minnesota","MN","Douglas County",2600,1030,39.6
+"06021","021","California","CA","Glenn County",2350,930,39.6
+"29037","037","Missouri","MO","Cass County",7510,2970,39.5
+"37063","063","North Carolina","NC","Durham County",23760,9390,39.5
+"01089","089","Alabama","AL","Madison County",27550,10880,39.5
+"48323","323","Texas","TX","Maverick County",6130,2420,39.5
+"35013","013","New Mexico","NM","Doña Ana County",14800,5840,39.5
+"13153","153","Georgia","GA","Houston County",12650,4990,39.4
+"13117","117","Georgia","GA","Forsyth County",17160,6760,39.4
+"22055","055","Louisiana","LA","Lafayette Parish",19430,7650,39.4
+"01073","073","Alabama","AL","Jefferson County",50010,19680,39.4
+"37081","081","North Carolina","NC","Guilford County",36480,14250,39.1
+"13277","277","Georgia","GA","Tift County",3150,1230,39
+"49035","035","Utah","UT","Salt Lake County",93920,36570,38.9
+"19045","045","Iowa","IA","Clinton County",2980,1160,38.9
+"17019","019","Illinois","IL","Champaign County",13080,5090,38.9
+"48503","503","Texas","TX","Young County",1030,400,38.8
+"21117","117","Kentucky","KY","Kenton County",13400,5200,38.8
+"51670","670","Virginia","VA","Hopewell city",2320,900,38.8
+"48371","371","Texas","TX","Pecos County",980,380,38.8
+"27083","083","Minnesota","MN","Lyon County",1910,740,38.7
+"55079","079","Wisconsin","WI","Milwaukee County",72100,27930,38.7
+"26077","077","Michigan","MI","Kalamazoo County",18460,7150,38.7
+"28035","035","Mississippi","MS","Forrest County",5740,2220,38.7
+"29077","077","Missouri","MO","Greene County",20360,7860,38.6
+"55035","035","Wisconsin","WI","Eau Claire County",6640,2560,38.6
+"35051","051","New Mexico","NM","Sierra County",520,200,38.5
+"48129","129","Texas","TX","Donley County",130,50,38.5
+"45041","041","South Carolina","SC","Florence County",9750,3740,38.4
+"39003","003","Ohio","OH","Allen County",7550,2890,38.3
+"45085","085","South Carolina","SC","Sumter County",8440,3230,38.3
+"39165","165","Ohio","OH","Warren County",16380,6260,38.2
+"48469","469","Texas","TX","Victoria County",7460,2850,38.2
+"46135","135","South Dakota","SD","Yankton County",1440,550,38.2
+"28133","133","Mississippi","MS","Sunflower County",1390,530,38.1
+"27013","013","Minnesota","MN","Blue Earth County",4330,1650,38.1
+"31179","179","Nebraska","NE","Wayne County",630,240,38.1
+"56039","039","Wyoming","WY","Teton County",1050,400,38.1
+"27085","085","Minnesota","MN","McLeod County",2340,890,38
+"19187","187","Iowa","IA","Webster County",2710,1030,38
+"27039","039","Minnesota","MN","Dodge County",1690,640,37.9
+"28081","081","Mississippi","MS","Lee County",6650,2510,37.7
+"13235","235","Georgia","GA","Pulaski County",770,290,37.7
+"13185","185","Georgia","GA","Lowndes County",9190,3460,37.6
+"13215","215","Georgia","GA","Muscogee County",16840,6340,37.6
+"34001","001","New Jersey","NJ","Atlantic County",16920,6370,37.6
+"36055","055","New York","NY","Monroe County",48100,18090,37.6
+"09130","130","Connecticut","CT","Lower Connecticut River Valley",8570,3220,37.6
+"12001","001","Florida","FL","Alachua County",16380,6150,37.5
+"27117","117","Minnesota","MN","Pipestone County",800,300,37.5
+"48421","421","Texas","TX","Sherman County",240,90,37.5
+"51570","570","Virginia","VA","Colonial Heights city",1390,520,37.4
+"31037","037","Nebraska","NE","Colfax County",990,370,37.4
+"12073","073","Florida","FL","Leon County",17810,6650,37.3
+"27137","137","Minnesota","MN","St. Louis County",11620,4320,37.2
+"21037","037","Kentucky","KY","Campbell County",6060,2250,37.1
+"45045","045","South Carolina","SC","Greenville County",40990,15190,37.1
+"27079","079","Minnesota","MN","Le Sueur County",1970,730,37.1
+"12101","101","Florida","FL","Pasco County",35210,13040,37
+"42017","017","Pennsylvania","PA","Bucks County",37670,13950,37
+"22005","005","Louisiana","LA","Ascension Parish",10440,3860,37
+"01047","047","Alabama","AL","Dallas County",2600,960,36.9
+"29095","095","Missouri","MO","Jackson County",52970,19520,36.9
+"48027","027","Texas","TX","Bell County",36920,13580,36.8
+"28001","001","Mississippi","MS","Adams County",2040,750,36.8
+"12127","127","Florida","FL","Volusia County",29950,11010,36.8
+"45079","079","South Carolina","SC","Richland County",27360,10040,36.7
+"40143","143","Oklahoma","OK","Tulsa County",54860,20130,36.7
+"56021","021","Wyoming","WY","Laramie County",6880,2520,36.6
+"39017","017","Ohio","OH","Butler County",26640,9750,36.6
+"19155","155","Iowa","IA","Pottawattamie County",6340,2320,36.6
+"08065","065","Colorado","CO","Lake County",410,150,36.6
+"26081","081","Michigan","MI","Kent County",49160,17920,36.5
+"24025","025","Maryland","MD","Harford County",17300,6300,36.4
+"17097","097","Illinois","IL","Lake County",46310,16840,36.4
+"48197","197","Texas","TX","Hardeman County",220,80,36.4
+"24021","021","Maryland","MD","Frederick County",19530,7100,36.4
+"12095","095","Florida","FL","Orange County",98740,35870,36.3
+"36085","085","New York","NY","Richmond County",32680,11860,36.3
+"48451","451","Texas","TX","Tom Green County",9240,3350,36.3
+"39143","143","Ohio","OH","Sandusky County",3890,1410,36.2
+"40147","147","Oklahoma","OK","Washington County",3780,1370,36.2
+"51087","087","Virginia","VA","Henrico County",22580,8140,36
+"33011","011","New Hampshire","NH","Hillsborough County",26300,9480,36
+"19033","033","Iowa","IA","Cerro Gordo County",2720,980,36
+"39045","045","Ohio","OH","Fairfield County",11170,4020,36
+"13135","135","Georgia","GA","Gwinnett County",71980,25900,36
+"06001","001","California","CA","Alameda County",107660,38600,35.9
+"25023","023","Massachusetts","MA","Plymouth County",31480,11280,35.8
+"19049","049","Iowa","IA","Dallas County",8330,2980,35.8
+"49051","051","Utah","UT","Wasatch County",2600,930,35.8
+"40119","119","Oklahoma","OK","Payne County",4450,1590,35.7
+"12081","081","Florida","FL","Manatee County",22280,7960,35.7
+"35028","028","New Mexico","NM","Los Alamos County",700,250,35.7
+"53003","003","Washington","WA","Asotin County",1630,580,35.6
+"36093","093","New York","NY","Schenectady County",10890,3860,35.4
+"31137","137","Nebraska","NE","Phelps County",680,240,35.3
+"29183","183","Missouri","MO","St. Charles County",26510,9350,35.3
+"27147","147","Minnesota","MN","Steele County",2470,870,35.2
+"26111","111","Michigan","MI","Midland County",5400,1900,35.2
+"08109","109","Colorado","CO","Saguache County",370,130,35.1
+"26065","065","Michigan","MI","Ingham County",17610,6170,35
+"13225","225","Georgia","GA","Peach County",1800,630,35
+"48307","307","Texas","TX","McCulloch County",430,150,34.9
+"48087","087","Texas","TX","Collingsworth County",230,80,34.8
+"31019","019","Nebraska","NE","Buffalo County",3540,1230,34.7
+"55025","025","Wisconsin","WI","Dane County",35670,12390,34.7
+"08103","103","Colorado","CO","Rio Blanco County",580,200,34.5
+"24045","045","Maryland","MD","Wicomico County",6970,2400,34.4
+"22087","087","Louisiana","LA","St. Bernard Parish",3690,1270,34.4
+"51510","510","Virginia","VA","Alexandria city",12530,4290,34.2
+"06087","087","California","CA","Santa Cruz County",14520,4970,34.2
+"41027","027","Oregon","OR","Hood River County",1560,530,34
+"23005","005","Maine","ME","Cumberland County",17160,5820,33.9
+"08069","069","Colorado","CO","Larimer County",19750,6670,33.8
+"19111","111","Iowa","IA","Lee County",2280,770,33.8
+"22017","017","Louisiana","LA","Caddo Parish",17590,5930,33.7
+"48037","037","Texas","TX","Bowie County",6570,2210,33.6
+"40027","027","Oklahoma","OK","Cleveland County",17790,5980,33.6
+"48441","441","Texas","TX","Taylor County",11870,3990,33.6
+"48141","141","Texas","TX","El Paso County",71650,24030,33.5
+"05131","131","Arkansas","AR","Sebastian County",9610,3220,33.5
+"08061","061","Colorado","CO","Kiowa County",30,10,33.3
+"48333","333","Texas","TX","Mills County",120,40,33.3
+"48433","433","Texas","TX","Stonewall County",60,20,33.3
+"09110","110","Connecticut","CT","Capitol Planning Region",30,10,33.3
+"22071","071","Louisiana","LA","Orleans Parish",24760,8250,33.3
+"12099","099","Florida","FL","Palm Beach County",89850,29810,33.2
+"45019","019","South Carolina","SC","Charleston County",27550,9140,33.2
+"25027","027","Massachusetts","MA","Worcester County",53080,17580,33.1
+"35035","035","New Mexico","NM","Otero County",5380,1780,33.1
+"31111","111","Nebraska","NE","Lincoln County",2150,710,33
+"27163","163","Minnesota","MN","Washington County",17810,5880,33
+"34015","015","New Jersey","NJ","Gloucester County",18370,6060,33
+"29189","189","Missouri","MO","St. Louis County",67960,22340,32.9
+"21073","073","Kentucky","KY","Franklin County",3140,1030,32.8
+"37135","135","North Carolina","NC","Orange County",7260,2380,32.8
+"48479","479","Texas","TX","Webb County",26810,8780,32.7
+"23001","001","Maine","ME","Androscoggin County",7390,2420,32.7
+"31003","003","Nebraska","NE","Antelope County",430,140,32.6
+"35005","005","New Mexico","NM","Chaves County",4660,1510,32.4
+"55059","059","Wisconsin","WI","Kenosha County",10610,3430,32.3
+"27015","015","Minnesota","MN","Brown County",1580,510,32.3
+"25003","003","Massachusetts","MA","Berkshire County",6490,2090,32.2
+"48375","375","Texas","TX","Potter County",9730,3130,32.2
+"19061","061","Iowa","IA","Dubuque County",7710,2480,32.2
+"48317","317","Texas","TX","Martin County",280,90,32.1
+"27009","009","Minnesota","MN","Benton County",3300,1060,32.1
+"06041","041","California","CA","Marin County",13470,4320,32.1
+"22095","095","Louisiana","LA","St. John the Baptist Parish",2900,930,32.1
+"22033","033","Louisiana","LA","East Baton Rouge Parish",33510,10710,32
+"48017","017","Texas","TX","Bailey County",690,220,31.9
+"51820","820","Virginia","VA","Waynesboro city",1710,540,31.6
+"08035","035","Colorado","CO","Douglas County",23180,7310,31.5
+"25005","005","Massachusetts","MA","Bristol County",35880,11310,31.5
+"13059","059","Georgia","GA","Clarke County",7300,2300,31.5
+"31157","157","Nebraska","NE","Scotts Bluff County",2510,790,31.5
+"48061","061","Texas","TX","Cameron County",36660,11530,31.5
+"56025","025","Wyoming","WY","Natrona County",5790,1820,31.4
+"51660","660","Virginia","VA","Harrisonburg city",3410,1070,31.4
+"48083","083","Texas","TX","Coleman County",320,100,31.2
+"42045","045","Pennsylvania","PA","Delaware County",39870,12450,31.2
+"39151","151","Ohio","OH","Stark County",24620,7680,31.2
+"31001","001","Nebraska","NE","Adams County",2130,660,31
+"08097","097","Colorado","CO","Pitkin County",810,250,30.9
+"19063","063","Iowa","IA","Emmet County",390,120,30.8
+"13247","247","Georgia","GA","Rockdale County",5920,1810,30.6
+"09140","140","Connecticut","CT","Naugatuck Valley",27360,8350,30.5
+"01101","101","Alabama","AL","Montgomery County",18850,5750,30.5
+"34023","023","New Jersey","NJ","Middlesex County",56490,17230,30.5
+"12009","009","Florida","FL","Brevard County",32690,9950,30.4
+"42023","023","Pennsylvania","PA","Cameron County",230,70,30.4
+"48153","153","Texas","TX","Floyd County",460,140,30.4
+"12031","031","Florida","FL","Duval County",77950,23720,30.4
+"27027","027","Minnesota","MN","Clay County",5270,1600,30.4
+"13089","089","Georgia","GA","DeKalb County",59480,18010,30.3
+"48453","453","Texas","TX","Travis County",91290,27640,30.3
+"51630","630","Virginia","VA","Fredericksburg city",2180,660,30.3
+"36119","119","New York","NY","Westchester County",64840,19610,30.2
+"48309","309","Texas","TX","McLennan County",20170,6050,30
+"12027","027","Florida","FL","DeSoto County",2140,640,29.9
+"42077","077","Pennsylvania","PA","Lehigh County",26470,7910,29.9
+"26161","161","Michigan","MI","Washtenaw County",20550,6140,29.9
+"21111","111","Kentucky","KY","Jefferson County",57330,17120,29.9
+"13245","245","Georgia","GA","Richmond County",16880,5040,29.9
+"34005","005","New Jersey","NJ","Burlington County",28920,8630,29.8
+"51770","770","Virginia","VA","Roanoke city",7480,2200,29.4
+"09190","190","Connecticut","CT","Western Connecticut",40410,11870,29.4
+"19139","139","Iowa","IA","Muscatine County",3310,970,29.3
+"27067","067","Minnesota","MN","Kandiyohi County",3310,970,29.3
+"38035","035","North Dakota","ND","Grand Forks County",5480,1600,29.2
+"21067","067","Kentucky","KY","Fayette County",21890,6380,29.1
+"51680","680","Virginia","VA","Lynchburg city",5740,1670,29.1
+"48215","215","Texas","TX","Hidalgo County",85310,24820,29.1
+"48039","039","Texas","TX","Brazoria County",29900,8690,29.1
+"28151","151","Mississippi","MS","Washington County",3580,1040,29.1
+"38031","031","North Dakota","ND","Foster County",310,90,29
+"39099","099","Ohio","OH","Mahoning County",14880,4290,28.8
+"31053","053","Nebraska","NE","Dodge County",2810,810,28.8
+"39057","057","Ohio","OH","Greene County",10180,2930,28.8
+"08033","033","Colorado","CO","Dolores County",210,60,28.6
+"38069","069","North Dakota","ND","Pierce County",280,80,28.6
+"09110","110","Connecticut","CT","Capitol",59180,16900,28.6
+"48041","041","Texas","TX","Brazos County",15830,4510,28.5
+"36059","059","New York","NY","Nassau County",88630,25180,28.4
+"27123","123","Minnesota","MN","Ramsey County",41340,11740,28.4
+"39093","093","Ohio","OH","Lorain County",19730,5590,28.3
+"27019","019","Minnesota","MN","Carver County",7670,2170,28.3
+"19169","169","Iowa","IA","Story County",5240,1480,28.2
+"48397","397","Texas","TX","Rockwall County",8230,2320,28.2
+"34011","011","New Jersey","NJ","Cumberland County",11460,3230,28.2
+"46013","013","South Dakota","SD","Brown County",2910,820,28.2
+"48029","029","Texas","TX","Bexar County",161750,45230,28
+"48117","117","Texas","TX","Deaf Smith County",1860,520,28
+"27003","003","Minnesota","MN","Anoka County",26360,7360,27.9
+"42091","091","Pennsylvania","PA","Montgomery County",54840,15290,27.9
+"27139","139","Minnesota","MN","Scott County",11290,3130,27.7
+"31119","119","Nebraska","NE","Madison County",3070,850,27.7
+"54011","011","West Virginia","WV","Cabell County",5970,1650,27.6
+"17165","165","Illinois","IL","Saline County",1810,500,27.6
+"27165","165","Minnesota","MN","Watonwan County",950,260,27.4
+"35009","009","New Mexico","NM","Curry County",4230,1150,27.2
+"48355","355","Texas","TX","Nueces County",25290,6860,27.1
+"08059","059","Colorado","CO","Jefferson County",33160,8940,27
+"13281","281","Georgia","GA","Towns County",520,140,26.9
+"44007","007","Rhode Island","RI","Providence County",42360,11340,26.8
+"24005","005","Maryland","MD","Baltimore County",58210,15540,26.7
+"13067","067","Georgia","GA","Cobb County",53000,14140,26.7
+"28083","083","Mississippi","MS","Leflore County",2550,680,26.7
+"12057","057","Florida","FL","Hillsborough County",103240,27480,26.6
+"13063","063","Georgia","GA","Clayton County",25580,6800,26.6
+"36081","081","New York","NY","Queens County",156380,41410,26.5
+"48183","183","Texas","TX","Gregg County",9490,2510,26.4
+"13095","095","Georgia","GA","Dougherty County",6470,1710,26.4
+"34007","007","New Jersey","NJ","Camden County",38430,10140,26.4
+"34027","027","New Jersey","NJ","Morris County",29590,7750,26.2
+"51775","775","Virginia","VA","Salem city",1490,390,26.2
+"48319","319","Texas","TX","Mason County",310,80,25.8
+"29205","205","Missouri","MO","Shelby County",350,90,25.7
+"34025","025","New Jersey","NJ","Monmouth County",38580,9840,25.5
+"39041","041","Ohio","OH","Delaware County",14950,3810,25.5
+"50007","007","Vermont","VT","Chittenden County",9090,2310,25.4
+"56001","001","Wyoming","WY","Albany County",1900,480,25.3
+"06085","085","California","CA","Santa Clara County",121820,30690,25.2
+"26125","125","Michigan","MI","Oakland County",80170,20150,25.1
+"05119","119","Arkansas","AR","Pulaski County",30350,7620,25.1
+"38027","027","North Dakota","ND","Eddy County",80,20,25
+"08031","031","Colorado","CO","Denver County",46550,11600,24.9
+"41051","051","Oregon","OR","Multnomah County",45110,11100,24.6
+"35001","001","New Mexico","NM","Bernalillo County",40590,9880,24.3
+"40109","109","Oklahoma","OK","Oklahoma County",64850,15620,24.1
+"31141","141","Nebraska","NE","Platte County",3160,760,24.1
+"13021","021","Georgia","GA","Bibb County",12340,2940,23.8
+"51840","840","Virginia","VA","Winchester city",1980,470,23.7
+"48113","113","Texas","TX","Dallas County",217310,51150,23.5
+"19103","103","Iowa","IA","Johnson County",10500,2460,23.4
+"48335","335","Texas","TX","Mitchell County",470,110,23.4
+"27109","109","Minnesota","MN","Olmsted County",12710,2950,23.2
+"47157","157","Tennessee","TN","Shelby County",75960,17320,22.8
+"19113","113","Iowa","IA","Linn County",16370,3730,22.8
+"48485","485","Texas","TX","Wichita County",9370,2130,22.7
+"09170","170","Connecticut","CT","South Central Connecticut",33530,7610,22.7
+"48439","439","Texas","TX","Tarrant County",165310,37460,22.7
+"27161","161","Minnesota","MN","Waseca County",1280,290,22.7
+"48121","121","Texas","TX","Denton County",65180,14690,22.5
+"48167","167","Texas","TX","Galveston County",24600,5500,22.4
+"22065","065","Louisiana","LA","Madison Parish",810,180,22.2
+"24031","031","Maryland","MD","Montgomery County",73630,16200,22
+"41067","067","Oregon","OR","Washington County",39940,8700,21.8
+"08013","013","Colorado","CO","Boulder County",15880,3450,21.7
+"24027","027","Maryland","MD","Howard County",22830,4950,21.7
+"19145","145","Iowa","IA","Page County",890,190,21.3
+"51730","730","Virginia","VA","Petersburg city",3200,680,21.2
+"51610","610","Virginia","VA","Falls Church city",950,200,21.1
+"48245","245","Texas","TX","Jefferson County",19350,4040,20.9
+"48381","381","Texas","TX","Randall County",10430,2170,20.8
+"48357","357","Texas","TX","Ochiltree County",1010,210,20.8
+"06081","081","California","CA","San Mateo County",46190,9530,20.6
+"38071","071","North Dakota","ND","Ramsey County",1120,230,20.5
+"48157","157","Texas","TX","Fort Bend County",63530,13020,20.5
+"31045","045","Nebraska","NE","Dawes County",540,110,20.4
+"31079","079","Nebraska","NE","Hall County",5650,1150,20.4
+"12117","117","Florida","FL","Seminole County",28210,5710,20.2
+"48201","201","Texas","TX","Harris County",392420,79140,20.2
+"12011","011","Florida","FL","Broward County",126710,25490,20.1
+"56043","043","Wyoming","WY","Washakie County",500,100,20
+"13121","121","Georgia","GA","Fulton County",69040,13710,19.9
+"39153","153","Ohio","OH","Summit County",35330,6950,19.7
+"19013","013","Iowa","IA","Black Hawk County",9660,1900,19.7
+"51520","520","Virginia","VA","Bristol city",1020,200,19.6
+"19163","163","Iowa","IA","Scott County",12690,2480,19.5
+"24510","510","Maryland","MD","Baltimore city",43570,8450,19.4
+"34035","035","New Jersey","NJ","Somerset County",20580,3990,19.4
+"46099","099","South Dakota","SD","Minnehaha County",17950,3480,19.4
+"31013","013","Nebraska","NE","Box Butte County",780,150,19.2
+"34021","021","New Jersey","NJ","Mercer County",25650,4840,18.9
+"28053","053","Mississippi","MS","Humphreys County",530,100,18.9
+"46083","083","South Dakota","SD","Lincoln County",5160,970,18.8
+"48491","491","Texas","TX","Williamson County",46770,8770,18.8
+"31153","153","Nebraska","NE","Sarpy County",15360,2860,18.6
+"48303","303","Texas","TX","Lubbock County",23260,4310,18.5
+"39085","085","Ohio","OH","Lake County",13560,2510,18.5
+"27053","053","Minnesota","MN","Hennepin County",91440,16820,18.4
+"19175","175","Iowa","IA","Union County",710,130,18.3
+"34039","039","New Jersey","NJ","Union County",43190,7770,18
+"25019","019","Massachusetts","MA","Nantucket County",730,130,17.8
+"28049","049","Mississippi","MS","Hinds County",16310,2860,17.5
+"51540","540","Virginia","VA","Charlottesville city",2980,520,17.4
+"08014","014","Colorado","CO","Broomfield County",4090,700,17.1
+"31043","043","Nebraska","NE","Dakota County",2000,340,17
+"38017","017","North Dakota","ND","Cass County",14770,2470,16.7
+"39113","113","Ohio","OH","Montgomery County",37480,6260,16.7
+"12086","086","Florida","FL","Miami-Dade County",176370,28440,16.1
+"29510","510","Missouri","MO","St. Louis city",21210,3390,16
+"25009","009","Massachusetts","MA","Essex County",52210,8290,15.9
+"39095","095","Ohio","OH","Lucas County",31250,4960,15.9
+"19193","193","Iowa","IA","Woodbury County",8640,1370,15.9
+"12103","103","Florida","FL","Pinellas County",45230,7040,15.6
+"25013","013","Massachusetts","MA","Hampden County",29200,4540,15.5
+"31029","029","Nebraska","NE","Chase County",260,40,15.4
+"09120","120","Connecticut","CT","Greater Bridgeport",21200,3200,15.1
+"27037","037","Minnesota","MN","Dakota County",32860,4900,14.9
+"34003","003","New Jersey","NJ","Bergen County",57690,8540,14.8
+"25017","017","Massachusetts","MA","Middlesex County",99680,14680,14.7
+"48353","353","Texas","TX","Nolan County",1180,170,14.4
+"51720","720","Virginia","VA","Norton city",140,20,14.3
+"25021","021","Massachusetts","MA","Norfolk County",45070,6350,14.1
+"51620","620","Virginia","VA","Franklin city",650,90,13.8
+"39049","049","Ohio","OH","Franklin County",106970,14260,13.3
+"48085","085","Texas","TX","Collin County",78570,10040,12.8
+"10003","003","Delaware","DE","New Castle County",37690,4750,12.6
+"31109","109","Nebraska","NE","Lancaster County",23650,2960,12.5
+"19153","153","Iowa","IA","Polk County",39370,4880,12.4
+"34031","031","New Jersey","NJ","Passaic County",38620,4770,12.4
+"39061","061","Ohio","OH","Hamilton County",62380,7560,12.1
+"39035","035","Ohio","OH","Cuyahoga County",80900,9730,12
+"06075","075","California","CA","San Francisco County",42970,4860,11.3
+"36047","047","New York","NY","Kings County",210060,23710,11.3
+"51685","685","Virginia","VA","Manassas Park city",1260,140,11.1
+"42101","101","Pennsylvania","PA","Philadelphia County",115330,12790,11.1
+"36005","005","New York","NY","Bronx County",112100,11900,10.6
+"34013","013","New Jersey","NJ","Essex County",65360,6800,10.4
+"31055","055","Nebraska","NE","Douglas County",47140,4900,10.4
+"51595","595","Virginia","VA","Emporia city",320,30,9.4
+"25025","025","Massachusetts","MA","Suffolk County",45410,4050,8.9
+"34017","017","New Jersey","NJ","Hudson County",55470,4770,8.6
+"36061","061","New York","NY","New York County",84220,7000,8.3
+"48103","103","Texas","TX","Crane County",410,30,7.3
+"51683","683","Virginia","VA","Manassas city",4140,300,7.2
+"48179","179","Texas","TX","Gray County",1530,110,7.2
+"11001","001","District of Columbia","DC","District of Columbia",49160,2650,5.4
+"51690","690","Virginia","VA","Martinsville city",830,40,4.8
+"13239","239","Georgia","GA","Quitman County",20,0,0
+"48101","101","Texas","TX","Cottle County",70,0,0
+"48137","137","Texas","TX","Edwards County",10,0,0
+"48235","235","Texas","TX","Irion County",50,0,0
+"09130","130","Connecticut","CT","Lower Connecticut River Valley Planning Region",10,0,0
