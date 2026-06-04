@@ -2,8 +2,9 @@
 
 - **Authors:** Hailey Gibbs and Casey Peeks
 - **Organization:** Center for American Progress
-- **Published:** April 22, 2026 (GOAL DATE)
+- **Published:** April 29, 2026
 - **Collaborators:** W.E. Upjohn Institute for Employment Research; Stanford University
+- **Researchers**: Aaron Sojourner, Gabrielle Pepin, Katharine Sadowski, Won F. Lee
 
 ---
 
