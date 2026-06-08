@@ -81,13 +81,14 @@ The following files are used across multiple analyses. Each subfolder README spe
 | `data-table.csv` | Analysis 5 | NCHS Urban-Rural Classification Scheme. Download from [CDC/NCHS](https://www.cdc.gov/nchs/data_access/urban_rural.htm) |
 | `pop_hispanic_blacknh.csv` | Analysis 6 | Census tract-level Hispanic and Black non-Hispanic population shares, cleaned from ACS data |
 
-### ⚠️ Large File Notice
+### ⚠️ Large Files Notice
 
-`joined_rural.csv` and `cap_ccaccess_2025_revised_02282026.csv`exceed GitHub's file size limit and is **not included in this repository**. joined_rural is required by analyses 4 and 6 to join rurality status to each child care data point by geographic coordinates.
+`joined_rural.csv` and `cap_ccaccess_2025_revised_02282026.csv`exceed GitHub's file size limit and are **not included in this repository**. 
+- joined_rural is required by analyses 4 and 6 to join rurality status to each child care data point by geographic coordinates.
+- **Users will need to request access if you have not been previously granted; Any external partners requesting access will need a legally-approved DUA with CAP to license these data**
+
 🔗 [joined_rural.csv on Google Drive](https://drive.google.com/file/d/17-cLCuDMT-M9Iujmw4yHfhYeasQr7J7R/view?usp=sharing)
 🔗 [cap_ccaccess_2025_revised_02282026.csv on Google Drive](https://drive.google.com/file/d/1XgFNbiQamQwYm5s0Cl9xd39dhCJ28HSQ/view?usp=drive_link)
-##you will need to request access if you have not been previously granted it; any external partners requesting access will need a legally-approved DUA to license these data**
-
 
 ---
 
