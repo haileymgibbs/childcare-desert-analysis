@@ -1,0 +1,406 @@
+---
+title: "Child Care Deserts by Congressional District"
+author: "Hailey Gibbs"
+date: "April 2026"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+```
+
+## Setup
+
+Load the child care data and required libraries.
+
+```{r load-data}
+# Load child care data: CCD full file
+childcare_data <- read.csv("cap_ccaccess_2025_revised_02282026.csv") # saved in Drive, linked in GitHub
+```
+
+```{r load-libraries}
+library(tidyverse)
+library(sf)
+library(tigris)
+
+options(tigris_use_cache = TRUE)
+```
+
+## Download and Prepare Congressional District Shapefile
+
+```{r download-cd-shapes}
+cd_shapes_119 <- congressional_districts(cb = TRUE, year = 2024)
+
+# Check what tigris returned
+attr(cd_shapes_119, "tigris")  # confirms source as CDs
+names(cd_shapes_119)
+nrow(cd_shapes_119)            # should be 435 + territories (441)
+```
+
+```{r filter-cd-shapes}
+# Filter to 50 states + DC (exclude territories)
+cd_shapes_119_filtered <- cd_shapes_119 %>%
+  filter(STATEFP %in% c(sprintf("%02d", c(1:2, 4:6, 8:13, 15:42, 44:51, 53:56)), "11"))
+
+nrow(cd_shapes_119_filtered)   # should be 436 (50 states + DC)
+
+# Transform to WGS84
+cd_shapes <- st_transform(cd_shapes_119_filtered, crs = 4326)
+```
+
+## Spatial Join: Child Care Points to Congressional Districts
+
+```{r convert-to-sf}
+# Convert child care data to SF object
+df_sf <- childcare_data %>%
+  filter(state_abbrv != "PR") %>%
+  st_as_sf(coords = c("longitude", "latitude"), crs = 4326)
+```
+
+```{r spatial-join}
+# Join child care points to CD shapes
+df_joined <- st_join(df_sf, cd_shapes[, c("GEOID", "NAMELSAD", "STATEFP", "CD119FP")],
+                     join = st_within)
+
+# Check CRS alignment and count unmatched points
+st_crs(df_sf) == st_crs(cd_shapes)   # should return TRUE
+sum(is.na(df_joined$GEOID))         # should be ~600 -- these are 0.027% of total data
+```
+
+### Handle Unmatched Points (Nearest Neighbor Join)
+
+```{r fix-unmatched}
+# Isolate unmatched points
+unmatched <- df_joined %>% filter(is.na(GEOID))
+
+# Find and assign nearest CD for each unmatched point
+nearest_idx <- st_nearest_feature(unmatched, cd_shapes)
+
+unmatched_fixed <- unmatched %>%
+  mutate(
+    GEOID    = cd_shapes$GEOID[nearest_idx],
+    NAMELSAD = cd_shapes$NAMELSAD[nearest_idx],
+    STATEFP  = cd_shapes$STATEFP[nearest_idx],
+    CD118FP  = cd_shapes$CD118FP[nearest_idx]
+  )
+
+# Recombine with matched points
+df_joined_clean <- df_joined %>%
+  filter(!is.na(GEOID)) %>%
+  bind_rows(unmatched_fixed)
+
+# Verify no NAs remain
+sum(is.na(df_joined_clean$GEOID))   # should be 0
+```
+
+## Calculate Child Care Deserts by Congressional District
+
+```{r calculate-deserts}
+cd_desert_estimates <- df_joined_clean %>%
+  st_drop_geometry() %>%
+  mutate(is_desert = adj_supply <= 0.33) %>%
+  group_by(GEOID, NAMELSAD, STATEFP) %>%
+  summarise(
+    total_children  = n() * 10,
+    desert_children = sum(is_desert) * 10,
+    pct_in_desert   = desert_children / total_children * 100,
+    .groups = "drop"
+  ) %>%
+  arrange(desc(pct_in_desert))
+
+# Sanity checks
+nrow(cd_desert_estimates)
+summary(cd_desert_estimates$pct_in_desert)
+head(cd_desert_estimates, 10)   # highest desert districts
+tail(cd_desert_estimates, 10)   # lowest desert districts
+```
+
+### Remove Puerto Rico (if present)
+
+```{r remove-pr}
+# Check for duplicate GEOIDs
+cd_desert_estimates %>%
+  count(GEOID) %>%
+  filter(n > 1)
+
+# Check for unexpected state FIPS codes
+sort(unique(cd_desert_estimates$STATEFP))
+
+# Remove PR (STATEFP = "72")
+cd_desert_estimates <- cd_desert_estimates %>%
+  filter(STATEFP != "72")
+
+# Verify
+nrow(cd_desert_estimates)                    # should be 436
+sort(unique(cd_desert_estimates$STATEFP))    # confirm 72 is gone
+```
+
+### Add State Abbreviations
+
+```{r add-state-abbrvs}
+state_lookup <- childcare_data %>%
+  distinct(state_fips, state_abbrv) %>%
+  mutate(STATEFP = sprintf("%02d", state_fips))  # pad to match STATEFP format
+
+cd_desert_estimates <- cd_desert_estimates %>%
+  left_join(state_lookup, by = "STATEFP") %>%
+  select(GEOID, NAMELSAD, state_abbrv, total_children, desert_children, pct_in_desert) %>%
+  arrange(desc(pct_in_desert))
+```
+
+```{r export-estimates}
+write.csv(cd_desert_estimates, "cd_desert_estimates.csv", row.names = FALSE)
+```
+
+## District-Level Desert Classification
+
+What percentage of congressional districts qualify as child care deserts?
+
+```{r classify-districts}
+DENOM_CDS <- 436
+
+# Flag NAs before classification
+cd_na_check <- cd_desert_estimates %>%
+  filter(is.na(pct_in_desert))
+n_na <- nrow(cd_na_check)
+
+# Classify by threshold
+cd_classified <- cd_desert_estimates %>%
+  filter(!is.na(pct_in_desert)) %>%
+  mutate(
+    desert_50 = pct_in_desert >= 50,   # TRUE if >=50% of children in desert tracts
+    desert_80 = pct_in_desert >= 80    # TRUE if >=80% of children in desert tracts
+  )
+```
+
+### National Summary
+
+```{r national-summary}
+national_summary <- tibble(
+  threshold          = c(">=50%", ">=80%"),
+  n_desert_districts = c(sum(cd_classified$desert_50),
+                         sum(cd_classified$desert_80)),
+  n_non_desert       = c(sum(!cd_classified$desert_50),
+                         sum(!cd_classified$desert_80)),
+  n_na_districts     = n_na,
+  denominator_436    = DENOM_CDS,
+  pct_of_all_cds     = round(n_desert_districts / DENOM_CDS * 100, 1)
+)
+
+print(national_summary)
+```
+
+### State-Level Breakdown
+
+```{r state-summary}
+state_summary <- cd_classified %>%
+  group_by(state_abbrv) %>%
+  summarise(
+    total_cds_in_state  = n(),
+    n_desert_50         = sum(desert_50),
+    n_desert_80         = sum(desert_80),
+    pct_cds_desert_50   = round(n_desert_50 / total_cds_in_state * 100, 1),
+    pct_cds_desert_80   = round(n_desert_80 / total_cds_in_state * 100, 1),
+    .groups = "drop"
+  ) %>%
+  arrange(desc(pct_cds_desert_50))
+
+print(state_summary)
+```
+
+```{r export-summaries}
+write.csv(national_summary, "cd_desert_national_summary.csv", row.names = FALSE)
+write.csv(state_summary,    "cd_desert_state_summary.csv",    row.names = FALSE)
+write.csv(cd_classified,    "cd_desert_classified.csv",       row.names = FALSE)
+```
+
+## Choropleth Map by Congressional District
+
+### Static Map (ggplot2) (didn't love this, turned out tiny and hard to read)
+
+```{r static-map}
+library(ggplot2)
+
+# Join estimates to spatial shapes
+cd_map <- cd_shapes_119_filtered %>%
+  left_join(cd_desert_estimates, by = "GEOID")
+
+ggplot(cd_map) +
+  geom_sf(aes(fill = pct_in_desert), color = NA) +
+  scale_fill_viridis_c(
+    option    = "magma",
+    direction = -1,
+    name      = "% Children\nin Desert",
+    limits    = c(0, 100),
+    breaks    = seq(0, 100, by = 25)
+  ) +
+  labs(
+    title    = "Children Under 6 Living in Child Care Deserts",
+    subtitle = "By Congressional District (119th Congress)",
+    caption  = "A child care desert is defined as adj_supply ≤ 0.33"
+  ) +
+  theme_void() +
+  theme(
+    plot.title       = element_text(face = "bold", size = 14, hjust = 0.5),
+    plot.subtitle    = element_text(size = 10, hjust = 0.5),
+    plot.caption     = element_text(size = 8, hjust = 0.5),
+    legend.position  = "bottom",
+    legend.key.width = unit(2, "cm")
+  )
+
+ggsave("cd_desert_map.png", width = 12, height = 7, dpi = 300)
+```
+
+### Interactive Map (Leaflet) with Tooltips (way better, preferable; doesn't sync cleanly with Datawrapper though, as a flag)
+
+```{r leaflet-setup}
+library(leaflet)
+library(leaflet.extras)
+library(leaflegend)
+
+# Join estimates back to spatial shapes
+cd_map <- cd_shapes_119_filtered %>%
+  left_join(
+    cd_desert_estimates %>% select(-NAMELSAD),
+    by = "GEOID"
+  ) %>%
+  filter(STATEFP != "72")
+
+# Define color palette
+pal <- colorNumeric(
+  palette = "magma",
+  domain  = c(0, 100),
+  reverse = TRUE
+)
+```
+
+```{r build-tooltips}
+# Build tooltip HTML for each district
+cd_map <- cd_map %>%
+  mutate(
+    tooltip_html = ifelse(
+      is.na(pct_in_desert),
+      paste0(
+        "<div style='font-family:\"Segoe UI\", sans-serif; padding:4px 2px;'>",
+        "<b style='font-size:13px;'>", NAMELSAD, ", ", state_abbrv, "</b><br/>",
+        "<span style='font-size:11px; color:#888;'>No data available</span>",
+        "</div>"
+      ),
+      paste0(
+        "<div style='font-family:\"Segoe UI\", sans-serif; padding:4px 2px; min-width:200px;'>",
+        "<b style='font-size:14px;'>", NAMELSAD, ", ", state_abbrv, "</b>",
+        "<hr style='margin:5px 0; border:none; border-top:1px solid #ddd;'/>",
+        "<div style='margin-bottom:6px;'>",
+        "<span style='font-size:11px; color:#555; text-transform:uppercase;
+                      letter-spacing:0.5px;'>In a Licensed Child Care Desert</span><br/>",
+        "<span style='font-size:22px; font-weight:700; color:",
+        ifelse(pct_in_desert >= 66, "#b2182b",
+               ifelse(pct_in_desert >= 33, "#e08214", "#2166ac")),
+        ";'>", sprintf("%.1f%%", pct_in_desert), "</span>",
+        "</div>",
+        "<table style='width:100%; font-size:12px; border-collapse:collapse;'>",
+        "<tr style='background:#f9f9f9;'>",
+        "<td style='padding:3px 6px; color:#444;'>Total children represented</td>",
+        "<td style='padding:3px 6px; text-align:right; font-weight:600;'>",
+        scales::comma(total_children), "</td></tr>",
+        "<tr>",
+        "<td style='padding:3px 6px; color:#444;'>Children in desert</td>",
+        "<td style='padding:3px 6px; text-align:right; font-weight:600;'>",
+        scales::comma(desert_children), "</td></tr>",
+        "</table></div>"
+      )
+    )
+  )
+
+# Verify
+names(cd_map)
+nrow(cd_map)  # should be 436
+
+# Re-project to WGS84
+cd_map <- st_transform(cd_map, crs = 4326)
+```
+
+```{r leaflet-map}
+leaflet(cd_map) %>%
+  setView(lng = -96, lat = 37.8, zoom = 4) %>%
+  addProviderTiles(providers$CartoDB.Positron) %>%
+  addPolygons(
+    fillColor    = ~pal(pct_in_desert),
+    fillOpacity  = 0.8,
+    color        = "white",
+    weight       = 0.5,
+    opacity      = 1,
+    label        = lapply(cd_map$tooltip_html, htmltools::HTML),
+    labelOptions = labelOptions(
+      style     = list("font-weight" = "normal", padding = "3px 8px"),
+      textsize  = "13px",
+      direction = "auto"
+    ),
+    highlightOptions = highlightOptions(
+      weight       = 2,
+      color        = "#666",
+      fillOpacity  = 0.9,
+      bringToFront = TRUE
+    )
+  ) %>%
+  addLegendNumeric(
+    pal          = pal,
+    values       = ~pct_in_desert,
+    title        = htmltools::tags$div(
+      style = "font-size:12px; text-align:center; font-weight:bold; margin-bottom:3px;",
+      "% Young Children in a Licensed Child Care Desert"
+    ),
+    position     = "bottomright",
+    orientation  = "horizontal",
+    width        = 200,
+    height       = 15,
+    bins         = 5,
+    numberFormat = function(x) paste0(round(x), "%")
+  )
+```
+
+## Export Interactive Map
+
+```{r export-map}
+library(htmlwidgets)
+
+map <- leaflet(cd_map) %>%
+  setView(lng = -96, lat = 37.8, zoom = 4) %>%
+  addProviderTiles(providers$CartoDB.Positron) %>%
+  addPolygons(
+    fillColor    = ~pal(pct_in_desert),
+    fillOpacity  = 0.8,
+    color        = "white",
+    weight       = 0.5,
+    opacity      = 1,
+    label        = lapply(cd_map$tooltip_html, htmltools::HTML),
+    labelOptions = labelOptions(
+      style     = list("font-weight" = "normal", padding = "3px 8px"),
+      textsize  = "13px",
+      direction = "auto"
+    ),
+    highlightOptions = highlightOptions(
+      weight       = 2,
+      color        = "#666",
+      fillOpacity  = 0.9,
+      bringToFront = TRUE
+    )
+  ) %>%
+  addLegendNumeric(
+    pal          = pal,
+    values       = ~pct_in_desert,
+    title        = htmltools::tags$div(
+      style = "font-size:12px; text-align:center; font-weight:bold; margin-bottom:3px;",
+      "% Young Children in a Licensed Child Care Desert"
+    ),
+    position     = "bottomright",
+    orientation  = "horizontal",
+    width        = 200,
+    height       = 15,
+    bins         = 5,
+    numberFormat = function(x) paste0(round(x), "%")
+  )
+
+# Export as self-contained HTML
+saveWidget(map, "cd_desert_map.html", selfcontained = TRUE)
+```
