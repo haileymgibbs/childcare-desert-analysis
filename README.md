@@ -1,4 +1,4 @@
-# Child Care Desert Subanalyses
+# Child Care Desert Analyses
 **Last updated:** May 2026
 
 This subfolder contains six related subanalyses examining licensed child care deserts across the United States. 
