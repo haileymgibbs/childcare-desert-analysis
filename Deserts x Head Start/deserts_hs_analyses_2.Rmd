@@ -1,8 +1,7 @@
 ---
-title: "deserts_hs_analyses_2"
-author: "Evan Yi"
-date: "2026-04-02"
-output: pdf_document
+title: Deserts x Head Start Analyses
+author: Evan Yi and Hailey Gibbs
+date: April 2, 2026
 ---
 
 ```{r setup, include=FALSE}
