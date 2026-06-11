@@ -8,10 +8,9 @@ All analyses use the Center for American Progress child care access dataset as t
 
 ## What Is a Child Care Desert?
 
-A location is classified as a **child care desert** if its adjusted supply score (`adj_supply`) is at or below 0.33 — meaning there are more than three children for every available licensed child care slot. 
+A location is classified as a **child care desert** if its adjusted supply score (`adj_supply`) is at or below 0.33 — meaning there are at least three children for every available licensed child care slot. 
 Supply scores are also available for specific care types: Head Start (`adj_supply_hs`), Pre-K (`adj_supply_prek`), family child care (`adj_supply_fcc`), and child care centers (`adj_supply_ccc`).
-The primary data source is the Center for American Progress Child Care Access Dataset (2025 revision, February 2026), produced in collaboration with the W.E. Upjohn Institute for Employment Research and Stanford University. 
-Each row represents approximately 10 children.
+The primary data source is the Center for American Progress Child Care Access Dataset (2025 revision, February 2026), produced in collaboration with the W.E. Upjohn Institute for Employment Research and Stanford University. Each row represents approximately 10 children.
 
 ---
 
@@ -28,7 +27,7 @@ National and state-level desert rates using the core child care access data, inc
 **Script:** `childcare_desert_analysis.Rmd`
 
 Aggregates desert status to the county level and produces a summary table and an interactive choropleth map. 
-Connecticut is handled separately via a spatial join to planning regions. Puerto Rico and U.S. territories are excluded.
+Connecticut is handled separately via a spatial join to planning regions, having replaced counties in 2022. Puerto Rico and U.S. territories are excluded.
 
 ---
 
@@ -36,15 +35,14 @@ Connecticut is handled separately via a spatial join to planning regions. Puerto
 **Script:** `deserts_poverty_estimates.Rmd`
 
 Estimates the share of poverty-eligible children (children under five living in poverty) who live in a child care desert, at national and state level. 
-Poverty rates are joined to child care data via a spatial join to 2020 census tract boundaries.
+Poverty rates are joined to child care data via a spatial join to 2020 Census tract boundaries.
 
 ---
 
 ### 4. Head Start Desert Estimates
 **Script:** `CCD_x_Head_Start_Analyses.Rmd` *(Authors: Evan Yi and Hailey Gibbs)*
 
-Estimates what share of Head Start-eligible children live in a Head Start desert, with breakdowns by rurality and degree of supply scarcity. 
-Eligibility is proxied using county-level poverty rates for children under five.
+Estimates what share of Head Start-eligible children (based on federal poverty level) live areas with limited access to a Head Start slot, with breakdowns by rurality and degree of supply scarcity. Eligibility is proxied using county-level poverty rates for children under five.
 
 ---
 
@@ -59,14 +57,14 @@ Includes national and state-level summaries and a reusable filter function for s
 ### 6. Deserts by Race/Ethnicity
 **Script:** `desertsxrace.Rmd` *(Authors: Hailey Gibbs and Evan Yi)*
 
-Compares child care desert rates across counties by majority racial and ethnic composition (majority Hispanic, majority Black non-Hispanic, and all other counties), with breakdowns by rurality and by state for rural majority-minority counties.
+Compares child care desert rates across counties by majority racial and ethnic composition (majority Hispanic, majority Black non-Hispanic), with breakdowns by rurality and by state for rural majority-minority counties.
 
 ---
 
 ### 6. Deserts by Congressional District
 **Script:** `deserts_by_CD.Rmd` *(Author: Hailey Gibbs)*
 
-Aggregates child care access measures at the Congressional District level, using tigris to merge with CD shapefile. The CD data are from 2024 and all output flags that mid-decade redistricting efforts render some of these estimates moot.
+Aggregates child care access measures at the Congressional District level, using tigris to merge with CD shapefile. The CD data are from 2024 and all output flags that mid-decade redistricting efforts render some of these estimates unreliable.
 
 
 ## Shared Input Files
@@ -95,7 +93,7 @@ The following files are used across multiple analyses. Each subfolder README spe
 ## Requirements
 
 - R (≥ 4.2 recommended)
-- The following R packages (not all are required by every script — see individual READMEs):
+- The following R packages (not all are required by every script — see individual READMEs, where available):
 
 ```r
 install.packages(c(
