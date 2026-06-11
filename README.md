@@ -71,7 +71,7 @@ Census data can be downloaded from the [Census Bureau ACS 5-Year Estimates](http
 
 ### Running the Analysis
 - External partners geocoded and analyzed the provider access data, generating access measures for CCC, FCC, preK, and HS (raw data file not available)
-- The full data set with the adjusted supply measures is available on the ECP Shared Drive: https://drive.google.com/file/d/1XgFNbiQamQwYm5s0Cl9xd39dhCJ28HSQ/view?usp=drive_link
+- The full data set with the adjusted supply measures is available on the ECP Shared Drive [request access]
 - Analyses can be conducted using materials in [data-files]; separate R scripts for each analysis available in [R-scripts]
 - The computational threshold for a child care desert is <-0.33
 
