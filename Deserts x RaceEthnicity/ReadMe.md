@@ -1,4 +1,4 @@
-# Child Care Deserts × Race/Ethnicity
+# Child Care Deserts × Hispanic/Latino, Black, non-Hispanic
 
 **Authors:** Hailey Gibbs & Evan Yi
 **Last updated:** April 2026
