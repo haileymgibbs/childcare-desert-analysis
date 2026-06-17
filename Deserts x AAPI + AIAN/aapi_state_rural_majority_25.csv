@@ -1,0 +1,17 @@
+state_name,county_type_aapi_25,total_areas,n_distinct_counties,pct_in_desert
+Alaska,Predominantly AAPI (combined),13,1,100
+Kansas,Predominantly NHPI,220,1,100
+Puerto Rico,Predominantly NHPI,485,6,100
+Oklahoma,Predominantly NHPI,179,1,97.2
+Alaska,Predominantly Asian,13,1,92.3
+Kansas,Predominantly AAPI (combined),346,1,77.2
+Hawaii,Predominantly Asian,487,1,74.3
+Washington,Predominantly AAPI (combined),837,1,73
+Minnesota,Predominantly AAPI (combined),231,1,65.8
+Arizona,Predominantly NHPI,346,1,64.7
+Texas,Predominantly NHPI,690,6,57.7
+Georgia,Predominantly AAPI (combined),7,1,57.1
+Washington,Predominantly NHPI,216,1,56
+California,Predominantly NHPI,896,3,52.8
+New Mexico,Predominantly NHPI,730,1,49.7
+Nebraska,Predominantly NHPI,99,1,37.4

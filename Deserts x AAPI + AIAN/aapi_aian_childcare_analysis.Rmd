@@ -1,0 +1,551 @@
+---
+title: "Deserts x Race/Ethnicity: Asian American/Pacific Islander and American Indian/Alaska Native Communities"
+author: "Hailey Gibbs"
+date: "June 16, 2026"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Set up
+
+This file runs two **independent, parallel** classification systems against
+the same childcare desert data:
+
+1. **AAPI** = Asian alone (P8_006N) + Native Hawaiian and Other Pacific
+   Islander alone (P8_008N), summed as one combined share, with separate
+   breakdowns also shown for Asian alone and NHPI alone individually.
+2. **AIAN** = American Indian and Alaska Native alone (P8_005N), tracked on
+   its own — not combined with AAPI in any shared sum.
+
+Both 50% ("majority") and 25% ("predominantly") thresholds are calculated for
+each system. Aggregation is at the county level, and rurality (from
+`joined_rural`) is incorporated according to previous analyses on
+race/ethnicity: a rural flag joined on longitude/latitude, with desert rates
+compared by composition × rurality, and state-level driver tables limited to
+rural areas.
+
+```{r}
+library(tidyverse)
+desert_threshold <- 0.33
+
+# Loading csv files
+aapi <- read_csv("DECENNIALDHC2020.P8-Data.csv", col_names = TRUE, show_col_types = FALSE)
+
+# Sanity check: confirm the file loaded as expected before proceeding.
+# The P8 table should have ~73-74 columns (GEO_ID, NAME, P8_001N...P8_071N)
+# and GEO_ID should contain "1400000US" tract identifiers, not NAs or an
+# unexpected number of columns. If this check fails, STOP — do not proceed
+# with downstream analysis until the correct file is confirmed loaded.
+cat("Columns loaded:", ncol(aapi), "\n")
+cat("Column names (first 10):", paste(names(aapi)[1:10], collapse = ", "), "\n")
+cat("First GEO_ID value:", aapi$GEO_ID[1], "\n")
+cat("Second GEO_ID value (first data row):", aapi$GEO_ID[2], "\n")
+
+if (!"GEO_ID" %in% names(aapi)) {
+  stop("GEO_ID column not found — wrong file may have loaded. Check filename and re-run.")
+}
+if (!str_detect(aapi$GEO_ID[2], "^1400000US")) {
+  stop("Second row of GEO_ID does not match expected tract format '1400000US...' — wrong file may have loaded.")
+}
+
+aapi <- aapi[-1, ]   # row 1 is the variable-label row, not data
+
+childcare_data <- read_csv("cap_ccaccess_2025_revised_02282026.csv")
+joined_rural   <- read_csv("joined_rural.csv")
+```
+
+## Data cleaning
+
+```{r}
+# Cleaning the race data
+# P8_001N = Total population
+# P8_005N = American Indian and Alaska Native alone
+# P8_006N = Asian alone
+# P8_008N = Native Hawaiian and Other Pacific Islander alone
+race_data <- aapi %>%
+  mutate(
+    total_pop   = as.numeric(P8_001N),
+    aian_alone  = as.numeric(P8_005N),
+    asian_alone = as.numeric(P8_006N),
+    nhpi_alone  = as.numeric(P8_008N),
+
+    pct_aian  = if_else(total_pop > 0, (aian_alone  / total_pop) * 100, NA_real_),
+    pct_asian = if_else(total_pop > 0, (asian_alone / total_pop) * 100, NA_real_),
+    pct_nhpi  = if_else(total_pop > 0, (nhpi_alone  / total_pop) * 100, NA_real_),
+    pct_aapi  = if_else(total_pop > 0, ((asian_alone + nhpi_alone) / total_pop) * 100, NA_real_),
+
+    # Strip the "1400000US" prefix to get the 11-digit census tract FIPS
+    county_fips = str_sub(str_remove(GEO_ID, "1400000US"), 1, 5)
+  ) %>%
+  filter(!is.na(pct_aian), !is.na(pct_asian), !is.na(pct_nhpi), !is.na(pct_aapi)) %>%
+  group_by(county_fips) %>%
+  summarise(
+    avg_pct_aian  = weighted.mean(pct_aian,  w = total_pop, na.rm = TRUE),
+    avg_pct_asian = weighted.mean(pct_asian, w = total_pop, na.rm = TRUE),
+    avg_pct_nhpi  = weighted.mean(pct_nhpi,  w = total_pop, na.rm = TRUE),
+    avg_pct_aapi  = weighted.mean(pct_aapi,  w = total_pop, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+# Sanity check on race_data before the join: percentages should be bounded
+# 0-100 and we should have one row per county (not per tract)
+cat("Number of counties in race_data:", nrow(race_data), "\n")
+cat("Range of avg_pct_aapi:", round(range(race_data$avg_pct_aapi), 2), "\n")
+cat("Range of avg_pct_aian:", round(range(race_data$avg_pct_aian), 2), "\n")
+if (any(race_data$avg_pct_aapi > 100, na.rm = TRUE) || any(race_data$avg_pct_aian > 100, na.rm = TRUE)) {
+  stop("A county-level percentage exceeds 100% — check upstream arithmetic before proceeding.")
+}
+
+# Joining with childcare data
+childcare_with_race <- childcare_data %>%
+  mutate(county_fips = str_pad(as.character(county_fips), width = 5, pad = "0")) %>%
+  left_join(race_data, by = "county_fips") %>%
+  mutate(desert = adj_supply <= desert_threshold)
+
+# Check join quality
+cat("Rows with AAPI data:", sum(!is.na(childcare_with_race$avg_pct_aapi)), "\n")
+cat("Rows missing AAPI data:", sum(is.na(childcare_with_race$avg_pct_aapi)), "\n")
+cat("Rows with AIAN data:", sum(!is.na(childcare_with_race$avg_pct_aian)), "\n")
+cat("Rows missing AIAN data:", sum(is.na(childcare_with_race$avg_pct_aian)), "\n")
+
+# Create rural flag
+rural_lookup <- joined_rural %>%
+  select(longitude, latitude, rural) %>%
+  distinct()
+
+# Joining with rural flag
+childcare_with_race_rural <- childcare_with_race %>%
+  left_join(rural_lookup, by = c("longitude", "latitude"))
+
+# Check join quality
+cat("Rows with rural status:", sum(!is.na(childcare_with_race_rural$rural)), "\n")
+cat("Rows missing rural status:", sum(is.na(childcare_with_race_rural$rural)), "\n")
+
+# Remove missing values and code new variables.
+# Two independent classification systems (AAPI, AIAN), each at two
+# thresholds (50%, 25%) — four county_type columns total.
+childcare_with_race_rural <- childcare_with_race_rural %>%
+  filter(
+    !is.na(adj_supply),
+    !is.na(avg_pct_asian), !is.na(avg_pct_nhpi), !is.na(avg_pct_aapi),
+    !is.na(avg_pct_aian),
+    !is.na(rural)
+  ) %>%
+  mutate(
+    desert = adj_supply <= desert_threshold,
+
+    # ---- AAPI: 50% ("majority") threshold ----
+    county_type_aapi_50 = case_when(
+      avg_pct_asian >= 50 ~ "Majority Asian",
+      avg_pct_nhpi  >= 50 ~ "Majority NHPI",
+      avg_pct_aapi  >= 50 ~ "Majority AAPI (combined)",
+      TRUE                 ~ "Not majority AAPI"
+    ),
+
+    # ---- AAPI: 25% ("predominantly") threshold ----
+    county_type_aapi_25 = case_when(
+      avg_pct_asian >= 25 ~ "Predominantly Asian",
+      avg_pct_nhpi  >= 25 ~ "Predominantly NHPI",
+      avg_pct_aapi  >= 25 ~ "Predominantly AAPI (combined)",
+      TRUE                 ~ "Not predominantly AAPI"
+    ),
+
+    # ---- AIAN: 50% ("majority") threshold — independent of AAPI ----
+    county_type_aian_50 = case_when(
+      avg_pct_aian >= 50 ~ "Majority AIAN",
+      TRUE                ~ "Not majority AIAN"
+    ),
+
+    # ---- AIAN: 25% ("predominantly") threshold — independent of AAPI ----
+    county_type_aian_25 = case_when(
+      avg_pct_aian >= 25 ~ "Predominantly AIAN",
+      TRUE                ~ "Not predominantly AIAN"
+    )
+  )
+
+# Retain the non-rural-filtered version for analyses that don't need rural
+# status (kept under the original name for backward compatibility)
+childcare_with_race <- childcare_with_race %>%
+  filter(
+    !is.na(adj_supply),
+    !is.na(avg_pct_asian), !is.na(avg_pct_nhpi), !is.na(avg_pct_aapi),
+    !is.na(avg_pct_aian)
+  ) %>%
+  mutate(
+    desert = adj_supply <= desert_threshold,
+    county_type_aapi_50 = case_when(
+      avg_pct_asian >= 50 ~ "Majority Asian",
+      avg_pct_nhpi  >= 50 ~ "Majority NHPI",
+      avg_pct_aapi  >= 50 ~ "Majority AAPI (combined)",
+      TRUE                 ~ "Not majority AAPI"
+    ),
+    county_type_aapi_25 = case_when(
+      avg_pct_asian >= 25 ~ "Predominantly Asian",
+      avg_pct_nhpi  >= 25 ~ "Predominantly NHPI",
+      avg_pct_aapi  >= 25 ~ "Predominantly AAPI (combined)",
+      TRUE                 ~ "Not predominantly AAPI"
+    ),
+    county_type_aian_50 = case_when(
+      avg_pct_aian >= 50 ~ "Majority AIAN",
+      TRUE                ~ "Not majority AIAN"
+    ),
+    county_type_aian_25 = case_when(
+      avg_pct_aian >= 25 ~ "Predominantly AIAN",
+      TRUE                ~ "Not predominantly AIAN"
+    )
+  )
+```
+
+## State aggregated data
+
+```{r}
+# Creating state-level dataset (AAPI and AIAN shares shown side by side
+# for reference, but classification systems below remain independent)
+state_race_desert <- childcare_with_race %>%
+  filter(!is.na(avg_pct_aapi), !is.na(avg_pct_aian), !is.na(adj_supply)) %>%
+  group_by(state_name) %>%
+  summarise(
+    pct_in_desert  = round(mean(desert) * 100, 1),
+    avg_pct_asian  = round(mean(avg_pct_asian), 1),
+    avg_pct_nhpi   = round(mean(avg_pct_nhpi), 1),
+    avg_pct_aapi   = round(mean(avg_pct_aapi), 1),
+    avg_pct_aian   = round(mean(avg_pct_aian), 1),
+    .groups = "drop"
+  )
+
+print(state_race_desert)
+```
+
+## AAPI: Comparing desert rates by county composition — 50% threshold
+
+```{r}
+childcare_with_race %>%
+  group_by(county_type_aapi_50) %>%
+  summarise(
+    total_areas   = n(),
+    pct_in_desert = round(mean(desert) * 100, 1),
+    .groups = "drop"
+  ) %>%
+  arrange(desc(pct_in_desert))
+```
+
+## AAPI: Comparing desert rates by county composition — 25% threshold
+
+```{r}
+childcare_with_race %>%
+  group_by(county_type_aapi_25) %>%
+  summarise(
+    total_areas   = n(),
+    pct_in_desert = round(mean(desert) * 100, 1),
+    .groups = "drop"
+  ) %>%
+  arrange(desc(pct_in_desert))
+```
+
+## AIAN: Comparing desert rates by county composition — 50% threshold
+
+```{r}
+childcare_with_race %>%
+  group_by(county_type_aian_50) %>%
+  summarise(
+    total_areas   = n(),
+    pct_in_desert = round(mean(desert) * 100, 1),
+    .groups = "drop"
+  ) %>%
+  arrange(desc(pct_in_desert))
+```
+
+## AIAN: Comparing desert rates by county composition — 25% threshold
+
+```{r}
+childcare_with_race %>%
+  group_by(county_type_aian_25) %>%
+  summarise(
+    total_areas   = n(),
+    pct_in_desert = round(mean(desert) * 100, 1),
+    .groups = "drop"
+  ) %>%
+  arrange(desc(pct_in_desert))
+```
+
+## AAPI: Comparing desert rates by county composition and urbanicity
+
+```{r}
+# 50% threshold x rurality
+childcare_with_race_rural %>%
+  group_by(county_type_aapi_50, rural) %>%
+  summarise(
+    total_areas   = n(),
+    pct_in_desert = round(mean(desert) * 100, 1),
+    .groups = "drop"
+  ) %>%
+  arrange(county_type_aapi_50, rural)
+
+# 25% threshold x rurality
+childcare_with_race_rural %>%
+  group_by(county_type_aapi_25, rural) %>%
+  summarise(
+    total_areas   = n(),
+    pct_in_desert = round(mean(desert) * 100, 1),
+    .groups = "drop"
+  ) %>%
+  arrange(county_type_aapi_25, rural)
+```
+
+## AIAN: Comparing desert rates by county composition and urbanicity
+
+```{r}
+# 50% threshold x rurality
+childcare_with_race_rural %>%
+  group_by(county_type_aian_50, rural) %>%
+  summarise(
+    total_areas   = n(),
+    pct_in_desert = round(mean(desert) * 100, 1),
+    .groups = "drop"
+  ) %>%
+  arrange(county_type_aian_50, rural)
+
+# 25% threshold x rurality
+childcare_with_race_rural %>%
+  group_by(county_type_aian_25, rural) %>%
+  summarise(
+    total_areas   = n(),
+    pct_in_desert = round(mean(desert) * 100, 1),
+    .groups = "drop"
+  ) %>%
+  arrange(county_type_aian_25, rural)
+```
+
+## AAPI: States driving majority/predominantly AAPI desert rates
+
+```{r}
+# 50% threshold, by state — includes distinct county count for context
+state_aapi_50 <- childcare_with_race %>%
+  filter(county_type_aapi_50 != "Not majority AAPI") %>%
+  group_by(state_name, county_type_aapi_50) %>%
+  summarise(
+    total_areas         = n(),
+    n_distinct_counties  = n_distinct(county_fips),
+    pct_in_desert        = round(mean(desert) * 100, 1),
+    .groups = "drop"
+  ) %>%
+  arrange(desc(pct_in_desert))
+
+print(state_aapi_50)
+
+# 25% threshold, by state
+state_aapi_25 <- childcare_with_race %>%
+  filter(county_type_aapi_25 != "Not predominantly AAPI") %>%
+  group_by(state_name, county_type_aapi_25) %>%
+  summarise(
+    total_areas         = n(),
+    n_distinct_counties  = n_distinct(county_fips),
+    pct_in_desert        = round(mean(desert) * 100, 1),
+    .groups = "drop"
+  ) %>%
+  arrange(desc(pct_in_desert))
+
+print(state_aapi_25)
+```
+
+## AIAN: States driving majority/predominantly AIAN desert rates
+
+```{r}
+# 50% threshold, by state
+state_aian_50 <- childcare_with_race %>%
+  filter(county_type_aian_50 == "Majority AIAN") %>%
+  group_by(state_name, county_type_aian_50) %>%
+  summarise(
+    total_areas         = n(),
+    n_distinct_counties  = n_distinct(county_fips),
+    pct_in_desert        = round(mean(desert) * 100, 1),
+    .groups = "drop"
+  ) %>%
+  arrange(desc(pct_in_desert))
+
+print(state_aian_50)
+
+# 25% threshold, by state
+state_aian_25 <- childcare_with_race %>%
+  filter(county_type_aian_25 == "Predominantly AIAN") %>%
+  group_by(state_name, county_type_aian_25) %>%
+  summarise(
+    total_areas         = n(),
+    n_distinct_counties  = n_distinct(county_fips),
+    pct_in_desert        = round(mean(desert) * 100, 1),
+    .groups = "drop"
+  ) %>%
+  arrange(desc(pct_in_desert))
+
+print(state_aian_25)
+```
+
+## States driving rural majority/predominantly AAPI and AIAN desert rates
+
+```{r}
+# Rural AAPI, 50% threshold, by state
+state_aapi_rural_50 <- childcare_with_race_rural %>%
+  filter(rural == 1, county_type_aapi_50 != "Not majority AAPI") %>%
+  group_by(state_name, county_type_aapi_50) %>%
+  summarise(
+    total_areas         = n(),
+    n_distinct_counties  = n_distinct(county_fips),
+    pct_in_desert        = round(mean(desert) * 100, 1),
+    .groups = "drop"
+  ) %>%
+  arrange(desc(pct_in_desert))
+
+print(state_aapi_rural_50)
+
+# Rural AAPI, 25% threshold, by state
+state_aapi_rural_25 <- childcare_with_race_rural %>%
+  filter(rural == 1, county_type_aapi_25 != "Not predominantly AAPI") %>%
+  group_by(state_name, county_type_aapi_25) %>%
+  summarise(
+    total_areas         = n(),
+    n_distinct_counties  = n_distinct(county_fips),
+    pct_in_desert        = round(mean(desert) * 100, 1),
+    .groups = "drop"
+  ) %>%
+  arrange(desc(pct_in_desert))
+
+print(state_aapi_rural_25)
+
+# Rural AIAN, 50% threshold, by state
+state_aian_rural_50 <- childcare_with_race_rural %>%
+  filter(rural == 1, county_type_aian_50 == "Majority AIAN") %>%
+  group_by(state_name, county_type_aian_50) %>%
+  summarise(
+    total_areas         = n(),
+    n_distinct_counties  = n_distinct(county_fips),
+    pct_in_desert        = round(mean(desert) * 100, 1),
+    .groups = "drop"
+  ) %>%
+  arrange(desc(pct_in_desert))
+
+print(state_aian_rural_50)
+
+# Rural AIAN, 25% threshold, by state
+state_aian_rural_25 <- childcare_with_race_rural %>%
+  filter(rural == 1, county_type_aian_25 == "Predominantly AIAN") %>%
+  group_by(state_name, county_type_aian_25) %>%
+  summarise(
+    total_areas         = n(),
+    n_distinct_counties  = n_distinct(county_fips),
+    pct_in_desert        = round(mean(desert) * 100, 1),
+    .groups = "drop"
+  ) %>%
+  arrange(desc(pct_in_desert))
+
+print(state_aian_rural_25)
+```
+
+## Diagnostic check: small-county artifacts
+
+Following the same logic used to check the Kansas/Oklahoma/Puerto Rico NHPI
+rows earlier, this chunk flags any state/county_type combination — across
+**both** AAPI and AIAN systems — where the number of distinct counties is
+small relative to total_areas, which can produce misleadingly extreme
+pct_in_desert values driven by tiny denominators rather than real patterns.
+
+```{r}
+# Flag combinations backed by very few counties (adjust threshold as needed)
+flag_small_n <- function(df, type_col) {
+  df %>%
+    filter(n_distinct_counties <= 3) %>%
+    select(state_name, {{ type_col }}, total_areas, n_distinct_counties, pct_in_desert)
+}
+
+cat("AAPI 50% — small-county flags:\n")
+print(flag_small_n(state_aapi_50, county_type_aapi_50))
+
+cat("\nAAPI 25% — small-county flags:\n")
+print(flag_small_n(state_aapi_25, county_type_aapi_25))
+
+cat("\nAIAN 50% — small-county flags:\n")
+print(flag_small_n(state_aian_50, county_type_aian_50))
+
+cat("\nAIAN 25% — small-county flags:\n")
+print(flag_small_n(state_aian_25, county_type_aian_25))
+
+cat("\nAAPI rural 50% — small-county flags:\n")
+print(flag_small_n(state_aapi_rural_50, county_type_aapi_50))
+
+cat("\nAAPI rural 25% — small-county flags:\n")
+print(flag_small_n(state_aapi_rural_25, county_type_aapi_25))
+
+cat("\nAIAN rural 50% — small-county flags:\n")
+print(flag_small_n(state_aian_rural_50, county_type_aian_50))
+
+cat("\nAIAN rural 25% — small-county flags:\n")
+print(flag_small_n(state_aian_rural_25, county_type_aian_25))
+```
+
+## Diagnostic check: Puerto Rico / Kansas / Oklahoma NHPI rows
+
+These rows showed implausibly high NHPI shares in prior runs. Before citing
+any NHPI finding for these locations, this chunk recomputes percentages
+directly from the raw P8 data, bypassing the full pipeline, to confirm
+whether the join and aggregation logic produced these numbers correctly or
+whether they reflect a data or coding error.
+
+```{r}
+diagnostic_states <- c("Kansas", "Oklahoma", "Puerto Rico")
+
+# Distinct counties driving each state's "Predominantly NHPI" classification
+diagnostic_detail <- childcare_with_race %>%
+  filter(state_name %in% diagnostic_states, county_type_aapi_25 == "Predominantly NHPI") %>%
+  distinct(state_name, county_fips, avg_pct_nhpi, avg_pct_asian, avg_pct_aapi)
+
+print(diagnostic_detail, n = 50)
+
+# Recompute NHPI percentage directly from raw P8 data for just these counties
+flagged_counties <- diagnostic_detail$county_fips
+
+raw_tract_check <- aapi %>%
+  mutate(
+    total_pop   = as.numeric(P8_001N),
+    nhpi_alone  = as.numeric(P8_008N),
+    county_fips = str_sub(str_remove(GEO_ID, "1400000US"), 1, 5)
+  ) %>%
+  filter(county_fips %in% flagged_counties) %>%
+  group_by(county_fips) %>%
+  summarise(
+    n_tracts            = n(),
+    county_total_pop    = sum(total_pop, na.rm = TRUE),
+    county_nhpi_alone    = sum(nhpi_alone, na.rm = TRUE),
+    recomputed_pct_nhpi  = round(county_nhpi_alone / county_total_pop * 100, 2),
+    .groups = "drop"
+  ) %>%
+  left_join(diagnostic_detail %>% distinct(county_fips, state_name), by = "county_fips") %>%
+  arrange(state_name, desc(recomputed_pct_nhpi))
+
+print(raw_tract_check, n = 50)
+
+# How many childcare points sit in each flagged county?
+points_per_county <- childcare_with_race %>%
+  filter(county_fips %in% flagged_counties) %>%
+  count(state_name, county_fips, name = "n_childcare_points") %>%
+  arrange(state_name, desc(n_childcare_points))
+
+print(points_per_county, n = 50)
+```
+
+## Save outputs
+
+```{r}
+write_csv(childcare_with_race,        "aapi_aian_childcare_with_race.csv")
+write_csv(childcare_with_race_rural,  "aapi_aian_childcare_with_race_rural.csv")
+write_csv(state_race_desert,          "aapi_aian_state_desert_rates.csv")
+write_csv(state_aapi_50,              "aapi_state_majority_50.csv")
+write_csv(state_aapi_25,              "aapi_state_majority_25.csv")
+write_csv(state_aian_50,              "aian_state_majority_50.csv")
+write_csv(state_aian_25,              "aian_state_majority_25.csv")
+write_csv(state_aapi_rural_50,        "aapi_state_rural_majority_50.csv")
+write_csv(state_aapi_rural_25,        "aapi_state_rural_majority_25.csv")
+write_csv(state_aian_rural_50,        "aian_state_rural_majority_50.csv")
+write_csv(state_aian_rural_25,        "aian_state_rural_majority_25.csv")
+```

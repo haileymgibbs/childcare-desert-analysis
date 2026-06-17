@@ -1,0 +1,10 @@
+state_name,county_type_aian_50,total_areas,n_distinct_counties,pct_in_desert
+Alaska,Majority AIAN,611,8,93.6
+Wisconsin,Majority AIAN,48,1,91.7
+Arizona,Majority AIAN,435,1,91
+South Dakota,Majority AIAN,535,9,86.7
+Montana,Majority AIAN,373,4,84.7
+Utah,Majority AIAN,113,1,82.3
+New Mexico,Majority AIAN,503,1,74.4
+North Dakota,Majority AIAN,208,3,74
+Nebraska,Majority AIAN,69,1,60.9
