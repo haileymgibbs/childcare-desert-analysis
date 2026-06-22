@@ -13,7 +13,7 @@ population groups:
   Decennial Census, Table P8), analyzed independently of the AAPI categories
 
 Both groups are evaluated against licensed child care desert status —
-defined as a county or census tract where `adj_supply <= 0.33` (fewer than
+defined as an area where `adj_supply <= 0.33` (fewer than
 roughly 1 licensed slot per 3 children under age 6) — at two concentration
 thresholds: **50%** ("majority") and **25%** ("predominantly"). This smaller concentration was included to account for overall small population counts.
 
@@ -45,21 +45,15 @@ without them.
 - **`DECENNIALDHC2020.P8-Data.csv`** — 2020 Decennial Census Demographic and
   Housing Characteristics (DHC) file, Table P8 (Race), at the census tract
   level
-- **Child care access data** (`cap_ccaccess_2025_revised_02282026.csv` or
-  equivalent) — the full licensed child care supply/access dataset.
+- **Child care access data** (`cap_ccaccess_2025_revised_02282026.csv`) — the full licensed child care supply/access dataset.
 - **`joined_rural.csv`** — rural/urban classification lookup, joined by
   longitude/latitude to the child care access points
-
-To reproduce this analysis, you will need to obtain these files separately
-and place them in the working directory referenced at the top of the `.Rmd`
-file. [Add data source/access instructions here, e.g., a shared Drive link,
-data request process, or Census API retrieval instructions.]
 
 ## Methodology Notes
 
 - **Geographic aggregation**: Census tract-level race/ethnicity percentages
   are aggregated to the county level via population-weighted mean, then
-  joined to child care access points by county FIPS code.
+  joined to child care access points by county FIPS code. **NOTE**: output related to state aggregates are included as population count gut-checks and are not reported publicly.
 - **Small-sample caution**: several state-level findings (particularly for
   Alaska, Kansas, Oklahoma, and some AIAN states) are driven by a single
   county or a small number of childcare data points. The `.Rmd` includes a
