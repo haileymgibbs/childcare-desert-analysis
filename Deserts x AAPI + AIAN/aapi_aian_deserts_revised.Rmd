@@ -1,0 +1,211 @@
+---
+title: "Deserts x Race/Ethnicity: Asian American/Pacific Islander and American Indian/Alaska Native Communities"
+author: "Hailey Gibbs"
+date: "June 16, 2026"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Set up
+
+This file estimates the share of young children living in a licensed childcare desert for four community types — Asian, NHPI, AAPI (combined), and AIAN — broken out by urban/rural status and nationwide estimates. Note: NHPI nationwide estimates are excluded from final output due to insufficient sample size (zero counties meet the 25% threshold at the national level); urban and rural NHPI estimates are retained.
+
+Classification uses **non-exclusive 25% flags**: a county is included in a group if that racial/ethnic group makes up at least 25% of the county population. The same county can appear in more than one group, since they are listed non-exclusively.
+This workaround is uses to account for overall low population counts among these racial groups, and the average percent of each racial group is based on a weighted mean within that county.
+
+- **AAPI** = Asian alone (P8_006N) + Native Hawaiian and Other Pacific
+  Islander alone (P8_008N); also evaluated separately for Asian alone and
+  NHPI alone.
+- **AIAN** = American Indian and Alaska Native alone (P8_005N); tracked
+  independently.
+
+The unit of analysis is **young children**: each lat/long point in
+`childcare_data` represents 10 synthetic families with a child aged 5 and
+under, derived from Census data.
+
+Puerto Rico is excluded from all analysis tables due to unreliable join. 
+Rural status is joined from `joined_rural` on longitude/latitude.
+
+```{r load}
+library(tidyverse)
+desert_threshold <- 0.33
+
+# P8 race/ethnicity data (2020 Decennial DHC)
+p8_raw <- read_csv("DECENNIALDHC2020.P8-Data.csv", col_names = TRUE, show_col_types = FALSE)
+
+# Sanity check: GEO_ID should be present and contain tract-level identifiers.
+# Stop immediately if the wrong file loaded.
+cat("Columns loaded:", ncol(p8_raw), "\n")
+cat("First GEO_ID value:", p8_raw$GEO_ID[1], "\n")
+cat("Second GEO_ID value (first data row):", p8_raw$GEO_ID[2], "\n")
+
+if (!"GEO_ID" %in% names(p8_raw)) {
+  stop("GEO_ID column not found — wrong file may have loaded.")
+}
+if (!str_detect(p8_raw$GEO_ID[2], "^1400000US")) {
+  stop("GEO_ID does not match expected tract format '1400000US...' — wrong file may have loaded.")
+}
+
+p8_raw        <- p8_raw[-1, ]   # row 1 is the variable-label row, not data
+childcare_raw <- read_csv("cap_ccaccess_2025_revised_02282026.csv")
+joined_rural  <- read_csv("joined_rural.csv")
+```
+
+## Data cleaning
+
+```{r clean}
+# --- Step 1: Aggregate P8 race shares from tract to county ---
+# P8_001N = Total population
+# P8_005N = American Indian and Alaska Native alone
+# P8_006N = Asian alone
+# P8_007N = Native Hawaiian and Other Pacific Islander alone
+
+race_county <- p8_raw %>%
+  mutate(
+    total_pop   = as.numeric(P8_001N),
+    aian_alone  = as.numeric(P8_005N),
+    asian_alone = as.numeric(P8_006N),
+    nhpi_alone  = as.numeric(P8_007N),
+    pct_aian    = if_else(total_pop > 0, aian_alone  / total_pop * 100, NA_real_),
+    pct_asian   = if_else(total_pop > 0, asian_alone / total_pop * 100, NA_real_),
+    pct_nhpi    = if_else(total_pop > 0, nhpi_alone  / total_pop * 100, NA_real_),
+    pct_aapi    = if_else(total_pop > 0, (asian_alone + nhpi_alone) / total_pop * 100, NA_real_),
+    county_fips = str_sub(str_remove(GEO_ID, "1400000US"), 1, 5)
+  ) %>%
+  filter(!is.na(pct_aian), !is.na(pct_asian), !is.na(pct_nhpi), !is.na(pct_aapi)) %>%
+  group_by(county_fips) %>%
+  summarise(
+    avg_pct_aian  = weighted.mean(pct_aian,  w = total_pop, na.rm = TRUE),
+    avg_pct_asian = weighted.mean(pct_asian, w = total_pop, na.rm = TRUE),
+    avg_pct_nhpi  = weighted.mean(pct_nhpi,  w = total_pop, na.rm = TRUE),
+    avg_pct_aapi  = weighted.mean(pct_aapi,  w = total_pop, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+# Sanity check: percentages must be 0-100; one row per county
+cat("Counties in race_county:", nrow(race_county), "\n")
+cat("Range avg_pct_aapi:", round(range(race_county$avg_pct_aapi), 2), "\n")
+cat("Range avg_pct_aian:", round(range(race_county$avg_pct_aian), 2), "\n")
+if (any(race_county$avg_pct_aapi > 100, na.rm = TRUE) || any(race_county$avg_pct_aian > 100, na.rm = TRUE)) {
+  stop("A county percentage exceeds 100% — check upstream arithmetic.")
+}
+if (any(is.na(race_county$avg_pct_aapi)) || any(is.na(race_county$avg_pct_aian))) {
+  stop("NA county-level percentage detected — one or more counties may have zero total population after tract filtering. Investigate before proceeding.")
+}
+
+# --- Step 2: Join childcare points to county race shares and rural flag ---
+rural_lookup <- joined_rural %>%
+  select(longitude, latitude, rural) %>%
+  distinct()
+
+analysis_data <- childcare_raw %>%
+  mutate(county_fips = str_pad(as.character(county_fips), width = 5, pad = "0")) %>%
+  left_join(race_county,  by = "county_fips") %>%
+  left_join(rural_lookup, by = c("longitude", "latitude")) %>%
+  filter(
+    !is.na(adj_supply),
+    !is.na(avg_pct_asian), !is.na(avg_pct_nhpi),
+    !is.na(avg_pct_aapi),  !is.na(avg_pct_aian),
+    !is.na(rural),
+    state_name != "Puerto Rico"
+  ) %>%
+  mutate(
+    desert = adj_supply <= desert_threshold,
+    # Non-exclusive 25% flags — a county can be TRUE on more than one
+    is_25_asian  = avg_pct_asian >= 25,
+    is_25_nhpi   = avg_pct_nhpi  >= 25,
+    is_25_aapi   = avg_pct_aapi  >= 25,
+    is_25_aian   = avg_pct_aian  >= 25
+  )
+
+# Join quality summary
+cat("Rows retained after filtering:", nrow(analysis_data), "\n")
+cat("Rows missing race data:",
+    sum(is.na(analysis_data$avg_pct_aapi) | is.na(analysis_data$avg_pct_aian)), "\n")
+cat("Rows missing rural flag:", sum(is.na(analysis_data$rural)), "\n")
+```
+
+## Chart output: share of young children (ages 5 and under) in licensed childcare deserts
+
+```{r chart}
+# Compute desert rate (Total, Urban, Rural) for a given non-exclusive flag.
+# Each row in analysis_data = 10 synthetic children.
+compute_bars <- function(data, flag_col, label) {
+  flag_col <- enquo(flag_col)
+  subset   <- data %>% filter(!!flag_col)
+
+  total <- subset %>%
+    summarise(
+      pct_children_in_desert = round(mean(desert) * 100, 1),
+      n_points               = n(),
+      n_counties             = n_distinct(county_fips)
+    ) %>%
+    mutate(urbanicity = "Nationwide")
+
+  by_urban <- subset %>%
+    mutate(urbanicity = if_else(rural == 1, "Rural", "Urban")) %>%
+    group_by(urbanicity) %>%
+    summarise(
+      pct_children_in_desert = round(mean(desert) * 100, 1),
+      n_points               = n(),
+      n_counties             = n_distinct(county_fips),
+      .groups = "drop"
+    )
+
+  bind_rows(total, by_urban) %>%
+    mutate(group = label) %>%
+    select(group, urbanicity, pct_children_in_desert, n_points, n_counties)
+}
+
+chart_data <- bind_rows(
+  compute_bars(analysis_data, is_25_aapi,  "AAPI (combined)"),
+  compute_bars(analysis_data, is_25_asian, "Asian"),
+  compute_bars(analysis_data, is_25_nhpi,  "NHPI"),
+  compute_bars(analysis_data, is_25_aian,  "AIAN")
+) %>%
+  mutate(urbanicity = factor(urbanicity, levels = c("Urban", "Rural", "Nationwide"))) %>%
+  arrange(group, urbanicity)
+
+# Sanity check re: Small population counts by county for NPHI alone
+if (any(chart_data$pct_children_in_desert > 100 | chart_data$pct_children_in_desert < 0, na.rm=TRUE)) {
+  stop("A desert rate is outside 0-100% — check upstream data.")
+}
+
+na_rows <- chart_data[is.na(chart_data$pct_children_in_desert), ]
+if (nrow(na_rows) > 0) {
+  warning(paste(nrow(na_rows), "row(s) have NA for pct_children_in_desert"))
+  print(na_rows)
+}
+
+chart_data_filtered <- chart_data |>
+  filter(!(group == "NHPI" & urbanicity == "Nationwide"))
+
+# Flag text for chart/table footnote
+nhpi_flag <- "* Native Hawaiian and Pacific Islander (NHPI) data is not available at the national level due to insufficient sample size."
+
+# Long format (with n_points and n_counties for QA)
+print(chart_data_filtered, n = Inf)
+
+# Wide format for Datawrapper / Excel
+chart_data_wide <- chart_data_filtered %>%
+  select(group, urbanicity, pct_children_in_desert) %>%
+  pivot_wider(names_from = urbanicity, values_from = pct_children_in_desert)
+
+print(chart_data_wide)
+```
+
+## Diagnostic check: small-county artifacts
+
+BIG FLAG: Groups backed by very few counties can produce misleadingly extreme desert
+rates. This flags any group × urbanicity combination where the number of distinct counties is 3 or fewer.
+
+```{r diagnostic-small-n}
+chart_data_filtered %>%
+  filter(n_counties <= 3) %>%
+  select(group, urbanicity, pct_children_in_desert, n_points, n_counties) %>%
+  { if (nrow(.) == 0) cat("No small-county flags.\n") else print(.) }
+```
+
