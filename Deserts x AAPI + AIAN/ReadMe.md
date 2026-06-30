@@ -8,22 +8,22 @@ population groups:
 
 - **AAPI** — Asian alone and Native Hawaiian/Other Pacific Islander (NHPI)
   alone populations (2020 Decennial Census, Table P8), analyzed both
-  individually and as a combined share
+  individually and as a combined share. Ultimately, population counts among NHPI communities were too small for county-level estimates and were removed in the revised markdown file.
 - **AIAN** — American Indian and Alaska Native alone populations (2020
   Decennial Census, Table P8), analyzed independently of the AAPI categories
 
 Both groups are evaluated against licensed child care desert status —
 defined as an area where `adj_supply <= 0.33` (fewer than
-roughly 1 licensed slot per 3 children under age 6) — at two concentration
-thresholds: **50%** ("majority") and **25%** ("predominantly"). This smaller concentration was included to account for overall small population counts.
+roughly 1 licensed slot per 3 children under age 6) — at a **25%** concentration. This smaller concentration was included to account for overall small population counts, so direct comparisons to Black, non-Hispanic and Hispanic/Latino communities should be made with caution.
 
 The analysis also incorporates a rural/urban breakdown to assess whether desert rates in AAPI- and AIAN-concentrated areas differ by rurality.
 
 This work extends and adapts the methodology originally developed by Hailey
 Gibbs and Evan Yi for analyzing child care deserts by Hispanic/Latino and
-Black, non-Hispanic county composition.
+Black, non-Hispanic county composition, with the modification to concentration levels due to population limits.
 
-## Repository Contents
+## Repository Contents in Archive
+Please be advised these estimates were abandoned because of coding artifacts related to the NHPI population (e.g., pop flags in KS and OK that could not be accounted for); the 50% concentration threshold was also ultimately abandoned for the 25% threshold.
 
 | File | Description |
 |---|---|
@@ -56,8 +56,7 @@ without them.
   joined to child care access points by county FIPS code. **NOTE**: output related to state aggregates are included as population count gut-checks and are not reported publicly.
 - **Small-sample caution**: several state-level findings (particularly for
   Alaska, Kansas, Oklahoma, and some AIAN states) are driven by a single
-  county or a small number of childcare data points. The `.Rmd` includes a
+  county or a small number of childcare data points. The `.Rmd` in the archive folder includes a
   diagnostic chunk (`flag_small_n()`) that automatically surfaces any
   state/category combination backed by 3 or fewer distinct counties. These
-  flagged rows should be treated as suggestive, not generalizable, findings.
-  
+  flagged rows should be treated as suggestive, not generalizable, findings. The revised '.Rmd' removed these state-level estimates for a more general estimate, along with the breadown by rurality. 
