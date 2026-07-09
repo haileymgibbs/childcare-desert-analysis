@@ -10,7 +10,7 @@ This repository contains code and outputs for estimating the share of young chil
 ## Overview
 
 Using a national dataset of child care access scores at the census tract level, this analysis assigns each tract to a congressional district via spatial join and calculates what percentage of children under age 6 in each district live in a licensed child care desert — defined as a tract with an adjusted supply score of 0.33 or below.
-The repository produces district-level estimates, summary tables by state, and both static and interactive choropleth maps of results. The published product can be found at this link: **[America’s Child Care Crisis Leaves Many Families Without Access to Licensed Care](https://www.americanprogress.org/article/americas-child-care-crisis-leaves-many-families-without-access-to-licensed-care/).
+The repository produces district-level estimates, summary tables by state, and both static and interactive choropleth maps of results. The published product can be found at this link:[America’s Child Care Crisis Leaves Many Families Without Access to Licensed Care](https://www.americanprogress.org/article/americas-child-care-crisis-leaves-many-families-without-access-to-licensed-care/).
 
 ---
 
