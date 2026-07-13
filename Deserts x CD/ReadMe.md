@@ -33,7 +33,7 @@ The repository produces district-level estimates, summary tables by state, and b
 
 3. **District-level aggregation** — Tracts are weighted by the number of children they represent (each tract observation multiplied by 10). The desert share for each district is calculated as the number of children in desert tracts divided by total children in that district.
 
-4. **District-level classification** — Districts are classified as child care deserts at two thresholds:
+4. **District-level classification** — Districts are represented as child care deserts at two thresholds:
    - **≥ 50%** of children in the district live in a desert tract
    - **≥ 80%** of children in the district live in a desert tract
 
@@ -116,9 +116,9 @@ scales
 
 **Child care desert:** A census tract where the adjusted child care supply score (`adj_supply`) is 0.33 or below, indicating that licensed child care capacity is severely limited relative to the population of children under age 6.
 
-**Desert district (≥50% threshold):** A congressional district where 50% or more of children under age 6 live in a desert tract.
+**Desert district (≥50% threshold):** A congressional district where 50% or more of children under age 6 live have inadequate access.
 
-**Desert district (≥80% threshold):** A congressional district where 80% or more of children under age 6 live in a desert tract.
+**Desert district (≥80% threshold):** A congressional district where 80% or more of children under age 6 live have inadequate access.
 
 ---
 
