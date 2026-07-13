@@ -12,9 +12,10 @@ The analysis classifies census points as being in a **child care desert** if the
 - Puerto Rico and U.S. territories are excluded from all summary statistics and map outputs.
 
 **The national headline figures from this analysis:**
-| Total children represented | 22,681,150 |
-| Children in child care deserts | 10,342,090 |
-| Share in a child care desert | 45.6% |
+|---|---|
+| Total children represented | 22,681,150
+| Children in child care deserts | 10,342,090
+| Share in a child care desert | 45.6%
 
 ---
 
