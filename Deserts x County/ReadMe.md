@@ -1,4 +1,4 @@
-**Child Care Deserts × Counties**
+# Child Care Deserts × Counties
 - Author: Hailey Gibbs
 - Last updated: May 2026
 
