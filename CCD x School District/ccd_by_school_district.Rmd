@@ -1,0 +1,242 @@
+---
+title: "Child Care Desert Estimates by School District"
+author: "Hailey Gibbs"
+date: "May 2026"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    theme: flatly
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo    = TRUE,
+  message = FALSE,
+  warning = FALSE
+)
+```
+
+## Setup
+
+```{r libraries-and-data}
+library(tidyverse)
+
+desert_threshold      <- 0.33
+low_sample_n_points    <- 5   # districts with fewer than this many lat/long points
+                               # (i.e. < 50 synthetic children) are flagged as low_sample.
+                               # Adjust this threshold if you want a stricter/looser cutoff.
+
+childcare_data <- read_csv("cap_ccaccess_2025_revised_02282026.csv")
+```
+
+---
+
+## National / Overall Estimates
+
+```{r national-desert-rate}
+national_desert_rate <- childcare_data %>%
+  filter(!is.na(adj_supply)) %>%
+  mutate(
+    desert = adj_supply <= desert_threshold
+  ) %>%
+  summarise(
+    total_children  = n() * 10,
+    desert_children = sum(desert) * 10,
+    pct_desert      = round(mean(desert) * 100, 1)
+  )
+
+print(national_desert_rate)
+```
+
+---
+
+## State Estimates
+
+### Desert Rate by State
+
+```{r desert-by-state}
+desert_by_state <- childcare_data %>%
+  filter(!is.na(adj_supply)) %>%                       # Fixed: exclude NA adj_supply so the
+                                                         # denominator matches the numerator
+  mutate(in_desert = adj_supply <= desert_threshold) %>%
+  group_by(state_name) %>%
+  summarise(
+    total_children      = n() * 10,                    # Fixed: was n() (missing *10 for synthetic children)
+    children_in_desert  = sum(in_desert) * 10,          # Fixed: was sum(in_desert, na.rm = TRUE) with no *10
+    percent_in_desert   = round((children_in_desert / total_children) * 100, 1),
+    mean_adj_supply     = mean(adj_supply),             # na.rm no longer needed - NAs already filtered above
+    .groups = "drop"
+  ) %>%
+  arrange(desc(percent_in_desert))
+
+view(desert_by_state)
+```
+
+### Desert and Low Supply Comparison by State
+
+```{r desert-comparison}
+desert_comparison <- childcare_data %>%
+  filter(!is.na(adj_supply)) %>%                        # Fixed: exclude NA adj_supply so the
+                                                          # denominator matches the numerator
+  group_by(state_name) %>%
+  summarise(
+    total_children  = n() * 10,                          # Fixed: was n() (missing *10 for synthetic children)
+    pct_zero_supply = (sum(adj_supply == 0)   / n()) * 100,
+    pct_low_supply  = (sum(adj_supply <  0.1) / n()) * 100,
+    pct_desert      = (sum(adj_supply <= desert_threshold) / n()) * 100,
+    mean_supply     = mean(adj_supply),
+    .groups = "drop"
+  ) %>%
+  arrange(desc(pct_desert))
+
+view(desert_comparison)
+write_csv(desert_comparison, "deserts_comparison.csv")
+```
+
+---
+
+## Deserts by Care Type
+
+```{r desert-by-care-type}
+national_desert_rates <- childcare_data %>%
+  mutate(
+    desert_hs   = adj_supply_hs   <= desert_threshold,
+    desert_prek = adj_supply_prek <= desert_threshold,
+    desert_fcc  = adj_supply_fcc  <= desert_threshold,
+    desert_ccc  = adj_supply_ccc  <= desert_threshold,
+    desert_any  = adj_supply      <= desert_threshold
+  ) %>%
+  summarise(
+    total_children      = n() * 10,
+    `Overall`           = round(mean(desert_any,  na.rm = TRUE) * 100, 1),
+    `Head Start`        = round(mean(desert_hs,   na.rm = TRUE) * 100, 1),
+    `Pre-K`             = round(mean(desert_prek, na.rm = TRUE) * 100, 1),
+    `Family Child Care` = round(mean(desert_fcc,  na.rm = TRUE) * 100, 1),
+    `Child Care Center` = round(mean(desert_ccc,  na.rm = TRUE) * 100, 1)
+  )
+
+print(national_desert_rates)
+```
+
+---
+
+## School District Estimates
+
+Districts are identified by `state_name` + `schooldistrict_code` + `sd_name` together, since
+district codes are only guaranteed unique within a state. Both tables below include an
+`n_points` column (the number of lat/long points, i.e. groups of 10 synthetic children,
+underlying each district) and a `low_sample` flag marking districts with fewer than
+`low_sample_n_points` points, so small-sample districts are visible rather than silently
+mixed in with everything else. Filter or treat `low_sample == TRUE` rows however makes sense
+for your use case (e.g. exclude from a public-facing map, footnote them in a table, etc.).
+
+### Desert Rate by School District
+
+```{r desert-by-district}
+desert_by_district <- childcare_data %>%
+  filter(!is.na(adj_supply)) %>%
+  mutate(in_desert = adj_supply <= desert_threshold) %>%
+  group_by(state_name, schooldistrict_code, sd_name) %>%
+  summarise(
+    n_points            = n(),
+    total_children      = n() * 10,
+    children_in_desert  = sum(in_desert) * 10,
+    percent_in_desert   = round((children_in_desert / total_children) * 100, 1),
+    mean_adj_supply     = mean(adj_supply),
+    .groups = "drop"
+  ) %>%
+  mutate(low_sample = n_points < low_sample_n_points) %>%
+  arrange(desc(percent_in_desert))
+
+view(desert_by_district)
+write_csv(desert_by_district, "deserts_by_district.csv")
+```
+
+### Deserts by Care Type, by School District
+
+```{r desert-by-district-caretype}
+desert_by_district_caretype <- childcare_data %>%
+  group_by(state_name, schooldistrict_code, sd_name) %>%
+  summarise(
+    n_points            = n(),
+    total_children      = n() * 10,
+    `Overall`           = round(mean(adj_supply      <= desert_threshold, na.rm = TRUE) * 100, 1),
+    `Head Start`        = round(mean(adj_supply_hs   <= desert_threshold, na.rm = TRUE) * 100, 1),
+    `Pre-K`             = round(mean(adj_supply_prek <= desert_threshold, na.rm = TRUE) * 100, 1),
+    `Family Child Care` = round(mean(adj_supply_fcc  <= desert_threshold, na.rm = TRUE) * 100, 1),
+    `Child Care Center` = round(mean(adj_supply_ccc  <= desert_threshold, na.rm = TRUE) * 100, 1),
+    .groups = "drop"
+  ) %>%
+  mutate(low_sample = n_points < low_sample_n_points) %>%
+  arrange(desc(Overall))
+
+view(desert_by_district_caretype)
+write_csv(desert_by_district_caretype, "deserts_by_district_caretype.csv")
+```
+
+### National and State Roll-Ups from District Estimates (Population-Weighted)
+
+The `percent_in_desert` and care-type columns in the two tables above are already
+population-correct *within* each district, since every row of `childcare_data` represents
+an equal 10 children. The distortion shows up one level higher, when districts themselves
+are rolled up into a state or national number: a plain `mean()` across districts gives a
+1-point district with 10 children the same weight as a district with 500,000 children, so
+the many small/rural districts (which skew toward high desert rates) inflate the average.
+The chunks below roll `desert_by_district` and `desert_by_district_caretype` up to the
+state and national level two ways — weighted by `total_children` (correct) and as a plain,
+unweighted average across districts (shown only so you can see the size of the distortion)
+— so you don't have to go back to the raw `childcare_data` to get a trustworthy top-line
+number from the district-level files.
+
+```{r district-rollup-national}
+national_from_districts <- desert_by_district %>%
+  summarise(
+    n_districts            = n(),
+    total_children         = sum(total_children),
+    children_in_desert     = sum(children_in_desert),
+    pct_desert_weighted    = round((children_in_desert / total_children) * 100, 1),  # correct
+    pct_desert_unweighted  = round(mean(percent_in_desert), 1)                       # naive - for comparison only
+  )
+
+print(national_from_districts)
+```
+
+```{r district-rollup-state}
+state_from_districts <- desert_by_district %>%
+  group_by(state_name) %>%
+  summarise(
+    n_districts            = n(),
+    total_children         = sum(total_children),
+    children_in_desert     = sum(children_in_desert),
+    pct_desert_weighted    = round((children_in_desert / total_children) * 100, 1),  # correct
+    pct_desert_unweighted  = round(mean(percent_in_desert), 1),                      # naive - for comparison only
+    .groups = "drop"
+  ) %>%
+  arrange(desc(pct_desert_weighted))
+
+# pct_desert_weighted here should match percent_in_desert in desert_by_state closely -
+# useful as a consistency check between the two pipelines.
+view(state_from_districts)
+write_csv(state_from_districts, "deserts_by_state_from_districts.csv")
+```
+
+```{r district-rollup-caretype-national}
+caretype_national_from_districts <- desert_by_district_caretype %>%
+  summarise(
+    n_districts       = n(),
+    total_children    = sum(total_children),
+    `Overall`           = round(sum(Overall           / 100 * total_children) / sum(total_children) * 100, 1),
+    `Head Start`        = round(sum(`Head Start`       / 100 * total_children) / sum(total_children) * 100, 1),
+    `Pre-K`             = round(sum(`Pre-K`            / 100 * total_children) / sum(total_children) * 100, 1),
+    `Family Child Care` = round(sum(`Family Child Care`/ 100 * total_children) / sum(total_children) * 100, 1),
+    `Child Care Center` = round(sum(`Child Care Center`/ 100 * total_children) / sum(total_children) * 100, 1),
+    `Overall (unweighted avg)`           = round(mean(Overall), 1),
+    `Head Start (unweighted avg)`        = round(mean(`Head Start`), 1),
+    `Pre-K (unweighted avg)`             = round(mean(`Pre-K`), 1),
+    `Family Child Care (unweighted avg)` = round(mean(`Family Child Care`), 1),
+    `Child Care Center (unweighted avg)` = round(mean(`Child Care Center`), 1)
+  )
+
+print(caretype_national_from_districts)
+```
