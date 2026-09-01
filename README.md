@@ -105,5 +105,4 @@ Census data can be downloaded from the [Census Bureau ACS 5-Year Estimates](http
 ## Contact
 
 For questions about the data or methodology, contact the Center for American Progress Early Childhood Policy team.
-- Hailey Gibbs (hgibbs@americanprogress.org)
-- Casey Peeks (cpeeks@americanprogress.org)
+[Early Childhood Policy @ Center for American Progress](https://www.americanprogress.org/team/early-childhood-policy/)
