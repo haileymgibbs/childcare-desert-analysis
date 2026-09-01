@@ -1,4 +1,4 @@
-**Child Care Deserts × Head Start Eligibility**
+# **Child Care Deserts × Head Start Eligibility**
 - Authors: Hailey Gibbs and Evan Yi  
 - Last updated April 2026
 
