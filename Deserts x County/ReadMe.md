@@ -26,8 +26,7 @@ ccd_by_counties.csv | Output table with desert estimates for every county and CT
 cap_ccaccess_2025_revised_02282026.csv` | Source data from the Center for American Progress (CCD full file) |
 
 ## ⚠️ Large File Notice
-joined_rural.csv exceeds GitHub's file size limit and is **not included in this repository**. It can be downloaded here:
-🔗 [joined_rural.csv on Google Drive](https://drive.google.com/file/d/17-cLCuDMT-M9Iujmw4yHfhYeasQr7J7R/view?usp=sharing)
+joined_rural.csv exceeds GitHub's file size limit and is **not included in this repository**. It is on file with the author.
 
 **Data Source**
 
