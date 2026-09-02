@@ -1,6 +1,6 @@
 # Child Care Deserts × Counties
 - Author: Hailey Gibbs
-- Last updated: May 2026
+- Last updated: July 2026
 
 This folder contains the code and output data for a county-level analysis of licensed child care deserts across the United States, using the Center for American Progress's child care access dataset.
 
@@ -23,12 +23,12 @@ The analysis classifies census points as being in a **child care desert** if the
 **Files in This Folder**
 childcare_desert_analysis.Rmd | R Markdown file containing the full analysis: county aggregation, CT planning region fix, national summary statistics, and the interactive leaflet map |
 ccd_by_counties.csv | Output table with desert estimates for every county and CT planning region |
-cap_ccaccess_2025_revised_02282026.csv` | Source data from the Center for American Progress (CCD full file) |
+County Map Interactive | HTML drafted map of county level estimates | 
 
 ## ⚠️ Large File Notice
 joined_rural.csv exceeds GitHub's file size limit and is **not included in this repository**. It is on file with the author.
+childcare_data is proprietary and is on file with the author.
 
 **Data Source**
 
-Center for American Progress — *Child Care Access Dataset*, 2025 revision (February 2026). This file also exceeds GitHub's size limit and is linked in the ReadMe in #main.
-Each row in the source data represents approximately 10 children. Desert status is determined at the point level and then aggregated to the county or planning region level.
+Center for American Progress — *Child Care Access Dataset*, 2025 revision (February 2026). 
