@@ -1,0 +1,369 @@
+---
+title: "Head Start Access Where Other Licensed Care Is Entirely Absent"
+subtitle: "Poverty-eligible Children, by State and Rurality"
+author: "Hailey Gibbs"
+date: "September 1, 2026"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+library(tidyverse)
+library(knitr)
+library(scales)
+library(readr)
+
+desert_threshold <- 0.33
+children_per_row <- 10 # based on ACS 5-year block group data
+```
+
+## 1. Load data
+
+```{r load-data}
+poverty_data   <- read_csv("poverty_total_and_under5_clean.csv",
+                            col_types = cols(GEOID = col_character()))
+childcare_data <- read_csv("cap_ccaccess_2025_revised_02282026.csv")
+joined_rural   <- read_csv("joined_rural.csv")
+```
+
+## 2. Clean poverty data: county-level eligibility rate
+
+```{r clean-poverty}
+candidate_weight_cols <- c("total_under5", "under5_total", "total_pop_under5",
+                            "pop_under5", "under5_population", "total_under5_pop")
+weight_col <- intersect(candidate_weight_cols, names(poverty_data))
+
+if (length(weight_col) >= 1) {
+  weight_col <- weight_col[1]
+  cat("Using '", weight_col, "' as the tract-level under-5 population weight.\n", sep = "")
+} else {
+  weight_col <- NA
+  warning(
+    "No recognized under-5 population column found in poverty_data. Falling ",
+    "back to an unweighted mean of pct_poverty_under5 across tracts. Run ",
+    "colnames(poverty_data) and add the correct column name to ",
+    "candidate_weight_cols if one exists under a different name."
+  )
+}
+
+poverty_tract <- poverty_data %>%
+  mutate(county_fips = str_sub(GEOID, 1, 5)) %>%
+  filter(!is.na(pct_poverty_under5))
+
+if (!is.na(weight_col)) {
+  poverty_county <- poverty_tract %>%
+    filter(!is.na(.data[[weight_col]])) %>%
+    group_by(county_fips) %>%
+    summarise(
+      avg_pct_poverty_under5 = weighted.mean(pct_poverty_under5, w = .data[[weight_col]], na.rm = TRUE),
+      .groups = "drop"
+    )
+} else {
+  poverty_county <- poverty_tract %>%
+    group_by(county_fips) %>%
+    summarise(avg_pct_poverty_under5 = mean(pct_poverty_under5, na.rm = TRUE), .groups = "drop")
+}
+```
+
+## 3. Merge in rurality data
+
+```{r merge-rurality}
+normalize_lon <- function(lon) ((lon + 180) %% 360) - 180
+
+childcare_data_norm <- childcare_data %>%
+  mutate(
+    lon_key = round(normalize_lon(longitude), 5),
+    lat_key = round(latitude, 5)
+  )
+
+rural_lookup <- joined_rural %>%
+  select(longitude, latitude, rural) %>%
+  mutate(
+    lon_key = round(normalize_lon(longitude), 5),
+    lat_key = round(latitude, 5)
+  ) %>%
+  select(lon_key, lat_key, rural) %>%
+  distinct()
+
+dup_coords <- rural_lookup %>% count(lon_key, lat_key) %>% filter(n > 1)
+if (nrow(dup_coords) > 0) {
+  rural_lookup <- rural_lookup %>% distinct(lon_key, lat_key, .keep_all = TRUE)
+  warning(nrow(dup_coords), " coordinate pairs had conflicting rural codes after ",
+          "normalization -- kept the first value for each.")
+}
+
+childcare_with_rural <- childcare_data_norm %>%
+  left_join(rural_lookup, by = c("lon_key", "lat_key"))
+
+cat("Rows before join:", nrow(childcare_data), " | Rows after join:",
+    nrow(childcare_with_rural), "\n")
+cat("Rows missing rural status:", sum(is.na(childcare_with_rural$rural)), "\n")
+```
+
+## 4. Merge in poverty data
+
+```{r merge-poverty}
+childcare_with_poverty <- childcare_with_rural %>%
+  mutate(county_fips = str_pad(as.character(county_fips), width = 5, pad = "0")) %>%
+  left_join(poverty_county, by = "county_fips")
+
+cat("Rows with a matched county poverty rate:   ",
+    sum(!is.na(childcare_with_poverty$avg_pct_poverty_under5)), "\n")
+cat("Rows missing a matched county poverty rate:",
+    sum(is.na(childcare_with_poverty$avg_pct_poverty_under5)), "\n")
+```
+
+## 5. Clean data
+
+```{r clean-data}
+n_start <- nrow(childcare_with_poverty)
+
+step1_no_pr <- childcare_with_poverty %>%
+  filter(!(as.character(state_fips) %in% c("72", "072")))
+
+step2_complete_supply <- step1_no_pr %>%
+  filter(
+    !is.na(adj_supply_hs), !is.na(adj_supply_fcc),
+    !is.na(adj_supply_ccc), !is.na(adj_supply_prek)
+  )
+
+step3_has_poverty <- step2_complete_supply %>%
+  filter(!is.na(avg_pct_poverty_under5))
+
+childcare_clean <- step3_has_poverty %>%
+  filter(!is.na(rural))
+
+cat("Starting rows:                           ", n_start, "\n")
+cat("Dropped -- Puerto Rico:                   ", n_start - nrow(step1_no_pr), "\n")
+cat("Dropped -- missing adj_supply_* value:    ", nrow(step1_no_pr) - nrow(step2_complete_supply), "\n")
+cat("Dropped -- no matched county poverty rate:", nrow(step2_complete_supply) - nrow(step3_has_poverty), "\n")
+cat("Dropped -- no matched rurality status:    ", nrow(step3_has_poverty) - nrow(childcare_clean), "\n")
+cat("Remaining (analytic sample):              ", nrow(childcare_clean), "\n")
+```
+## 6. Context: raw supply values by state and rurality
+
+Kept as informational context, not as a basis for excluding anything.
+Alaska and Hawaii's non-rural points show far more uniform zero supply
+than any other state/rurality group in the country -- this is real signal
+about how different access conditions are there, not a trigger for
+special-casing them below.
+
+```{r context-raw-supply}
+childcare_clean <- childcare_clean %>%
+  mutate(other_all_zero = adj_supply_fcc == 0 & adj_supply_ccc == 0 & adj_supply_prek == 0)
+
+supply_context <- childcare_clean %>%
+  mutate(state_group = case_when(
+    as.character(state_fips) %in% c("2", "02") ~ "Alaska",
+    as.character(state_fips) %in% c("15")       ~ "Hawaii",
+    TRUE ~ "All other states"
+  )) %>%
+  group_by(state_group, rural) %>%
+  summarise(
+    n_points = n(),
+    pct_fcc_zero  = round(100 * mean(adj_supply_fcc  == 0), 2),
+    pct_ccc_zero  = round(100 * mean(adj_supply_ccc  == 0), 2),
+    pct_prek_zero = round(100 * mean(adj_supply_prek == 0), 2),
+    pct_all_three_zero = round(100 * mean(other_all_zero), 2),
+    mean_adj_supply_hs = round(mean(adj_supply_hs), 4),
+    .groups = "drop"
+  )
+
+cat("Share of points at exactly 0 for each modality, AK/HI vs. everyone else:\n")
+supply_context %>% as_tibble() %>% print(n = Inf)
+```
+
+## 7. Code eligibility weight and access flags
+
+```{r flag-and-weight}
+childcare_clean <- childcare_clean %>%
+  mutate(
+    eligible_children  = children_per_row * (avg_pct_poverty_under5 / 100),
+    hs_any             = adj_supply_hs > 0,
+    hs_any_others_zero = hs_any & other_all_zero
+  )
+```
+
+## 8. National summary
+
+```{r summarize-national}
+national_summary <- childcare_clean %>%
+  summarise(
+    total_eligible_children        = sum(eligible_children),
+    eligible_in_other_zero         = sum(eligible_children[other_all_zero]),
+    eligible_in_hs_any_others_zero = sum(eligible_children[hs_any_others_zero]),
+    pct_of_all_eligible        = round(100 * eligible_in_hs_any_others_zero / total_eligible_children, 4),
+    pct_of_other_zero_eligible = round(100 * eligible_in_hs_any_others_zero / eligible_in_other_zero, 2)
+  )
+
+cat("National summary:\n")
+national_summary %>% as_tibble() %>% print(n = Inf)
+```
+
+## 9. Summarize by state (eligible children)
+
+```{r summarize-by-state}
+state_summary <- childcare_clean %>%
+  group_by(state_fips) %>%
+  summarise(
+    state_name    = first(state_name),
+    state_abbrv   = first(state_abbrv),
+    total_eligible_children        = sum(eligible_children),
+    eligible_in_other_zero         = sum(eligible_children[other_all_zero]),
+    eligible_in_hs_any_others_zero = sum(eligible_children[hs_any_others_zero]),
+    pct_of_all_eligible = round(100 * eligible_in_hs_any_others_zero / total_eligible_children, 4),
+    pct_of_other_zero_eligible = if_else(
+      eligible_in_other_zero > 0,
+      round(100 * eligible_in_hs_any_others_zero / eligible_in_other_zero, 2),
+      NA_real_
+    ),
+    .groups = "drop"
+  ) %>%
+  arrange(desc(pct_of_other_zero_eligible))
+
+state_summary %>%
+  transmute(
+    State = state_name,
+    Abbrv = state_abbrv,
+    `Eligible children (total)`          = comma(round(total_eligible_children)),
+    `Eligible children (FCC=CCC=PreK=0)` = comma(round(eligible_in_other_zero)),
+    `Eligible children (+ any HS)`       = comma(round(eligible_in_hs_any_others_zero)),
+    `% of zero-others eligible`          = pct_of_other_zero_eligible
+  ) %>%
+  as_tibble() %>%
+  print(n = Inf)
+```
+## 10. Chart: percentage by state
+
+```{r chart-by-state, fig.width=8, fig.height=10}
+state_summary %>%
+  filter(!is.na(pct_of_other_zero_eligible)) %>%
+  ggplot(aes(x = fct_reorder(state_abbrv, pct_of_other_zero_eligible),
+             y = pct_of_other_zero_eligible)) +
+  geom_col(fill = "steelblue") +
+  coord_flip() +
+  labs(
+    title = "Head Start Presence Where All Other Licensed Care Is Absent",
+    subtitle = "% of poverty-eligible zero-others children with any Head Start supply, by state",
+    x = "State",
+    y = "% of zero-others eligible children with any Head Start supply"
+  ) +
+  theme_minimal(base_size = 11)
+```
+
+## 11. Summarize by rurality (national)
+
+```{r summarize-by-rural}
+rural_summary <- childcare_clean %>%
+  group_by(rural) %>%
+  summarise(
+    total_eligible_children        = sum(eligible_children),
+    eligible_in_other_zero         = sum(eligible_children[other_all_zero]),
+    eligible_in_hs_any_others_zero = sum(eligible_children[hs_any_others_zero]),
+    pct_of_other_zero_eligible = if_else(
+      eligible_in_other_zero > 0,
+      round(100 * eligible_in_hs_any_others_zero / eligible_in_other_zero, 2),
+      NA_real_
+    ),
+    .groups = "drop"
+  )
+
+rural_summary %>% as_tibble() %>% print(n = Inf)
+```
+
+## 12. Summarize by state and rurality (eligible children)
+
+```{r summarize-by-state-rural}
+state_rural_summary <- childcare_clean %>%
+  group_by(state_fips, rural) %>%
+  summarise(
+    state_name  = first(state_name),
+    state_abbrv = first(state_abbrv),
+    total_eligible_children        = sum(eligible_children),
+    eligible_in_other_zero         = sum(eligible_children[other_all_zero]),
+    eligible_in_hs_any_others_zero = sum(eligible_children[hs_any_others_zero]),
+    pct_of_other_zero_eligible = if_else(
+      eligible_in_other_zero > 0,
+      round(100 * eligible_in_hs_any_others_zero / eligible_in_other_zero, 2),
+      NA_real_
+    ),
+    .groups = "drop"
+  ) %>%
+  arrange(state_fips, rural)
+
+state_rural_summary %>%
+  transmute(
+    State = state_name,
+    Abbrv = state_abbrv,
+    Rural = rural,
+    `Eligible children (total)`          = comma(round(total_eligible_children)),
+    `Eligible children (FCC=CCC=PreK=0)` = comma(round(eligible_in_other_zero)),
+    `Eligible children (+ any HS)`       = comma(round(eligible_in_hs_any_others_zero)),
+    `% of zero-others eligible`          = pct_of_other_zero_eligible
+  ) %>%
+  as_tibble() %>%
+  print(n = Inf)
+```
+
+## 13. Chart: percentage by state, split by rurality
+
+```{r chart-by-state-rural, fig.width=9, fig.height=11}
+state_rural_summary %>%
+  filter(!is.na(pct_of_other_zero_eligible)) %>%
+  ggplot(aes(x = fct_reorder(state_abbrv, pct_of_other_zero_eligible, .fun = max),
+             y = pct_of_other_zero_eligible, fill = rural)) +
+  geom_col(position = "dodge") +
+  coord_flip() +
+  labs(
+    title = "Head Start Presence Where All Other Licensed Care Is Absent",
+    subtitle = "By state and rurality",
+    x = "State",
+    y = "% of zero-others eligible children with any Head Start supply",
+    fill = "Rural"
+  ) +
+  theme_minimal(base_size = 11)
+```
+
+## 14. Summary interpretation
+
+```{r summary-stats, include=FALSE}
+n_states <- nrow(state_summary)
+ranked   <- state_summary %>% filter(!is.na(pct_of_other_zero_eligible))
+top_state    <- ranked %>% slice_max(pct_of_other_zero_eligible, n = 1)
+bottom_state <- ranked %>% slice_min(pct_of_other_zero_eligible, n = 1)
+```
+
+Among an estimated `r comma(round(national_summary$total_eligible_children))`
+poverty-eligible children under 5 across the `r n_states` states/territories
+in this analysis (Puerto Rico excluded),
+`r comma(round(national_summary$eligible_in_other_zero))`
+(`r round(100 * national_summary$eligible_in_other_zero / national_summary$total_eligible_children, 2)`%
+of eligible children) live in an area with zero supply of family child
+care, center-based care, *and* Pre-K. Of those,
+`r comma(round(national_summary$eligible_in_hs_any_others_zero))` --
+**`r national_summary$pct_of_other_zero_eligible`%** of eligible children in
+that population -- have at least some Head Start supply.
+
+- **Highest (state):** `r top_state$state_name` (`r top_state$state_abbrv`) at
+  `r top_state$pct_of_other_zero_eligible`% of its zero-others eligible children.
+- **Lowest (state, among those with at least one such point):**
+  `r bottom_state$state_name` (`r bottom_state$state_abbrv`) at
+  `r bottom_state$pct_of_other_zero_eligible`%.
+
+Alaska and Hawaii are included at face value throughout, with no
+exclusion or separate treatment. Section 6's diagnostic breakdown is worth
+reading alongside these headline numbers: both states show far more
+uniform zero supply in their non-rural areas than anywhere else in the
+country, consistent with how dispersed, low-infrastructure communities in
+both states can register as "non-rural" under Census density-based
+classification without functioning like a mainland urban area, combined
+with well-documented, severe child care access constraints specific to
+Alaska and Hawaii.
+
+## 15. Export summary tables (optional)
+
+```{r export, eval=FALSE}
+write_csv(state_summary, "headstart_any_access_zero_others_poverty_weighted_by_state_v4.csv")
+write_csv(rural_summary, "headstart_any_access_zero_others_poverty_weighted_by_rurality_v4.csv")
+write_csv(state_rural_summary, "headstart_any_access_zero_others_poverty_weighted_by_state_and_rurality_v4.csv")
+```
