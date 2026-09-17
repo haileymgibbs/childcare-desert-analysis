@@ -31,7 +31,7 @@ The script expects three CSVs in the working directory (not included in this rep
 **4. Eligible children and access flags.**
 - `eligible_children = 10 × (avg_pct_poverty_under5 / 100)` — each row represents 10 children (per the underlying ACS block-group data), scaled by the estimated county poverty rate.
 - `other_all_zero` — TRUE where FCC, CCC, and Pre-K supply are all exactly 0.
-- `hs_any` — TRUE where Head Start supply is greater than 0 (this is an *any supply* threshold, not the ≥0.33 "adequate supply" threshold used in earlier versions of this analysis — the two are not interchangeable).
+- `hs_any` — TRUE where Head Start supply is greater than 0 (this is an *any supply* threshold, not the ≥0.33 "adequate supply" threshold used in earlier versions of this analysis — the two are not interchangeable and write-ups should flag that this does not mean eligible children have _adequate_ access to Head Start where all other licensed care is absent).
 - `hs_any_others_zero` — TRUE where both of the above hold: some Head Start supply, and zero supply of everything else.
 
 **5. Metrics.** Two percentages are reported throughout, and they answer different questions:
@@ -40,17 +40,21 @@ The script expects three CSVs in the working directory (not included in this rep
 
 ## Outputs
 
-- Summary tables (printed in the knitted document, and optionally exported as CSV in Section 15): national, by state, by rurality, and by state × rurality.
+- Summary tables (printed in the knitted document, and optionally exported as CSV): national, by state, by rurality, and by state × rurality.
 - Two horizontal bar charts: percentage by state, and percentage by state split by rurality.
-- A written interpretation section (Section 14) with the national top-line figures and the highest/lowest states.
 
 ## Data Note: Alaska and Hawaii
 
 Non-rural points in Alaska and Hawaii show far more uniform zero supply across all licensed modalities than any other state/rurality group in the country (see Section 6's diagnostic table). This was investigated and ruled out as a coordinate-matching or join artifact — the pattern is present in the raw `adj_supply_*` values themselves. Both states are reported **at face value with no exclusion or special-casing**, on the assessment that this reflects genuine conditions (dispersed, low-infrastructure communities that register as "non-rural" under Census density-based classification without functioning like a mainland urban area, combined with documented child care access constraints specific to both states) rather than a data error. Section 6 is retained purely as informational context for readers evaluating these two states' headline numbers.
+
+## Data Note: State FIPS Join Error in Previous Analysis
+
+The .Rmd file contains prose explaining that in previous analyses, there was a state fips join error that dropped states with leading 0s. This was corrected for in the attached markdown file, and the author has the previous version saved elsewhere for reference and tracking.
 
 ## Requirements
 
 R packages: `tidyverse`, `knitr`, `scales`.
 
 # Large File Notice
-joined_rural is not loaded into this repository because it exceeds GitHub's file size limit. The underlying file for childcare_data is also not loaded here because the data are proprietary and the file exceeds the size limit.
+- joined_rural is not loaded into this repository because it exceeds GitHub's file size limit.
+- The underlying file for childcare_data is also not loaded here because the data are proprietary and the file exceeds the size limit.
