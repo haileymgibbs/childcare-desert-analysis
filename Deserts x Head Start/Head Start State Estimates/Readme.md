@@ -53,7 +53,7 @@ The .Rmd file contains prose explaining that in previous analyses, there was a s
 
 ## Requirements
 
-R packages: `tidyverse`, `knitr`, `scales`.
+R packages: `tidyverse`, `knitr`, `scales`. `readr`
 
 # Large File Notice
 - joined_rural is not loaded into this repository because it exceeds GitHub's file size limit.
