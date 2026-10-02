@@ -22,7 +22,7 @@ sf_use_s2(FALSE)   # planar point-in-polygon is fine at tract scale and much fas
 children_per_row <- 10 # based on ACS 5-year block group data
 
 # One-time setup, if not already done:
-# tidycensus::census_api_key("efe9c4d9098021681847e000144aa4b99487cd9c", install = TRUE); readRenviron("~/.Renviron")
+# tidycensus::census_api_key("enter your API key", install = TRUE); readRenviron("~/.Renviron")
 ```
 
 ## Revision note: how poverty is now assigned
