@@ -1,0 +1,826 @@
+---
+title: "Head Start Access Where Other Licensed Care Is Entirely Absent"
+subtitle: "Poverty-Eligible Children, by State and Rurality"
+author: "Hailey Gibbs"
+date: "September 16, 2026 (revised October 1, 2026)"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+library(tidyverse)
+library(knitr)
+library(scales)
+library(readr)
+library(tidycensus)
+library(sf)
+library(tigris)
+
+options(tigris_use_cache = TRUE)
+sf_use_s2(FALSE)   # planar point-in-polygon is fine at tract scale and much faster
+
+children_per_row <- 10 # based on ACS 5-year block group data
+
+# One-time setup, if not already done:
+# tidycensus::census_api_key("efe9c4d9098021681847e000144aa4b99487cd9c", install = TRUE); readRenviron("~/.Renviron")
+```
+
+## Revision note: how poverty is now assigned
+
+The earlier version of this analysis had two problems with the poverty rates
+used to estimate income-eligible children.
+
+1. **Smoothing within counties.** Tract-level `pct_poverty_under5` was averaged
+   up to the county and joined to every childcare row by `county_fips`, so every
+   row in a county got the same rate. In counties that mix rural and urban
+   areas, this erased the within-county differences that the rural/nonrural
+   comparison depends on.
+2. **No population weights.** The poverty file contains only percentages
+   (`GEOID`, `NAME`, `pct_poverty_total`, `pct_poverty_under5`, `flag`), so the
+   county "average" was an unweighted mean of tract percentages: a tract with
+   50 young children counted as much as one with 2,000.
+
+This version fixes both:
+
+- Poverty **counts** come from ACS table B17001 (2019–2023 five-year), for
+  children under 5 below poverty and all children under 5 whose poverty status
+  is determined. Any rate built from summed counts is correctly weighted.
+- Each childcare row is placed in its **census tract** using its coordinates,
+  and gets that tract's rate. The county rate (also built from summed counts)
+  is used only as a labeled fallback when a tract has no usable data.
+
+## 1. Load data
+
+```{r load-data}
+childcare_data <- read_csv("cap_ccaccess_2025_revised_02282026.csv")
+joined_rural   <- read_csv("joined_rural.csv")
+
+# The original percent-only file is kept for a validation check in Section 2.
+old_poverty_file <- "poverty_total_and_under5_clean.csv"
+```
+
+## 2. Tract and county poverty counts (ACS B17001)
+
+B17001 is poverty status in the past 12 months by sex by age.
+
+- `_004` / `_018`: male / female under 5, income below poverty
+- `_033` / `_047`: male / female under 5, income at or above poverty
+
+Tract geography must be requested one state at a time, so the download takes
+a few minutes. The result is cached to an `.rds` file so later knits skip it.
+
+```{r poverty-counts}
+# ---- Settings to edit ---------------------------------------------------------
+acs_year         <- 2023  # 2019-2023 five-year estimates
+min_tract_under5 <- 1     # tracts with fewer children under 5 than this use the
+                          # county rate instead (raise, e.g. to 30, to avoid
+                          # very noisy small-tract estimates)
+tract_counts_cache <- paste0("acs_b17001_under5_tracts_", acs_year, ".rds")
+
+# 50 states + DC (Puerto Rico is excluded from the analysis)
+state_codes <- unique(tidycensus::fips_codes$state_code)
+state_codes <- state_codes[as.integer(state_codes) <= 56]
+
+b17001_vars <- c(
+  pov_m    = "B17001_004",
+  pov_f    = "B17001_018",
+  nonpov_m = "B17001_033",
+  nonpov_f = "B17001_047"
+)
+
+if (file.exists(tract_counts_cache)) {
+  poverty_counts_tract <- readRDS(tract_counts_cache)
+} else {
+  poverty_counts_tract <- map_dfr(state_codes, ~ get_acs(
+    geography = "tract",
+    variables = b17001_vars,
+    state     = .x,
+    year      = acs_year,
+    survey    = "acs5",
+    output    = "wide"
+  )) %>%
+    transmute(
+      GEOID,  # 11-character string with leading zeros intact
+      under5_in_poverty = pov_mE + pov_fE,
+      under5_total      = pov_mE + pov_fE + nonpov_mE + nonpov_fE,
+      pct_poverty_tract = if_else(under5_total > 0,
+                                  100 * under5_in_poverty / under5_total,
+                                  NA_real_)
+    )
+  saveRDS(poverty_counts_tract, tract_counts_cache)
+}
+
+stopifnot(all(nchar(poverty_counts_tract$GEOID) == 11))
+
+# County rates from summed counts -- weighted by construction
+poverty_county <- poverty_counts_tract %>%
+  mutate(county_fips = str_sub(GEOID, 1, 5)) %>%
+  group_by(county_fips) %>%
+  summarise(
+    county_under5_in_poverty = sum(under5_in_poverty),
+    county_under5_total      = sum(under5_total),
+    .groups = "drop"
+  ) %>%
+  mutate(pct_poverty_county = if_else(county_under5_total > 0,
+                                      100 * county_under5_in_poverty / county_under5_total,
+                                      NA_real_))
+
+cat("Tracts:", nrow(poverty_counts_tract),
+    " | Tracts with zero children under 5:", sum(poverty_counts_tract$under5_total == 0),
+    " | Counties:", nrow(poverty_county), "\n")
+```
+
+### Validation against the original percent file
+
+If the original `pct_poverty_under5` came from the same table and vintage,
+nearly all tracts should match, with rounding-sized differences.
+
+```{r validate-old-poverty}
+if (file.exists(old_poverty_file)) {
+  read_csv(old_poverty_file, col_types = cols(GEOID = col_character())) %>%
+    mutate(GEOID = str_pad(GEOID, width = 11, pad = "0")) %>%
+    inner_join(poverty_counts_tract, by = "GEOID") %>%
+    mutate(diff = abs(pct_poverty_under5 - pct_poverty_tract)) %>%
+    summarise(
+      tracts_matched     = n(),
+      share_within_0.5pt = round(mean(diff < 0.5, na.rm = TRUE), 3),
+      max_abs_diff       = round(max(diff, na.rm = TRUE), 2)
+    ) %>%
+    print()
+} else {
+  cat("Original poverty file not found; skipping validation.\n")
+}
+```
+
+## 3. Merge in rurality data
+
+```{r merge-rurality}
+normalize_lon <- function(lon) ((lon + 180) %% 360) - 180
+
+childcare_data_norm <- childcare_data %>%
+  mutate(
+    lon_key = round(normalize_lon(longitude), 5),
+    lat_key = round(latitude, 5)
+  )
+
+rural_lookup <- joined_rural %>%
+  select(longitude, latitude, rural) %>%
+  mutate(
+    lon_key = round(normalize_lon(longitude), 5),
+    lat_key = round(latitude, 5)
+  ) %>%
+  select(lon_key, lat_key, rural) %>%
+  distinct()
+
+dup_coords <- rural_lookup %>% count(lon_key, lat_key) %>% filter(n > 1)
+if (nrow(dup_coords) > 0) {
+  rural_lookup <- rural_lookup %>% distinct(lon_key, lat_key, .keep_all = TRUE)
+  warning(nrow(dup_coords), " coordinate pairs had conflicting rural codes after ",
+          "normalization -- kept the first value for each.")
+}
+
+childcare_with_rural <- childcare_data_norm %>%
+  left_join(rural_lookup, by = c("lon_key", "lat_key"))
+
+cat("Rows before join:", nrow(childcare_data), " | Rows after join:",
+    nrow(childcare_with_rural), "\n")
+cat("Rows missing rural status:", sum(is.na(childcare_with_rural$rural)), "\n")
+```
+
+## 4. Assign each row its tract poverty rate
+
+Each row's coordinates are placed inside a 2020 census tract (the geography of
+the 2019–2023 ACS), and the row gets that tract's rate. Rows that fall outside
+every tract polygon, or in a tract below `min_tract_under5`, fall back to the
+county rate; `poverty_source` records which was used.
+
+```{r tract-boundaries}
+tract_shapes_cache <- paste0("tract_shapes_", acs_year, ".rds")
+
+# cb = TRUE is the smaller cartographic file, clipped to the shoreline. If many
+# coastal rows come back unmatched below, switch to cb = FALSE and delete the cache.
+if (file.exists(tract_shapes_cache)) {
+  tracts_sf <- readRDS(tract_shapes_cache)
+} else {
+  tracts_sf <- map(state_codes, ~ tracts(state = .x, year = acs_year, cb = TRUE)) %>%
+    do.call(rbind, .) %>%
+    select(tract_geoid = GEOID)
+  saveRDS(tracts_sf, tract_shapes_cache)
+}
+```
+
+```{r merge-poverty}
+childcare_pts <- childcare_with_rural %>%
+  mutate(row_id = row_number()) %>%
+  st_as_sf(coords = c("lon_key", "lat_key"), crs = 4326,
+           remove = FALSE, na.fail = FALSE) %>%
+  st_transform(st_crs(tracts_sf))
+
+childcare_tract <- childcare_pts %>%
+  st_join(tracts_sf, join = st_within, left = TRUE) %>%
+  st_drop_geometry() %>%
+  distinct(row_id, .keep_all = TRUE)  # guard against points on a shared boundary
+
+stopifnot(nrow(childcare_tract) == nrow(childcare_with_rural))
+
+childcare_with_poverty <- childcare_tract %>%
+  mutate(county_fips = str_pad(as.character(county_fips), width = 5, pad = "0")) %>%
+  left_join(poverty_counts_tract %>%
+              select(tract_geoid = GEOID,
+                     tract_under5_total = under5_total,
+                     pct_poverty_tract),
+            by = "tract_geoid") %>%
+  left_join(poverty_county %>% select(county_fips, pct_poverty_county),
+            by = "county_fips") %>%
+  mutate(
+    use_tract = !is.na(pct_poverty_tract) & tract_under5_total >= min_tract_under5,
+    poverty_source = case_when(
+      use_tract                  ~ "tract",
+      !is.na(pct_poverty_county) ~ "county fallback",
+      TRUE                       ~ "none"
+    ),
+    pct_poverty_under5 = if_else(use_tract, pct_poverty_tract, pct_poverty_county)
+  )
+
+cat("Rows not inside any tract polygon:", sum(is.na(childcare_with_poverty$tract_geoid)), "\n")
+childcare_with_poverty %>% count(poverty_source) %>% print()
+
+# If fallback rows are concentrated in one rurality group, they could bias the
+# rural/nonrural comparison and are worth a closer look.
+childcare_with_poverty %>% count(rural, poverty_source) %>% print()
+```
+
+### Connecticut county codes
+
+From 2022 on, the ACS uses Connecticut's nine planning regions (09110–09190) as
+county equivalents instead of the eight old counties (09001–09015). The tract
+join is unaffected because it matches by coordinates, but the county fallback
+only works if the childcare file uses the same codes.
+
+```{r ct-check}
+ct_childcare <- sort(unique(childcare_with_poverty$county_fips[
+  str_starts(childcare_with_poverty$county_fips, "09")]))
+ct_acs <- sort(poverty_county$county_fips[str_starts(poverty_county$county_fips, "09")])
+
+cat("CT county codes in childcare file:", paste(ct_childcare, collapse = ", "), "\n")
+cat("CT county codes in ACS counts:    ", paste(ct_acs, collapse = ", "), "\n")
+if (length(setdiff(ct_childcare, ct_acs)) > 0) {
+  warning("Connecticut rows use county codes not in the ACS; those rows can use ",
+          "tract rates but have no county fallback.")
+}
+```
+
+## 5. Build the analytic sample
+
+```{r build-analytic-sample}
+n_start <- nrow(childcare_with_poverty)
+
+step1_no_pr <- childcare_with_poverty %>%
+  filter(!(as.character(state_fips) %in% c("72", "072")))
+
+step2_complete_supply <- step1_no_pr %>%
+  filter(
+    !is.na(adj_supply_hs), !is.na(adj_supply_fcc),
+    !is.na(adj_supply_ccc), !is.na(adj_supply_prek)
+  )
+
+step3_has_poverty <- step2_complete_supply %>%
+  filter(!is.na(pct_poverty_under5))
+
+childcare_clean <- step3_has_poverty %>%
+  filter(!is.na(rural))
+
+cat("Starting rows:                           ", n_start, "\n")
+cat("Dropped -- Puerto Rico:                   ", n_start - nrow(step1_no_pr), "\n")
+cat("Dropped -- missing adj_supply_* value:    ", nrow(step1_no_pr) - nrow(step2_complete_supply), "\n")
+cat("Dropped -- no tract or county poverty rate:", nrow(step2_complete_supply) - nrow(step3_has_poverty), "\n")
+cat("Dropped -- no matched rurality status:    ", nrow(step3_has_poverty) - nrow(childcare_clean), "\n")
+cat("Remaining (analytic sample):              ", nrow(childcare_clean), "\n")
+cat("Analytic rows using tract rate:           ", sum(childcare_clean$poverty_source == "tract"), "\n")
+cat("Analytic rows using county fallback:      ", sum(childcare_clean$poverty_source == "county fallback"), "\n")
+
+# Flag any state present upstream that ends up with zero rows in the final
+# analytic sample, since a fully-dropped state produces no NA to find -- it
+# just disappears from every table below without a trace.
+dropped_states <- childcare_with_poverty %>%
+  distinct(state_fips, state_name) %>%
+  anti_join(childcare_clean %>% distinct(state_fips), by = "state_fips")
+
+if (nrow(dropped_states) > 0) {
+  warning("The following states have zero rows in the analytic sample and ",
+          "will not appear in any table below -- confirm this is expected ",
+          "(e.g. a territory) and not a join failure: ",
+          paste(dropped_states$state_name, collapse = ", "))
+} else {
+  cat("All", n_distinct(childcare_with_poverty$state_fips),
+      "states/territories present upstream are represented in the analytic sample.\n")
+}
+```
+
+## 6. Eligibility, desert flag, and Head Start access flag
+
+`eligible_children` uses each row's tract rate (or county fallback).
+`eligible_children_county_only` uses the county rate for every row; it exists
+only for the sensitivity check in Section 8b.
+
+```{r flag-and-weight}
+childcare_clean <- childcare_clean %>%
+  mutate(
+    eligible_children             = children_per_row * (pct_poverty_under5 / 100),
+    eligible_children_county_only = children_per_row * (pct_poverty_county / 100),
+    other_all_zero     = adj_supply_fcc == 0 & adj_supply_ccc == 0 & adj_supply_prek == 0,
+    hs_any             = adj_supply_hs > 0,
+    hs_any_others_zero = hs_any & other_all_zero
+  )
+```
+
+## 7. National summary
+
+```{r summarize-national}
+national_summary <- childcare_clean %>%
+  summarise(
+    total_eligible_children        = sum(eligible_children),
+    eligible_in_other_zero         = sum(eligible_children[other_all_zero]),
+    eligible_in_hs_any_others_zero = sum(eligible_children[hs_any_others_zero]),
+    pct_in_desert              = round(100 * eligible_in_other_zero / total_eligible_children, 2),
+    pct_of_all_eligible        = round(100 * eligible_in_hs_any_others_zero / total_eligible_children, 4),
+    pct_of_other_zero_eligible = round(100 * eligible_in_hs_any_others_zero / eligible_in_other_zero, 2)
+  )
+
+cat("National summary:\n")
+national_summary %>% as_tibble() %>% print(n = Inf)
+```
+
+## 8. Summary by rurality (national)
+
+```{r summarize-by-rural}
+rural_summary <- childcare_clean %>%
+  group_by(rural) %>%
+  summarise(
+    total_eligible_children        = sum(eligible_children),
+    eligible_in_other_zero         = sum(eligible_children[other_all_zero]),
+    eligible_in_hs_any_others_zero = sum(eligible_children[hs_any_others_zero]),
+    pct_in_desert       = round(100 * eligible_in_other_zero / total_eligible_children, 2),
+    pct_of_all_eligible = round(100 * eligible_in_hs_any_others_zero / total_eligible_children, 4),
+    pct_of_other_zero_eligible = if_else(
+      eligible_in_other_zero > 0,
+      round(100 * eligible_in_hs_any_others_zero / eligible_in_other_zero, 2),
+      NA_real_
+    ),
+    .groups = "drop"
+  )
+
+cat("Summary by rurality:\n")
+rural_summary %>% as_tibble() %>% print(n = Inf)
+```
+
+## 8b. Sensitivity: tract rates vs. county-only rates
+
+How much did county smoothing matter? This compares the rural share of each
+group, and the rural/nonrural desert rates, under tract-level rates versus a
+single (weighted) county rate for every row. Rows without a county rate are
+left out of the county-only column.
+
+```{r sensitivity-tract-vs-county}
+compare_weights <- function(df, w) {
+  df %>%
+    filter(!is.na({{ w }})) %>%
+    mutate(is_rural = as.character(rural) %in% c("1", "TRUE"), wt = {{ w }}) %>%
+    summarise(
+      rural_share_all_eligible = 100 * sum(wt[is_rural]) / sum(wt),
+      rural_share_desert       = 100 * sum(wt[is_rural & other_all_zero]) / sum(wt[other_all_zero]),
+      rural_share_hs_only      = 100 * sum(wt[is_rural & hs_any_others_zero]) / sum(wt[hs_any_others_zero]),
+      rural_desert_per_1000    = 1000 * sum(wt[is_rural & other_all_zero])  / sum(wt[is_rural]),
+      nonrural_desert_per_1000 = 1000 * sum(wt[!is_rural & other_all_zero]) / sum(wt[!is_rural]),
+      rural_hs_only_per_1000   = 1000 * sum(wt[is_rural & hs_any_others_zero])  / sum(wt[is_rural]),
+      nonrural_hs_only_per_1000 = 1000 * sum(wt[!is_rural & hs_any_others_zero]) / sum(wt[!is_rural])
+    ) %>%
+    pivot_longer(everything(), names_to = "measure")
+}
+
+compare_weights(childcare_clean, eligible_children) %>%
+  rename(tract_rates = value) %>%
+  left_join(compare_weights(childcare_clean, eligible_children_county_only) %>%
+              rename(county_only_rates = value),
+            by = "measure") %>%
+  mutate(difference = tract_rates - county_only_rates,
+         across(where(is.double), ~ round(.x, 1))) %>%
+  print()
+```
+
+## 9. Summary by state (eligible children)
+
+```{r summarize-by-state}
+state_summary <- childcare_clean %>%
+  group_by(state_fips) %>%
+  summarise(
+    state_name    = first(state_name),
+    state_abbrv   = first(state_abbrv),
+    total_eligible_children        = sum(eligible_children),
+    eligible_in_other_zero         = sum(eligible_children[other_all_zero]),
+    eligible_in_hs_any_others_zero = sum(eligible_children[hs_any_others_zero]),
+    pct_in_desert       = round(100 * eligible_in_other_zero / total_eligible_children, 2),
+    pct_of_all_eligible = round(100 * eligible_in_hs_any_others_zero / total_eligible_children, 4),
+    pct_of_other_zero_eligible = if_else(
+      eligible_in_other_zero > 0,
+      round(100 * eligible_in_hs_any_others_zero / eligible_in_other_zero, 2),
+      NA_real_
+    ),
+    .groups = "drop"
+  ) %>%
+  arrange(desc(pct_of_other_zero_eligible))
+
+state_summary %>%
+  transmute(
+    State = state_name,
+    Abbrv = state_abbrv,
+    `Eligible children (total)`                    = comma(round(total_eligible_children)),
+    `Eligible children in desert (FCC=CCC=PreK=0)` = comma(round(eligible_in_other_zero)),
+    `% of eligible children in desert`             = pct_in_desert,
+    `Eligible children in desert + any HS`         = comma(round(eligible_in_hs_any_others_zero)),
+    `% of desert-eligible with any HS`             = pct_of_other_zero_eligible
+  ) %>%
+  as_tibble() %>%
+  print(n = Inf)
+```
+
+## 10. Chart: percentage by state
+
+```{r chart-by-state, fig.width=8, fig.height=10}
+state_summary %>%
+  filter(!is.na(pct_of_other_zero_eligible)) %>%
+  ggplot(aes(x = fct_reorder(state_abbrv, pct_of_other_zero_eligible),
+             y = pct_of_other_zero_eligible)) +
+  geom_col(fill = "steelblue") +
+  coord_flip() +
+  labs(
+    title = "Head Start Presence Where All Other Licensed Care Is Absent",
+    subtitle = "% of poverty-eligible zero-others children with any Head Start supply, by state",
+    x = "State",
+    y = "% of zero-others eligible children with any Head Start supply"
+  ) +
+  theme_minimal(base_size = 11)
+```
+
+## 11. Summary by state and rurality (eligible children)
+
+```{r summarize-by-state-rural}
+state_rural_summary <- childcare_clean %>%
+  group_by(state_fips, rural) %>%
+  summarise(
+    state_name  = first(state_name),
+    state_abbrv = first(state_abbrv),
+    total_eligible_children        = sum(eligible_children),
+    eligible_in_other_zero         = sum(eligible_children[other_all_zero]),
+    eligible_in_hs_any_others_zero = sum(eligible_children[hs_any_others_zero]),
+    pct_in_desert       = round(100 * eligible_in_other_zero / total_eligible_children, 2),
+    pct_of_all_eligible = round(100 * eligible_in_hs_any_others_zero / total_eligible_children, 4),
+    pct_of_other_zero_eligible = if_else(
+      eligible_in_other_zero > 0,
+      round(100 * eligible_in_hs_any_others_zero / eligible_in_other_zero, 2),
+      NA_real_
+    ),
+    .groups = "drop"
+  ) %>%
+  arrange(state_fips, rural)
+
+state_rural_summary %>%
+  transmute(
+    State = state_name,
+    Abbrv = state_abbrv,
+    Rural = rural,
+    `Eligible children (total)`                    = comma(round(total_eligible_children)),
+    `Eligible children in desert (FCC=CCC=PreK=0)` = comma(round(eligible_in_other_zero)),
+    `% of eligible children in desert`             = pct_in_desert,
+    `Eligible children in desert + any HS`         = comma(round(eligible_in_hs_any_others_zero)),
+    `% of desert-eligible with any HS`             = pct_of_other_zero_eligible,
+    `% of all eligible with any HS-only access`    = pct_of_all_eligible
+  ) %>%
+  as_tibble() %>%
+  print(n = Inf)
+```
+
+## 12. Chart: percentage by state, split by rurality
+
+```{r chart-by-state-rural, fig.width=9, fig.height=11}
+state_rural_summary %>%
+  filter(!is.na(pct_of_other_zero_eligible)) %>%
+  ggplot(aes(x = fct_reorder(state_abbrv, pct_of_other_zero_eligible, .fun = max),
+             y = pct_of_other_zero_eligible, fill = rural)) +
+  geom_col(position = "dodge") +
+  coord_flip() +
+  labs(
+    title = "Head Start Presence Where All Other Licensed Care Is Absent",
+    subtitle = "By state and rurality",
+    x = "State",
+    y = "% of zero-others eligible children with any Head Start supply",
+    fill = "Rural"
+  ) +
+  theme_minimal(base_size = 11)
+```
+
+## 13. Summary interpretation
+
+```{r summary-stats, include=FALSE}
+n_states <- nrow(state_summary)
+ranked   <- state_summary %>% filter(!is.na(pct_of_other_zero_eligible))
+top_state    <- ranked %>% slice_max(pct_of_other_zero_eligible, n = 1)
+bottom_state <- ranked %>% slice_min(pct_of_other_zero_eligible, n = 1)
+
+# Pulled dynamically rather than hard-coded, so this works regardless of how
+# the `rural` column happens to be encoded (logical, character, factor, etc.)
+desert_high <- rural_summary %>% slice_max(pct_in_desert, n = 1)
+desert_low  <- rural_summary %>% slice_min(pct_in_desert, n = 1)
+desert_ratio <- round(desert_high$pct_in_desert / desert_low$pct_in_desert, 1)
+
+# Ranks states by pct_of_all_eligible (share of ALL poverty-eligible children
+# with Head Start-only access) within the rural = 1 group specifically -- this
+# is the metric the "roughly 10 times more likely" / state-list claims below
+# are based on, not pct_of_other_zero_eligible (which is printed in section 11
+# but describes a different denominator: share of *desert-dwelling* children).
+rural_state_rank <- state_rural_summary %>%
+  filter(rural == 1) %>%
+  filter(!is.na(pct_of_all_eligible)) %>%
+  arrange(desc(pct_of_all_eligible))
+
+top5_rural_states    <- rural_state_rank %>% slice_max(pct_of_all_eligible, n = 5)
+bottom5_rural_states <- rural_state_rank %>% slice_min(pct_of_all_eligible, n = 5)
+
+national_rural_ratio <- round(
+  (rural_summary %>% filter(rural == desert_high$rural) %>% pull(pct_of_all_eligible)) /
+  (rural_summary %>% filter(rural == desert_low$rural)  %>% pull(pct_of_all_eligible)),
+  1
+)
+
+# Largest rural-vs-urban gap in pct_of_all_eligible, among states with both a
+# rural and a non-rural row and a non-zero non-rural rate (so the ratio is defined).
+gap_by_state <- state_rural_summary %>%
+  filter(!is.na(pct_of_all_eligible)) %>%
+  select(state_name, state_abbrv, rural, pct_of_all_eligible) %>%
+  pivot_wider(names_from = rural, values_from = pct_of_all_eligible, names_prefix = "rural_") %>%
+  filter(!is.na(rural_0), !is.na(rural_1), rural_0 > 0) %>%
+  mutate(gap_ratio = round(rural_1 / rural_0, 1)) %>%
+  arrange(desc(gap_ratio))
+
+largest_gap_state <- gap_by_state %>% slice_max(gap_ratio, n = 1)
+```
+
+## 14. Export summary tables
+
+```{r export, eval=FALSE}
+write_csv(state_summary, "headstart_any_access_zero_others_tract_poverty_by_state_v6.csv")
+write_csv(rural_summary, "headstart_any_access_zero_others_tract_poverty_by_rurality_v6.csv")
+write_csv(state_rural_summary, "headstart_any_access_zero_others_tract_poverty_by_state_and_rurality_v6.csv")
+```
+
+## 15. Figure 1: Per 1,000 income-eligible children, by rurality
+
+Figure 1 is built from `rural_summary` (section 8), so it updates whenever the
+data changes. Each panel is a 100 x 10 grid of 1,000 squares. The shares are rounded **once, at
+the desert level**, and the Head Start–only count is rounded separately.
+"In a desert, no Head Start" is the difference between those two rounded numbers.
+That way the squares always add up to 1,000, and they always match the labels.
+
+```{r fig1-per-1000, fig.width=10, fig.height=5.6}
+# ---- Settings to edit ---------------------------------------------------------
+term_label  <- "deserts with no access to licensed home-based care, center-based care, or preschool"
+save_png    <- TRUE       # also write a high-resolution PNG for layout
+grid_cols   <- 100        # 100 x 10 = 1,000 squares per panel
+
+# ---- Map the rural codes to labels (and stop if the coding is unexpected) ----
+rural_codes <- as.character(rural_summary$rural)
+if (!all(rural_codes %in% c("0", "1", "FALSE", "TRUE"))) {
+  stop("Unexpected values in rural_summary$rural: ",
+       paste(unique(rural_codes), collapse = ", "),
+       ". Update the label mapping in the fig1-per-1000 chunk.")
+}
+
+fig1_rates <- rural_summary %>%
+  mutate(
+    group = if_else(as.character(rural) %in% c("1", "TRUE"), "Rural", "Nonrural"),
+    group = factor(group, levels = c("Rural", "Nonrural")),
+    # Unrounded rates per 1,000 income-eligible children
+    desert_per_1000  = 1000 * eligible_in_other_zero         / total_eligible_children,
+    hs_only_per_1000 = 1000 * eligible_in_hs_any_others_zero / total_eligible_children,
+    # Round once, then take the difference, so squares and labels always agree
+    desert_n  = round(desert_per_1000),
+    hs_only_n = round(hs_only_per_1000),
+    desert_no_hs_n = desert_n - hs_only_n,
+    other_care_n   = 1000 - desert_n
+  )
+
+# Print the unrounded and rounded numbers so the figure can be checked by hand
+fig1_rates %>%
+  select(group, desert_per_1000, hs_only_per_1000,
+         desert_n, hs_only_n, desert_no_hs_n, other_care_n) %>%
+  mutate(across(where(is.double), ~ round(.x, 1))) %>%
+  print()
+
+stopifnot(all(fig1_rates$hs_only_n + fig1_rates$desert_no_hs_n +
+              fig1_rates$other_care_n == 1000))
+
+# ---- Build the 1,000-square grid for each panel -------------------------------
+cat_levels <- c(
+  "Head Start is the only licensed option",
+  str_wrap(paste0("No Head Start, in ", term_label), 50),
+  "Other licensed care nearby"
+)
+
+fig1_grid <- fig1_rates %>%
+  select(group, hs_only_n, desert_no_hs_n, other_care_n) %>%
+  pivot_longer(-group, names_to = "cat", values_to = "n") %>%
+  mutate(cat = factor(recode(cat,
+                             hs_only_n      = cat_levels[1],
+                             desert_no_hs_n = cat_levels[2],
+                             other_care_n   = cat_levels[3]),
+                      levels = cat_levels)) %>%
+  arrange(group, cat) %>%
+  uncount(n) %>%
+  group_by(group) %>%
+  mutate(idx = row_number() - 1,
+         x   = idx %% grid_cols,     # fill left to right...
+         y   = idx %/% grid_cols) %>%  # ...then bottom to top
+  ungroup()
+
+# Panel titles carry the rounded numbers (direct labels, so the chart doesn't rely on color alone)
+panel_labels <- fig1_rates %>%
+  transmute(group,
+            lab = paste0(group, ": about ", comma(desert_n), " live in ", term_label,
+                         ";\nfor about ", comma(hs_only_n),
+                         ", Head Start is the only licensed option"))
+panel_labeller <- as_labeller(setNames(panel_labels$lab, as.character(panel_labels$group)))
+
+# One hue, light to dark: the darker the square, the fewer licensed options nearby
+fig1_colors <- setNames(c("#0B4F6C", "#6FA8C4", "#E3E6EA"), cat_levels)
+
+fig1 <- ggplot(fig1_grid, aes(x = x, y = y, fill = cat)) +
+  geom_tile(width = 0.82, height = 0.82) +
+  facet_wrap(~ group, ncol = 1, labeller = panel_labeller) +
+  scale_fill_manual(values = fig1_colors, name = NULL) +
+  coord_equal(expand = FALSE) +
+  labs(
+    title    = "Rural children are far more likely to live where Head Start is the only licensed option",
+    subtitle = "Estimated outcomes per 1,000 income-eligible children under age 5",
+    caption  = paste0(
+      "Note: Estimates, rounded to the nearest child per 1,000. Licensed child care deserts are areas with at least three young children\n",
+      "per licensed slot. Access reflects the proximity of licensed supply, not enrollment. ",
+      "Nonrural includes urban and suburban areas.\n",
+      "Income eligibility uses census tract poverty rates for children under 5.\n",
+      "Source: Center for American Progress analysis of licensed child care deserts data (2025) and ",
+      "American Community Survey 2019–2023 five-year estimates."
+    )
+  ) +
+  theme_void(base_size = 11) +
+  theme(
+    plot.title       = element_text(face = "bold", size = 13, margin = margin(b = 4)),
+    plot.subtitle    = element_text(color = "grey30", margin = margin(b = 10)),
+    plot.caption     = element_text(color = "grey35", size = 8, hjust = 0,
+                                    margin = margin(t = 10), lineheight = 1.1),
+    plot.caption.position = "plot",
+    plot.title.position   = "plot",
+    strip.text       = element_text(face = "bold", hjust = 0, size = 10.5,
+                                    margin = margin(t = 8, b = 4)),
+    legend.position  = "top",
+    legend.justification = "left",
+    legend.key.size  = unit(10, "pt"),
+    plot.background  = element_rect(fill = "white", color = NA),
+    plot.margin      = margin(12, 12, 12, 12)
+  )
+
+fig1
+
+if (save_png) {
+  ggsave("fig1_per_1000_by_rurality.png", fig1, width = 10, height = 5.6, dpi = 300, bg = "white")
+}
+```
+
+## 16. Figure 2: Rural share of each group of income-eligible children
+
+Figure 2 is built from `state_rural_summary` (section 11), so it updates
+whenever the data changes. Each bar splits one group of income-eligible
+children into rural and nonrural. The rural share is rounded to a whole
+percent, and the nonrural share is 100 minus that, so each bar always totals
+100.
+
+To see whether the Alaska and Hawaii values move the figure, add them to
+`exclude_states` (for example, `c("AK", "HI")`). The chunk prints the shares
+with and without the excluded states.
+
+The title's rural share of all income-eligible children is now pulled from the
+data rather than hard-coded, since moving to tract rates can change it.
+
+```{r fig2-rural-share, fig.width=10, fig.height=4.8}
+# ---- Settings to edit ---------------------------------------------------------
+term_label     <- "deserts with no access to licensed home-based care, center-based care, or preschool"
+exclude_states <- c()        # e.g., c("AK", "HI") pending the join check
+save_png       <- TRUE       # also write a high-resolution PNG for layout
+
+# ---- Map the rural codes to labels (and stop if the coding is unexpected) ----
+rural_codes <- as.character(state_rural_summary$rural)
+if (!all(rural_codes %in% c("0", "1", "FALSE", "TRUE"))) {
+  stop("Unexpected values in state_rural_summary$rural: ",
+       paste(unique(rural_codes), collapse = ", "),
+       ". Update the label mapping in the fig2-rural-share chunk.")
+}
+
+# ---- Rural share of each group ------------------------------------------------
+rural_shares <- function(df) {
+  df %>%
+    mutate(is_rural = as.character(rural) %in% c("1", "TRUE")) %>%
+    summarise(
+      all_eligible = sum(total_eligible_children[is_rural])        / sum(total_eligible_children),
+      no_other     = sum(eligible_in_other_zero[is_rural])         / sum(eligible_in_other_zero),
+      hs_only      = sum(eligible_in_hs_any_others_zero[is_rural]) / sum(eligible_in_hs_any_others_zero)
+    ) %>%
+    pivot_longer(everything(), names_to = "measure", values_to = "rural_share")
+}
+
+shares_all  <- rural_shares(state_rural_summary)
+shares_used <- rural_shares(state_rural_summary %>% filter(!state_abbrv %in% exclude_states))
+
+# Print unrounded shares (in percent) so the figure can be checked by hand
+shares_all %>%
+  rename(rural_pct_all_states = rural_share) %>%
+  left_join(shares_used %>% rename(rural_pct_in_figure = rural_share), by = "measure") %>%
+  mutate(across(where(is.double), ~ round(100 * .x, 1))) %>%
+  print()
+if (length(exclude_states) > 0) {
+  cat("Figure excludes:", paste(exclude_states, collapse = ", "), "\n")
+}
+
+# ---- Build the bars ----------------------------------------------------------
+measure_labels <- c(
+  all_eligible = "All income-eligible children",
+  no_other     = str_wrap(paste0("Children in ", term_label), 38),
+  hs_only      = "Children for whom Head Start is the\nonly licensed option"
+)
+
+fig2_data <- shares_used %>%
+  mutate(
+    rural_pct    = round(100 * rural_share),
+    nonrural_pct = 100 - rural_pct,          # each bar totals exactly 100
+    measure      = factor(measure_labels[measure], levels = rev(measure_labels))
+  ) %>%
+  select(measure, Rural = rural_pct, Nonrural = nonrural_pct) %>%
+  pivot_longer(c(Rural, Nonrural), names_to = "group", values_to = "pct") %>%
+  mutate(group = factor(group, levels = c("Nonrural", "Rural"))) %>%  # rural sits at the left
+  group_by(measure) %>%
+  arrange(desc(group), .by_group = TRUE) %>%
+  mutate(xmid = cumsum(pct) - pct / 2) %>%
+  ungroup()
+
+stopifnot(all(tapply(fig2_data$pct, fig2_data$measure, sum) == 100))
+
+rural_pct_all_eligible <- fig2_data %>%
+  filter(group == "Rural", measure == measure_labels[["all_eligible"]]) %>%
+  pull(pct)
+
+fig2_colors <- c(Rural = "#0B4F6C", Nonrural = "#D5DADF")
+
+fig2 <- ggplot(fig2_data, aes(x = pct, y = measure, fill = group)) +
+  geom_col(width = 0.62, color = "white", linewidth = 0.8) +
+  geom_text(aes(x = xmid, label = paste0(pct, "%"),
+                color = group),
+            size = 4, fontface = "bold", show.legend = FALSE) +
+  scale_fill_manual(values = fig2_colors, breaks = c("Rural", "Nonrural"), name = NULL) +
+  scale_color_manual(values = c(Rural = "white", Nonrural = "grey20")) +
+  scale_x_continuous(expand = c(0, 0), limits = c(0, 100.5)) +
+  labs(
+    title    = paste0("Rural children are ", rural_pct_all_eligible,
+                      " percent of income-eligible children but most of\n",
+                      "those with no other licensed child care option"),
+    subtitle = "Rural and nonrural shares of income-eligible children under age 5, by group",
+    x = NULL, y = NULL,
+    caption  = paste0(
+      "Note: Estimates, rounded to the nearest percent. Licensed child care deserts are areas with at least three young children per licensed slot.\n",
+      "Access reflects the proximity of licensed supply, not enrollment. Nonrural includes urban and suburban areas. ",
+      "Income eligibility uses census tract poverty rates for children under 5.",
+      if (length(exclude_states) > 0) paste0(" Excludes ", paste(exclude_states, collapse = ", "), ".") else "",
+      "\nSource: Center for American Progress analysis of licensed child care deserts data (2025) and ",
+      "American Community Survey 2019–2023 five-year estimates."
+    )
+  ) +
+  theme_minimal(base_size = 11) +
+  theme(
+    plot.title         = element_text(face = "bold", size = 12.5, margin = margin(b = 4)),
+    plot.subtitle      = element_text(color = "grey30", margin = margin(b = 8)),
+    plot.caption       = element_text(color = "grey35", size = 8, hjust = 0,
+                                      margin = margin(t = 10), lineheight = 1.1),
+    plot.title.position   = "plot",
+    plot.caption.position = "plot",
+    axis.text.x        = element_blank(),
+    axis.text.y        = element_text(size = 10.5, color = "grey15", hjust = 1),
+    panel.grid         = element_blank(),
+    legend.position    = "top",
+    legend.justification = "left",
+    legend.key.size    = unit(10, "pt"),
+    plot.background    = element_rect(fill = "white", color = NA),
+    plot.margin        = margin(12, 16, 12, 12)
+  )
+
+fig2
+
+if (save_png) {
+  ggsave("fig2_rural_share_by_group.png", fig2, width = 10, height = 4.8, dpi = 300, bg = "white")
+}
+```
